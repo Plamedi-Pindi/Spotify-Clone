@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "Roboto", sans-serif;
+ 
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #000;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar{
+  background: #542e4a;
+}
+
+.scrollBehaviour{
+ scrollbar-gutter: stable;
+}
+.scrollBehaviour::-webkit-scrollbar{
+  width: 10px;
+}
+
+.scrollBehaviour::-webkit-scrollbar-thumb{
+  background: grey; 
+  position: absolute;
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+ 
+}
