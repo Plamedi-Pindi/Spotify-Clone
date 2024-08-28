@@ -1,4 +1,5 @@
-# React + Vite
+# Spotify-Replication
+This is Spotify replication using React.js
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
