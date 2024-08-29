@@ -29,13 +29,12 @@ import {
 } from "react-icons/bs";
 
 export default function Layout() {
-  const [collapse, setCollapse] =
-    useState(false); /* Define if LeftBox Content is collapsed or not */
+  // const [collapse, setCollapse] = useState(flase)
 
   return (
-    <div>
+    <div className="relative">
       {/* =========================== UPP SECTION ============================== */}
-      <div className="w-full h-9vh mt-2 flex flex-row items-center justify-between">
+      <div className="hidden md:flex md:h-10vh  flex-row items-center justify-between  ">
         <img src={logo} alt="Logo img" className="w-8 ml-7" />
         <div className="flex flex-row items-center">
           <button className="bg-neutral-800 w-11 h-11 rounded-full mr-2 hover:scale-105 duration-300">
@@ -55,12 +54,12 @@ export default function Layout() {
               <BsBox2Heart className=" right-0 z-10 text-xl m-3 text-white text-neutral-400 hover:text-neutral-100  hover:scale-105 duration-300" />
             </button>
           </div>
-          <button className="bg-white text-black text-sm font-bold p-1.5 pr-4 pl-4  rounded-2xl mr-6 hover:scale-105 duration-300">
+          <button className="hidden xl:block bg-white text-black text-sm font-bold p-1.5 pr-4 pl-4  rounded-2xl mr-6 hover:scale-105 duration-300 ">
             Explore Premium
           </button>
           <a
             href="#"
-            className="mr-10 flex items-center font-bold text-sm text-white hover:underline hover:scale-105 duration-300"
+            className="hidden lg:flex mr-10  items-center font-bold text-sm text-white hover:underline hover:scale-105 duration-300"
           >
             <BsArrowDownCircle className="mr-1 text-base text-white font-extrabold" />
             Install App
@@ -74,147 +73,111 @@ export default function Layout() {
         </div>
       </div>
       {/* =============================== MIDDLE SECTION ======================================= */}
-      <div className="flex flex-row justify-between p-2 pb-0 h-86vh">
-        {/* Left box content and control ===============*/}
-        <div
-          className={`h-full  ${
-            !collapse ? "basis-23p" : "basis-20"
-          }  flex flex-col justify-between overflow-hidden relative`}
-        >
-          <div className="bg-neutral-900 w-full h-full basis-full rounded-lg pt-5">
-            <div
-              className={`flex flex-row block mx-auto ${
-                !collapse ? "justify-between" : "justify-center"
-              } items-center w-11/12 `}
-            >
-              {/* collapse dependent */}
-              <h2
-                title="Collapse Your Library "
-                className="text-base font-medium text-neutral-400 hover:text-neutral-100 duration-200 flex items-center cursor-pointer p-1.5"
-                onClick={handleCollapseClick}
-              >
-                {collapse ? (
-                  <BsCollectionPlay className="text-3xl mr-3" />
-                ) : (
-                  <>
-                    <BsCollectionPlayFill className="text-2xl mr-3" />
-                    <span>Your Library</span>
-                  </>
-                )}
-              </h2>
-              {/* collapse dependent */}
-              {!collapse && (
-                <div className="flex flex-row items-center">
-                  <BsPlusLg className="text-3xl hover:bg-neutral-800 text-neutral-100  duration-200 p-1.5 rounded-full mr-2" />
-                  <BsArrowRight className="text-3xl hover:bg-neutral-800 text-neutral-100  duration-200 rounded-full p-1.5" />
-                </div>
-              )}
-            </div>
-            {/* collapse dependent */}
-            {!collapse && (
-              <div className="w-full justify-center mt-6 flex">
-                <Button> Playlists </Button>
-                <Button> Artists </Button>
-                <Button> Albums </Button>
-                <Button>Podcasts & Shows</Button>
+      <div className="h-100vh md:flex md:h-77vh pl-2 pr-2 ">
+        {/*  */}
+        <div className="hidden md:block md:w-5rm md:bg-neutral-900 rounded-lg mr-2 lg:w-37rm ">
+          {/*  */}
+          <div className=" lg:h-28p pt-4 h-10p">
+            <div className="flex justify-center  lg:justify-between lg:w-11/12 block mx-auto">
+              <h1 className="flex items-center hover:text-neutral-100 duration-200 text-base text-neutral-400">
+                <BsCollectionPlay className="text-2xl lg:ml-2" />
+                <span className="hidden lg:block  ml-3">Your Library</span>
+              </h1>
+              <div className="hidden flex-row items-center lg:flex">
+                <BsPlusLg className="text-3xl hover:bg-neutral-800 text-neutral-100  duration-200 p-1.5 rounded-full mr-2" />
+                <BsArrowRight className="text-3xl hover:bg-neutral-800 text-neutral-100  duration-200 rounded-full p-1.5" />
               </div>
-            )}
-            <section
-              className={`scrollBehaviour mt-3 overflow-y-hidden hover:overflow-y-auto ${
-                !collapse ? " h-23rm" : " h-25rm"
-              } relative `}
-            >
-              {/* collapse dependent */}
-              {!collapse && (
-                <div className="flex flex-row justify-between items-center text-neutral-400 w-95p mx-auto ">
-                  {/* Search in playlirs */}
-                  <div className=" flex items-center bg-neutral-800 w-48 rounded">
-                    <button>
-                      <BsSearch className=" ml-2 mr-1" />
-                    </button>
-                    <input
-                      type="text"
-                      placeholder="Search in your library"
-                      className=" text-sm text-neutral-400 pl-2 p-1 outline-none w-full rounded-e bg-neutral-800"
-                    />
-                  </div>
-                  {/* Sort by */}
-                  <h3 className="text-sm font-medium hover:text-neutral-100 hover:scale-105 duration-300 cursor-pointer">
-                    <span>Recentes</span>
-                    <BsListUl className="inline ml-1 text-2xl" />
-                  </h3>
-                </div>
-              )}
-              {/* Library Cards */}
-              {/*  */}
-              <ul className={` ${!collapse && "mt-4"} w-96p mx-auto pb-4`}>
-                <LikedSong>
-                  {!collapse && (
-                    <div className="ml-3">
-                      <h3 className="text-base font-medium">Liked Songs</h3>
-                      <BsPinAngleFill className="inline mr-1.5 text-green-500" />
-                      <p className="inline text-sm text-neutral-400">
-                        Playlist
-                      </p>
-                      <BsDot className="inline text-lg text-neutral-400" />
-                      <span className="text-sm text-neutral-400">79 songs</span>
-                    </div>
-                  )}
-                </LikedSong>
-                <Episodes>
-                  {!collapse && (
-                    <div className="ml-3">
-                      <h3 className="text-base font-medium">Your Episodes</h3>
-                      <BsPinAngleFill className="inline mr-1.5 text-green-500" />
-                      <p className="inline text-sm text-neutral-400">
-                        Saved & downloaded episodes
-                      </p>
-                    </div>
-                  )}
-                </Episodes>
-                {/* Artists */}
-                <Artist
-                  isCollapse={collapse}
-                  name="Plamedi Pindi"
-                  imgUrl={A1img}
+            </div>
+            <div className="hidden lg:flex w-95p mx-auto justify-around mt-6 flex ">
+              <Button> Playlists </Button>
+              <Button> Artists </Button>
+              <Button> Albums </Button>
+              <Button>Podcasts & Shows</Button>
+            </div>
+            <div className="hidden lg:flex flex-row justify-between items-center text-neutral-400 w-11/12 mx-auto mt-2.5">
+              {/* Search in playlirs */}
+              <div className=" flex items-center bg-neutral-800 w-48 rounded">
+                <button>
+                  <BsSearch className=" ml-2 mr-1" />
+                </button>
+                <input
+                  type="text"
+                  placeholder="Search in your library"
+                  className=" text-sm text-neutral-400 pl-2 p-1 outline-none w-full rounded-e bg-neutral-800"
                 />
-                <Artist
-                  isCollapse={collapse}
-                  name="Mercy Chinwo"
-                  imgUrl={mercy}
-                />
-                <Artist
-                  isCollapse={collapse}
-                  name="Williams McDowell"
-                  imgUrl={williams}
-                />
-                <Artist isCollapse={collapse} name="Omid Armin" imgUrl={omid} />
-                <Artist
-                  isCollapse={collapse}
-                  name="Fatane Rahimi"
-                  imgUrl={fatane}
-                />
-              </ul>
-              {/*  */}
-            </section>
+              </div>
+              {/* Sort by */}
+              <h3 className="text-sm font-medium hover:text-neutral-100 hover:scale-105 duration-300 cursor-pointer">
+                <span>Recentes</span>
+                <BsListUl className="inline ml-1 text-2xl" />
+              </h3>
+            </div>
           </div>
+          <section className="flex justify-center lg:mt-4 lg:justify-normal lg:mt-0 lg:h-72p h-88p ">
+            <div className=" w-95p mx-auto mt-2">
+              <LikedSong>
+                <div className="hidden lg:block ml-3">
+                  <h3 className="text-base font-medium">Liked Songs</h3>
+                  <BsPinAngleFill className="inline mr-1.5 text-green-500" />
+                  <p className="inline text-sm text-neutral-400">Playlist</p>
+                  <BsDot className="inline text-lg text-neutral-400" />
+                  <span className="text-sm text-neutral-400">79 songs</span>
+                </div>
+              </LikedSong>
+              <Episodes>
+                <div className="hidden lg:block ml-3">
+                  <h3 className="text-base font-medium">Your Episodes</h3>
+                  <BsPinAngleFill className="inline mr-1.5 text-green-500" />
+                  <p className="inline text-sm text-neutral-400">
+                    Saved & downloaded episodes
+                  </p>
+                </div>
+              </Episodes>
+              {/* <Artist name="Plamedi Pindi" imgUrl={A1img} />
+              <Artist name="Mercy Chinwo" imgUrl={mercy} />
+              <Artist name="Williams McDowell" imgUrl={williams} />
+              <Artist isCollapse={collapse} name="Omid Armin" imgUrl={omid} />
+              <Artist name="Fatane Rahimi" imgUrl={fatane} /> */}
+            </div>
+          </section>
         </div>
-        {/* MAIN BOX DISPLAY CONTENT ====================*/}
-        <div className={`bg-neutral-900  h-full  rounded-lg ${!collapse ? 'basis-54p' : 'basis-72p'}`}>
+        <div className={`md:bg-neutral-900 md:rounded-lg md:w-95p`}>
           {/* PAGES CONTENT */}
           <Outlet />
           {/* PAGES CONTENT */}
         </div>
         {/* Right box optional content ==================== */}
-        <div className="bg-neutral-900 w-52 h-52 h-full basis-22p rounded-lg"></div>
+        <div className=""></div>
       </div>
       {/* =============================== BOTTOM SECTION ========================================= */}
-      <div className=" w-full h-14vh"></div>
+      <div className="absolute bottom-0 w-full md:h-14vh md:relative">
+        {/* MOBILE NAV START*/}
+        <div className="md:hidden">
+          <ul className="bg-neutral-900/50 w-full h-14  flex flex-row justify-around items-center">
+            <li className="flex flex-col items-center text-neutral-400">
+              <BsHouseDoorFill className="text-xl" />
+              <p className="text-xs mt-1 text-neutral-400">Home</p>
+            </li>
+            <li className="flex flex-col items-center text-neutral-400">
+              <BsSearch className="text-xl" />
+              <p className="text-xs mt-1 text-neutral-400">Search</p>
+            </li>
+            <li className="flex flex-col items-center text-neutral-400">
+              <BsCollectionPlay className="text-xl" />
+              <p className="text-xs mt-1 text-neutral-400">Your Library</p>
+            </li>
+            <li className="flex flex-col items-center text-neutral-400">
+              <img src={logo} alt="Logo" className="w-5" />
+              <p className="text-xs mt-1 text-neutral-400">Premium</p>
+            </li>
+          </ul>
+        </div>
+        {/* MOBILE NAV END*/}
+
+        <div></div>
+      </div>
     </div>
   );
 
   // EVENT HANDLER ==================================
-  function handleCollapseClick() {
-    setCollapse(!collapse);
-  }
 }
