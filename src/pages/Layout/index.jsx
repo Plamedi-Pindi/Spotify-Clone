@@ -29,7 +29,7 @@ import {
 } from "react-icons/bs";
 
 export default function Layout() {
-  // const [collapse, setCollapse] = useState(flase)
+  const [collapse, setCollapse] = useState(false);
 
   return (
     <div className="relative">
@@ -74,70 +74,96 @@ export default function Layout() {
       </div>
       {/* =============================== MIDDLE SECTION ======================================= */}
       <div className="h-100vh md:flex md:h-77vh pl-2 pr-2 ">
-        {/*  */}
-        <div className="hidden md:block md:w-5rm md:bg-neutral-900 rounded-lg mr-2 lg:w-37rm ">
+        {/* Left Box Content ================================================================= */}
+        <div className={`hidden md:block md:w-5rm md:bg-neutral-900 rounded-lg mr-2 ${!collapse && "lg:w-37rm"} `} >
           {/*  */}
-          <div className=" lg:h-28p pt-4 h-10p">
-            <div className="flex justify-center  lg:justify-between lg:w-11/12 block mx-auto">
-              <h1 className="flex items-center hover:text-neutral-100 duration-200 text-base text-neutral-400">
-                <BsCollectionPlay className="text-2xl lg:ml-2" />
-                <span className="hidden lg:block  ml-3">Your Library</span>
+          <div className={`${!collapse && "lg:h-24p"}  pt-4 h-10p`}>
+            <div className={`flex justify-center ${!collapse && "lg:justify-between"}  lg:w-11/12 block mx-auto h-8`}>
+              <h1
+                className={`flex items-center hover:text-neutral-100 duration-200 text-base text-neutral-400 `}
+                onClick={handleCollapseClick}
+              >
+                {!collapse ? (
+                  <>
+                    <BsCollectionPlayFill className={`text-2xl lg:ml-2 `} />
+                    <span className="hidden lg:block  ml-3">Your Library</span>
+                  </>
+                ) : (
+                  <BsCollectionPlay className={`text-2xl  ${collapse && "lg:mr-2"}`} />
+                )}
               </h1>
-              <div className="hidden flex-row items-center lg:flex">
-                <BsPlusLg className="text-3xl hover:bg-neutral-800 text-neutral-100  duration-200 p-1.5 rounded-full mr-2" />
-                <BsArrowRight className="text-3xl hover:bg-neutral-800 text-neutral-100  duration-200 rounded-full p-1.5" />
+              {/* Collapse control */}
+              {!collapse && (
+                <div className="hidden flex-row items-center lg:flex">
+                  <BsPlusLg className="text-3xl hover:bg-neutral-800 text-neutral-100  duration-200 p-1.5 rounded-full mr-2" />
+                  <BsArrowRight className="text-3xl hover:bg-neutral-800 text-neutral-100  duration-200 rounded-full p-1.5" />
+                </div>
+              )}
+            </div>
+            {/* Collapse control */}
+            {!collapse && (
+              <div className="hidden lg:flex w-95p mx-auto justify-around mt-6 flex ">
+                <Button> Playlists </Button>
+                <Button> Artists </Button>
+                <Button> Albums </Button>
+                <Button>Podcasts & Shows</Button>
               </div>
-            </div>
-            <div className="hidden lg:flex w-95p mx-auto justify-around mt-6 flex ">
-              <Button> Playlists </Button>
-              <Button> Artists </Button>
-              <Button> Albums </Button>
-              <Button>Podcasts & Shows</Button>
-            </div>
-            <div className="hidden lg:flex flex-row justify-between items-center text-neutral-400 w-11/12 mx-auto mt-2.5">
-              {/* Search in playlirs */}
-              <div className=" flex items-center bg-neutral-800 w-48 rounded">
-                <button>
-                  <BsSearch className=" ml-2 mr-1" />
-                </button>
-                <input
-                  type="text"
-                  placeholder="Search in your library"
-                  className=" text-sm text-neutral-400 pl-2 p-1 outline-none w-full rounded-e bg-neutral-800"
-                />
-              </div>
-              {/* Sort by */}
-              <h3 className="text-sm font-medium hover:text-neutral-100 hover:scale-105 duration-300 cursor-pointer">
-                <span>Recentes</span>
-                <BsListUl className="inline ml-1 text-2xl" />
-              </h3>
-            </div>
+            )}
           </div>
-          <section className="flex justify-center lg:mt-4 lg:justify-normal lg:mt-0 lg:h-72p h-88p ">
+          <section
+            className={` scrollBehaviour flex justify-center lg:justify-normal lg:mt-0 ${
+              !collapse && "lg:h-76p"
+            } h-88p overflow-hidden hover:overflow-auto lg:flex-col pb-2`}
+          >
+            {/* Collapse colntrol */}
+            {!collapse && (
+              <div className="hidden lg:flex flex-row justify-between items-center text-neutral-400 w-11/12 mx-auto mt-2.5">
+                {/* Search in playlirs */}
+                <div className=" flex items-center bg-neutral-800 w-48 rounded">
+                  <button>
+                    <BsSearch className=" ml-2 mr-1" />
+                  </button>
+                  <input
+                    type="text"
+                    placeholder="Search in your library"
+                    className=" text-sm text-neutral-400 pl-2 p-1 outline-none w-full rounded-e bg-neutral-800"
+                  />
+                </div>
+                {/* Sort by */}
+                <h3 className="text-sm font-medium hover:text-neutral-100 hover:scale-105 duration-300 cursor-pointer">
+                  <span>Recentes</span>
+                  <BsListUl className="inline ml-1 text-2xl" />
+                </h3>
+              </div>
+            )}
             <div className=" w-95p mx-auto mt-2">
               <LikedSong>
-                <div className="hidden lg:block ml-3">
-                  <h3 className="text-base font-medium">Liked Songs</h3>
-                  <BsPinAngleFill className="inline mr-1.5 text-green-500" />
-                  <p className="inline text-sm text-neutral-400">Playlist</p>
-                  <BsDot className="inline text-lg text-neutral-400" />
-                  <span className="text-sm text-neutral-400">79 songs</span>
-                </div>
+                {!collapse && (
+                  <div className="hidden lg:block ml-3">
+                    <h3 className="text-base font-medium">Liked Songs</h3>
+                    <BsPinAngleFill className="inline mr-1.5 text-green-500" />
+                    <p className="inline text-sm text-neutral-400">Playlist</p>
+                    <BsDot className="inline text-lg text-neutral-400" />
+                    <span className="text-sm text-neutral-400">79 songs</span>
+                  </div>
+                )}
               </LikedSong>
               <Episodes>
-                <div className="hidden lg:block ml-3">
-                  <h3 className="text-base font-medium">Your Episodes</h3>
-                  <BsPinAngleFill className="inline mr-1.5 text-green-500" />
-                  <p className="inline text-sm text-neutral-400">
-                    Saved & downloaded episodes
-                  </p>
-                </div>
+                {!collapse && (
+                  <div className="hidden lg:block ml-3">
+                    <h3 className="text-base font-medium">Your Episodes</h3>
+                    <BsPinAngleFill className="inline mr-1.5 text-green-500" />
+                    <p className="inline text-sm text-neutral-400">
+                      Saved & downloaded episodes
+                    </p>
+                  </div>
+                )}
               </Episodes>
-              {/* <Artist name="Plamedi Pindi" imgUrl={A1img} />
-              <Artist name="Mercy Chinwo" imgUrl={mercy} />
-              <Artist name="Williams McDowell" imgUrl={williams} />
-              <Artist isCollapse={collapse} name="Omid Armin" imgUrl={omid} />
-              <Artist name="Fatane Rahimi" imgUrl={fatane} /> */}
+              <Artist isCollapsed={!collapse} name="Plamedi Pindi" imgUrl={A1img} />
+              <Artist isCollapsed={!collapse} name="Mercy Chinwo" imgUrl={mercy} />
+              <Artist isCollapsed={!collapse} name="Williams McDowell" imgUrl={williams} />
+              <Artist isCollapsed={!collapse} name="Omid Armin" imgUrl={omid} />
+              <Artist isCollapsed={!collapse} name="Fatane Rahimi" imgUrl={fatane} />
             </div>
           </section>
         </div>
@@ -180,4 +206,7 @@ export default function Layout() {
   );
 
   // EVENT HANDLER ==================================
+  function handleCollapseClick() {
+    setCollapse(!collapse);
+  }
 }
