@@ -10,10 +10,10 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path='/' element={<Layout />}>
+          <Route path='/Spotify-Replication' element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path='*' element={<NoPage />} />
           </Route>
+            <Route path='/Spotify-Replication*' element={<NoPage />} />
         </Routes>
       </Router>
     </>
