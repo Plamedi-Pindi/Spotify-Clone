@@ -27,10 +27,10 @@ export default function Home() {
   }
 
   return (
-    <div className="overflow-hidden h-auto">
+    <div className="overflow-hidden h-auto relative">
       {/* NAVBAR */}
-      <nav className=" w-full h-3.8rm flex items-center bg-black fixed top-0 left-0">
-        <div className="w-95p mx-auto flex flex-row items-center pt-3">
+      <nav className=" w-full h-3.8rm flex items-center bg-black md:bg-transparent fixed  top-0 left-0 md:top-auto md:left-auto md:bg-blue-900/95" >
+        <div className="w-95p mx-auto flex flex-row items-center pt-1 md:pt-0">
           <div className="w-7 h-7 bg-orange-500 flex justify-center items-center rounded-full text-sm font-bold md:hidden">
             <p>P</p>
           </div>
@@ -54,7 +54,7 @@ export default function Home() {
           </ButtonTranspatent>
         </div>
       </nav>
-      <section className="mt-20 md:mt-2 ">
+      <section className="mt-20 md:mt-20 ">
         <div className="w-96p block mx-auto flex flex-row flex-wrap justify-between">
           <RecentPlay imgUrl={A1img} name="Plamedi Pindi" />
           <RecentPlay imgUrl={MercyImg} name="Mercy Chinwo" />
@@ -69,10 +69,15 @@ export default function Home() {
 
       {/*  */}
 
-      <section className="mt-4 pb-2">
-        <h2 className="text-xl font-bold mb-5">Jump back in</h2>
+      <section className="mt-4 pb-2 w-95p mx-auto md:w-96p">
+        <h2 className="text-xl text-white font-bold mb-5 md:text-2xl">Jump back in</h2>
 
-        <div className="overflow-x-auto flex w-full whitespace-nowrap space-x-4 tailwind-scrollbar-hide">
+        <div className="overflow-x-auto flex w-full whitespace-nowrap space-x-4 md:space-x-1 scrollbar-hide">
+          <Album 
+            imgUrl={OmidImg} 
+            title={'More than this'}
+            name={'Omid Armin'}
+          />
           <Album 
             imgUrl={OmidImg} 
             title={'More than this'}

@@ -220,7 +220,7 @@ export default function Layout() {
           </section>
         </div>
 
-        <div className={`md:bg-neutral-900 md:rounded-lg md:w-95p overflow-scroll h-full pb-32`}>
+        <div className={`scrollBehaviour md:bg-neutral-900 md:rounded-lg md:w-95p overflow-y-scroll  relative h-full pb-32 md:pb-4`}>
           {/* PAGES CONTENT */}
           <Outlet />
           {/* PAGES CONTENT */}

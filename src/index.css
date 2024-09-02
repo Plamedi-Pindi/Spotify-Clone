@@ -4,7 +4,7 @@
 
 :root {
   font-family: "Roboto", sans-serif;
- 
+
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #000;
@@ -14,10 +14,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  -webkit-user-select: none; /* Chrome, Safari, Opera */
-  -moz-user-select: none;    /* Firefox */
-  -ms-user-select: none;     /* Internet Explorer/Edge */
-  user-select: none;         /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+  -webkit-user-select: none;
+  /* Chrome, Safari, Opera */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
 }
 
 body {
@@ -25,28 +29,55 @@ body {
   padding: 0;
 }
 
-.navbar{
+.navbar {
   background: #542e4a;
-  color: rgb();
-}30, 128, 30
-
-.scrollBehaviour{
- scrollbar-gutter: stable;
 }
-.scrollBehaviour::-webkit-scrollbar{
+
+.scrollBehaviour {
+  scrollbar-gutter: stable;
+}
+
+.scrollBehaviour::-webkit-scrollbar {
   width: 10px;
 }
 
-.scrollBehaviour::-webkit-scrollbar-thumb{
-  background: grey; 
+.scrollBehaviour::-webkit-scrollbar-thumb {
+  background: grey;
   position: absolute;
 }
 
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+  }
+
+  .scrollBehaviour {
+    scrollbar-gutter: stable;
+  }
+
+  .scrollBehaviour::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .scrollBehaviour::-webkit-scrollbar-thumb {
+    background: grey;
+    position: absolute;
+  }
+}
 
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
   }
- 
+
 }
