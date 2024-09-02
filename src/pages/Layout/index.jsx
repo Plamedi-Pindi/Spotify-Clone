@@ -6,13 +6,13 @@ import logo from "/logo.png";
 import Button from "../../components/Button/ButtonComponent";
 import LikedSong from "../../components/Library/Playlists";
 import { Episodes } from "../../components/Library/Playlists";
+import { Playing } from "../../components/Library/RecentPlay";
 import Artist from "../../components/Library/Artists";
 import A1img from "../../assets/imgs/Artists/A1.jpeg";
 import mercy from "../../assets/imgs/Artists/Mercy-Chinwolk.jpg";
 import williams from "../../assets/imgs/Artists/Williams McDowel.jpeg";
 import omid from "../../assets/imgs/Artists/omid-armin-_BkjDspEw_k-unsplash (1).jpg";
 import fatane from "../../assets/imgs/Artists/fatane-rahimi-Agv-xPQBO60-unsplash.jpg";
-
 import {
   BsHouseDoorFill,
   BsBell,
@@ -26,10 +26,15 @@ import {
   BsListUl,
   BsPinAngleFill,
   BsDot,
+  BsPlayFill,
+  BsPlusCircle,
+  BsSpeaker,
+  BsPause,
 } from "react-icons/bs";
 
 export default function Layout() {
   const [collapse, setCollapse] = useState(false);
+  const [isPlay, setIsPlay] = useState(false);
 
   return (
     <div className="relative">
@@ -75,10 +80,18 @@ export default function Layout() {
       {/* =============================== MIDDLE SECTION ======================================= */}
       <div className="h-100vh md:flex md:h-77vh pl-2 pr-2 ">
         {/* Left Box Content ================================================================= */}
-        <div className={`hidden md:block md:w-5rm md:bg-neutral-900 rounded-lg mr-2 ${!collapse && "lg:w-37rm"} `} >
+        <div
+          className={`hidden md:block md:w-5rm md:bg-neutral-900 rounded-lg mr-2 ${
+            !collapse && "lg:w-37rm"
+          } `}
+        >
           {/*  */}
           <div className={`${!collapse && "lg:h-24p"}  pt-4 h-10p`}>
-            <div className={`flex justify-center ${!collapse && "lg:justify-between"}  lg:w-11/12 block mx-auto h-8`}>
+            <div
+              className={`flex justify-center ${
+                !collapse && "lg:justify-between"
+              }  lg:w-11/12 block mx-auto h-8`}
+            >
               <h1
                 className={`flex items-center hover:text-neutral-100 duration-200 text-base text-neutral-400 `}
                 onClick={handleCollapseClick}
@@ -89,7 +102,9 @@ export default function Layout() {
                     <span className="hidden lg:block  ml-3">Your Library</span>
                   </>
                 ) : (
-                  <BsCollectionPlay className={`text-2xl  ${collapse && "lg:mr-2"}`} />
+                  <BsCollectionPlay
+                    className={`text-2xl  ${collapse && "lg:mr-2"}`}
+                  />
                 )}
               </h1>
               {/* Collapse control */}
@@ -159,11 +174,27 @@ export default function Layout() {
                   </div>
                 )}
               </Episodes>
-              <Artist isCollapsed={!collapse} name="Plamedi Pindi" imgUrl={A1img} />
-              <Artist isCollapsed={!collapse} name="Mercy Chinwo" imgUrl={mercy} />
-              <Artist isCollapsed={!collapse} name="Williams McDowell" imgUrl={williams} />
+              <Artist
+                isCollapsed={!collapse}
+                name="Plamedi Pindi"
+                imgUrl={A1img}
+              />
+              <Artist
+                isCollapsed={!collapse}
+                name="Mercy Chinwo"
+                imgUrl={mercy}
+              />
+              <Artist
+                isCollapsed={!collapse}
+                name="Williams McDowell"
+                imgUrl={williams}
+              />
               <Artist isCollapsed={!collapse} name="Omid Armin" imgUrl={omid} />
-              <Artist isCollapsed={!collapse} name="Fatane Rahimi" imgUrl={fatane} />
+              <Artist
+                isCollapsed={!collapse}
+                name="Fatane Rahimi"
+                imgUrl={fatane}
+              />
             </div>
           </section>
         </div>
@@ -177,8 +208,33 @@ export default function Layout() {
       </div>
       {/* =============================== BOTTOM SECTION ========================================= */}
       <div className="absolute bottom-0 w-full md:h-14vh md:relative">
-        {/* MOBILE NAV START*/}
+        {/* MOBILE NAV START ==================*/}
         <div className="md:hidden">
+          {/* MOBILE PLAY SECTION ============*/}
+          <section className="bg-blue-700/30 h-14 w-95p mx-auto rounded flex justify-between items-center p-2">
+            <Playing
+              imgUrl={mercy}
+              title="Incredible God"
+              name="Mercy Chinwo"
+            />
+            <div  className="flex items-center">
+              <BsSpeaker className="text-2xl mr-4"/>
+              <BsPlusCircle className="text-2xl mr-3"/>
+              {isPlay ? (
+                <BsPause 
+                className="text-4xl"
+                onClick={handlePlayclick}
+                />
+              ) : (
+                <BsPlayFill 
+                className="text-4xl"
+                onClick={handlePlayclick}
+                />
+                
+              )}
+            </div>
+          </section>
+          {/* MOBILE NAVBAR ================== */}
           <ul className="bg-neutral-900/50 w-full h-14  flex flex-row justify-around items-center">
             <li className="flex flex-col items-center text-neutral-400">
               <BsHouseDoorFill className="text-xl" />
@@ -208,5 +264,9 @@ export default function Layout() {
   // EVENT HANDLER ==================================
   function handleCollapseClick() {
     setCollapse(!collapse);
+  }
+
+  function handlePlayclick() {
+    setIsPlay(!isPlay);
   }
 }
