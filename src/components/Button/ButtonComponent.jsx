@@ -7,9 +7,15 @@ export default function Button({ children }) {
   );
 }
 
-export function ButtonTranspatent({ children }) {
+export function ButtonTranspatent({ children, background, onActive}) {
   return (
-    <button className="p-2 bg-zinc-500/20 hover:bg-zinc-400/20 duration-300  rounded-2xl text-sm pl-3.5 pr-3.5 ml-2 block">
+    <button 
+      className="p-2 bg-zinc-400/20 hover:bg-zinc-300/20 duration-300  rounded-2xl text-sm pl-3.5 pr-3.5 ml-2 block"
+      style={{ 
+        background: background
+       }}
+       onClick={onActive}
+    >
       {children}
     </button>
   );

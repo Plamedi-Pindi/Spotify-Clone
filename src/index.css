@@ -27,7 +27,8 @@ body {
 
 .navbar{
   background: #542e4a;
-}
+  color: rgb();
+}30, 128, 30
 
 .scrollBehaviour{
  scrollbar-gutter: stable;

@@ -1,11 +1,27 @@
+import { useState } from "react";
 import { ButtonTranspatent } from "../../components/Button/ButtonComponent";
-import  RecentPlay  from "../../components/Library/RecentPlay";
-import A1img from '../../assets/imgs/Artists/A1.jpeg'
-import MercyImg from '../../assets/imgs/Artists/Mercy-Chinwolk.jpg'
-import OmidImg from '../../assets/imgs/Artists/omid-armin-_BkjDspEw_k-unsplash (1).jpg'
-import WilliamsImg from '../../assets/imgs/Artists/Williams McDowel.jpeg'
+import RecentPlay from "../../components/Library/RecentPlay";
+import A1img from "../../assets/imgs/Artists/A1.jpeg";
+import MercyImg from "../../assets/imgs/Artists/Mercy-Chinwolk.jpg";
+import OmidImg from "../../assets/imgs/Artists/omid-armin-_BkjDspEw_k-unsplash (1).jpg";
+import WilliamsImg from "../../assets/imgs/Artists/Williams McDowel.jpeg";
 
 export default function Home() {
+  const [isactive, setIsActive] = useState("All"); /* States: All, Musisc, Podcast */
+  let allActive = isactive === "All";
+  let musicActive = isactive === "Music";
+  let podcastActive = isactive === "Podcast";
+
+  function handleAllClick() {
+    setIsActive("All");
+  }
+  function handleMusicClick() {
+    setIsActive("Music");
+  }
+  function handlePodcastClick() {
+    setIsActive("Podcast");
+  }
+
   return (
     <div>
       {/* NAVBAR */}
@@ -14,9 +30,24 @@ export default function Home() {
           <div className="w-7 h-7 bg-orange-500 flex justify-center items-center rounded-full text-sm font-bold md:hidden">
             <p>P</p>
           </div>
-          <ButtonTranspatent> All</ButtonTranspatent>
-          <ButtonTranspatent>Music</ButtonTranspatent>
-          <ButtonTranspatent>Podcasts</ButtonTranspatent>
+          <ButtonTranspatent
+            onActive={handleAllClick}
+            background={allActive && "rgb(30, 128, 30)"}
+          >
+            All
+          </ButtonTranspatent>
+          <ButtonTranspatent
+            onActive={handleMusicClick}
+            background={musicActive && "rgb(30, 128, 30)"}
+          >
+            Music
+          </ButtonTranspatent>
+          <ButtonTranspatent
+            onActive={handlePodcastClick}
+            background={podcastActive && "rgb(30, 128, 30)"}
+          >
+            Podcasts
+          </ButtonTranspatent>
         </div>
       </nav>
       <section className="mt-2 ">

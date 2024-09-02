@@ -30,12 +30,52 @@ import {
   BsPlusCircle,
   BsSpeaker,
   BsPause,
+  BsPauseCircleFill,
+  BsDashCircle,
+  BsChevronDown,
+  BsThreeDotsVertical,
+  BsSkipStartFill,
+  BsSkipEndFill,
+  BsPlayCircleFill,
+  BsCheckCircleFill,
 } from "react-icons/bs";
 
-export default function Layout() {
-  const [collapse, setCollapse] = useState(false);
-  const [isPlay, setIsPlay] = useState(false);
 
+export default function Layout() {
+  const [collapse, setCollapse] =
+    useState(false); /* Active collapse to left side box*/
+  const [isPlay, setIsPlay] = useState(false); /* Change state to a play mode */
+  const [isActive, setIsActive] =
+    useState("Home"); /* Change state to: Home, Search, Library, Premium */
+  const [playControl, setPlayControl] = useState(false); /* Show control play */
+  const [isFavorit, setFavorit] = useState(false);
+
+  let homeActive = isActive === "Home";
+  let searchActive = isActive === "Search";
+  let LibraryActive = isActive === "Library";
+  let PremiumActive = isActive === "Premium";
+
+  function HandleHomeClick() {
+    setIsActive("Home");
+  }
+  function HandleSearchClick() {
+    setIsActive("Search");
+  }
+  function HandleLibraryClick() {
+    setIsActive("Library");
+  }
+  function HandlePremiumClick() {
+    setIsActive("Premium");
+  }
+
+  function handlePlayControlClick() {
+    setPlayControl(!playControl);
+  }
+
+  function handleFavoritClick(e){
+    e.stopPropagation();
+    setFavorit(true);
+  }
   return (
     <div className="relative">
       {/* =========================== UPP SECTION ============================== */}
@@ -211,52 +251,163 @@ export default function Layout() {
         {/* MOBILE NAV START ==================*/}
         <div className="md:hidden">
           {/* MOBILE PLAY SECTION ============*/}
-          <section className="bg-blue-700/30 h-14 w-95p mx-auto rounded flex justify-between items-center p-2">
+          <section
+            className="bg-blue-700/30 h-14 w-95p mx-auto rounded flex justify-between items-center p-2"
+            onClick={handlePlayControlClick}
+          >
             <Playing
               imgUrl={mercy}
               title="Incredible God"
               name="Mercy Chinwo"
             />
-            <div  className="flex items-center">
-              <BsSpeaker className="text-2xl mr-4"/>
-              <BsPlusCircle className="text-2xl mr-3"/>
-              {isPlay ? (
-                <BsPause 
-                className="text-4xl"
-                onClick={handlePlayclick}
+            <div className="flex items-center">
+
+              <BsSpeaker className="text-2xl mr-4" />
+
+              {isFavorit ? (
+                <BsCheckCircleFill 
+                  className="text-2xl mr-3 text-green-600" 
+                  onClick={handleFavoritClick}
                 />
               ) : (
-                <BsPlayFill 
-                className="text-4xl"
-                onClick={handlePlayclick}
+                <BsPlusCircle 
+                  className="text-2xl mr-3" 
+                  onClick={handleFavoritClick}
                 />
-                
+              )}
+              
+              {isPlay ? (
+                <BsPause className="text-4xl" onClick={handlePlayclick} />
+              ) : (
+                <BsPlayFill className="text-4xl" onClick={handlePlayclick} />
               )}
             </div>
           </section>
           {/* MOBILE NAVBAR ================== */}
           <ul className="bg-neutral-900/50 w-full h-16  flex flex-row justify-around items-center">
-            <li className="flex flex-col items-center text-neutral-400">
-              <BsHouseDoorFill className="text-xl" />
-              <p className="text-xs mt-1 text-neutral-400">Home</p>
+            <li
+              className="flex flex-col items-center text-neutral-400"
+              onClick={HandleHomeClick}
+            >
+              <BsHouseDoorFill
+                className={`text-xl ${homeActive && "text-white"}`}
+              />
+              <p
+                className={`text-xs mt-1 text-neutral-400 ${
+                  homeActive && "text-white"
+                }`}
+              >
+                Home
+              </p>
             </li>
-            <li className="flex flex-col items-center text-neutral-400">
-              <BsSearch className="text-xl" />
-              <p className="text-xs mt-1 text-neutral-400">Search</p>
+            <li
+              className="flex flex-col items-center text-neutral-400"
+              onClick={HandleSearchClick}
+            >
+              <BsSearch className={`text-xl ${searchActive && "text-white"}`} />
+              <p
+                className={`text-xs mt-1 text-neutral-400 ${
+                  searchActive && "text-white"
+                }`}
+              >
+                Search
+              </p>
             </li>
-            <li className="flex flex-col items-center text-neutral-400">
-              <BsCollectionPlay className="text-xl" />
-              <p className="text-xs mt-1 text-neutral-400">Your Library</p>
+            <li
+              className="flex flex-col items-center text-neutral-400"
+              onClick={HandleLibraryClick}
+            >
+              <BsCollectionPlay
+                className={`text-xl ${LibraryActive && "text-white"}`}
+              />
+              <p
+                className={`text-xs mt-1 text-neutral-400 ${
+                  LibraryActive && "text-white"
+                }`}
+              >
+                Your Library
+              </p>
             </li>
-            <li className="flex flex-col items-center text-neutral-400">
+            <li
+              className="flex flex-col items-center text-neutral-400"
+              onClick={HandlePremiumClick}
+            >
               <img src={logo} alt="Logo" className="w-5" />
-              <p className="text-xs mt-1 text-neutral-400">Premium</p>
+              <p
+                className={`text-xs mt-1 text-neutral-400 ${
+                  PremiumActive && "text-white"
+                }`}
+              >
+                Premium
+              </p>
             </li>
           </ul>
         </div>
-        {/* MOBILE NAV END*/}
 
-        <div></div>
+        {/* MOBILE NAV END*/}
+      </div>
+
+      {/* Modal for playing section ==================================================================*/}
+      <div
+        className={`w-full h-100vh bg-gradient-to-b from-blue-900 to-neutral-950 absolute p-4 md:hidden ${
+          playControl ? "block top-0 duration-100" : "hidden"
+        }`}
+      >
+        <div className="flex justify-between items-center  ">
+          <BsChevronDown onClick={handlePlayControlClick} className="text-xl" />
+          <div className="text-center text-sm">
+            <p className="">PLAYING FROM ARTIST</p>
+            <p className="font-medium">Mercy Chinwo</p>
+          </div>
+          <BsThreeDotsVertical className="text-xl" />
+        </div>
+        {/* IMG */}
+        <img
+          src={mercy}
+          alt="Music imaage"
+          className="rounded-md w-full h-64 sm:w-1/2 mx-auto mt-12"
+        />
+
+        {/* Track info */}
+        <div className="mt-7 flex justify-between items-center w-full sm:w-1/2 mx-auto">
+          <div className=" w-3/4">
+            <h3 className="text-lg font-medium">Incredible God</h3>
+            <p className="text-neutral-400 text-sm">Mercy Chinwo</p>
+          </div>
+          <div className="flex items-center">
+            <BsDashCircle  className="text-2xl mr-4"   />
+
+            {isFavorit ? (
+              <BsCheckCircleFill 
+                className="text-2xl text-green-600 " 
+                onClick={handleFavoritClick}
+              />
+            ) : (
+            <BsPlusCircle 
+              className="text-2xl " 
+              onClick={handleFavoritClick}
+            />
+            )}
+          </div>
+        </div>
+
+        {/* Track control */}
+        <div 
+          className="flex w-full justify-center mt-3 items-center sm:w-1/2 mx-auto">
+          <BsSkipStartFill className="text-3xl"/>
+          {isPlay ? (
+            <BsPauseCircleFill 
+              className="text-5xl  ml-3 mr-3"
+              onClick={handlePlayclick}
+            />
+          ) : (
+            <BsPlayCircleFill 
+              className="text-5xl  ml-3 mr-3"
+              onClick={handlePlayclick}
+            />
+          )}
+          <BsSkipEndFill className="text-3xl"/>
+        </div>
       </div>
     </div>
   );
@@ -266,7 +417,8 @@ export default function Layout() {
     setCollapse(!collapse);
   }
 
-  function handlePlayclick() {
+  function handlePlayclick(e) {
+    e.stopPropagation();
     setIsPlay(!isPlay);
   }
 }
