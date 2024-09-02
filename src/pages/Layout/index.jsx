@@ -38,6 +38,7 @@ import {
   BsSkipEndFill,
   BsPlayCircleFill,
   BsCheckCircleFill,
+  BsShare,
 } from "react-icons/bs";
 
 
@@ -262,7 +263,7 @@ export default function Layout() {
             />
             <div className="flex items-center">
 
-              <BsSpeaker className="text-2xl mr-4" />
+              <BsSpeaker className="text-2xl mr-4 text-white" />
 
               {isFavorit ? (
                 <BsCheckCircleFill 
@@ -271,15 +272,15 @@ export default function Layout() {
                 />
               ) : (
                 <BsPlusCircle 
-                  className="text-2xl mr-3" 
+                  className="text-2xl mr-3 text-white" 
                   onClick={handleFavoritClick}
                 />
               )}
               
               {isPlay ? (
-                <BsPause className="text-4xl" onClick={handlePlayclick} />
+                <BsPause className="text-4xl text-white" onClick={handlePlayclick} />
               ) : (
-                <BsPlayFill className="text-4xl" onClick={handlePlayclick} />
+                <BsPlayFill className="text-4xl text-white" onClick={handlePlayclick} />
               )}
             </div>
           </section>
@@ -353,7 +354,7 @@ export default function Layout() {
           playControl ? "block top-0 duration-100" : "hidden"
         }`}
       >
-        <div className="flex justify-between items-center  ">
+        <div className="flex justify-between items-center h-9p  ">
           <BsChevronDown onClick={handlePlayControlClick} className="text-xl" />
           <div className="text-center text-sm">
             <p className="">PLAYING FROM ARTIST</p>
@@ -365,17 +366,17 @@ export default function Layout() {
         <img
           src={mercy}
           alt="Music imaage"
-          className="rounded-md w-full h-64 sm:w-1/2 mx-auto mt-12"
+          className="rounded-md w-full h-1/2 sm:w-1/2 mx-auto mt-6"
         />
 
         {/* Track info */}
-        <div className="mt-7 flex justify-between items-center w-full sm:w-1/2 mx-auto">
+        <div className="mt-7 flex justify-between items-center w-full sm:w-1/2 mx-auto h-10p ">
           <div className=" w-3/4">
-            <h3 className="text-lg font-medium">Incredible God</h3>
+            <h3 className="text-lg font-medium text-white">Incredible God</h3>
             <p className="text-neutral-400 text-sm">Mercy Chinwo</p>
           </div>
           <div className="flex items-center">
-            <BsDashCircle  className="text-2xl mr-4"   />
+            <BsDashCircle  className="text-2xl mr-4 text-white"/>
 
             {isFavorit ? (
               <BsCheckCircleFill 
@@ -384,7 +385,7 @@ export default function Layout() {
               />
             ) : (
             <BsPlusCircle 
-              className="text-2xl " 
+              className="text-2xl text-white" 
               onClick={handleFavoritClick}
             />
             )}
@@ -394,19 +395,24 @@ export default function Layout() {
         {/* Track control */}
         <div 
           className="flex w-full justify-center mt-3 items-center sm:w-1/2 mx-auto">
-          <BsSkipStartFill className="text-3xl"/>
+          <BsSkipStartFill className="text-4xl text-white"/>
           {isPlay ? (
             <BsPauseCircleFill 
-              className="text-5xl  ml-3 mr-3"
+              className="text-6xl  ml-3 mr-3  text-white"
               onClick={handlePlayclick}
             />
           ) : (
             <BsPlayCircleFill 
-              className="text-5xl  ml-3 mr-3"
+              className="text-6xl  ml-3 mr-3  text-white"
               onClick={handlePlayclick}
             />
           )}
-          <BsSkipEndFill className="text-3xl"/>
+          <BsSkipEndFill className="text-4xl  text-white"/>
+        </div>
+
+        <div className="flex justify-between items-center">
+          <BsSpeaker className="text-xl text-white"/>
+          <BsShare className="text-xl text-white"/>
         </div>
       </div>
     </div>
