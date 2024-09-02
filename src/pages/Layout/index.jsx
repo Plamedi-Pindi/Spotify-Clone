@@ -235,7 +235,7 @@ export default function Layout() {
             </div>
           </section>
           {/* MOBILE NAVBAR ================== */}
-          <ul className="bg-neutral-900/50 w-full h-14  flex flex-row justify-around items-center">
+          <ul className="bg-neutral-900/50 w-full h-16  flex flex-row justify-around items-center">
             <li className="flex flex-col items-center text-neutral-400">
               <BsHouseDoorFill className="text-xl" />
               <p className="text-xs mt-1 text-neutral-400">Home</p>
