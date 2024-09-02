@@ -56,27 +56,7 @@ export default function Layout() {
   let LibraryActive = isActive === "Library";
   let PremiumActive = isActive === "Premium";
 
-  function HandleHomeClick() {
-    setIsActive("Home");
-  }
-  function HandleSearchClick() {
-    setIsActive("Search");
-  }
-  function HandleLibraryClick() {
-    setIsActive("Library");
-  }
-  function HandlePremiumClick() {
-    setIsActive("Premium");
-  }
 
-  function handlePlayControlClick() {
-    setPlayControl(!playControl);
-  }
-
-  function handleFavoritClick(e){
-    e.stopPropagation();
-    setFavorit(true);
-  }
   return (
     <div className="relative">
       {/* =========================== UPP SECTION ============================== */}
@@ -119,7 +99,7 @@ export default function Layout() {
         </div>
       </div>
       {/* =============================== MIDDLE SECTION ======================================= */}
-      <div className="h-100vh md:flex md:h-77vh pl-2 pr-2 ">
+      <div className="h-100vh md:flex md:h-77vh pl-2 pr-2 overflow-hidden">
         {/* Left Box Content ================================================================= */}
         <div
           className={`hidden md:block md:w-5rm md:bg-neutral-900 rounded-lg mr-2 ${
@@ -239,21 +219,26 @@ export default function Layout() {
             </div>
           </section>
         </div>
-        <div className={`md:bg-neutral-900 md:rounded-lg md:w-95p`}>
+
+        <div className={`md:bg-neutral-900 md:rounded-lg md:w-95p overflow-scroll h-full pb-32`}>
           {/* PAGES CONTENT */}
           <Outlet />
           {/* PAGES CONTENT */}
         </div>
+
         {/* Right box optional content ==================== */}
         <div className=""></div>
+
       </div>
+
       {/* =============================== BOTTOM SECTION ========================================= */}
-      <div className="absolute bottom-0 w-full md:h-14vh md:relative">
+      <div className="absolute bottom-0  fixed w-full md:h-14vh md:relative">
+        
         {/* MOBILE NAV START ==================*/}
         <div className="md:hidden">
           {/* MOBILE PLAY SECTION ============*/}
           <section
-            className="bg-blue-700/30 h-14 w-95p mx-auto rounded flex justify-between items-center p-2"
+            className="bg-blue-700 h-14 w-95p mx-auto rounded flex justify-between items-center p-2"
             onClick={handlePlayControlClick}
           >
             <Playing
@@ -285,7 +270,7 @@ export default function Layout() {
             </div>
           </section>
           {/* MOBILE NAVBAR ================== */}
-          <ul className="bg-neutral-900/50 w-full h-16  flex flex-row justify-around items-center">
+          <ul className="bg-neutral-950/90  w-full h-16  flex flex-row justify-around items-center">
             <li
               className="flex flex-col items-center text-neutral-400"
               onClick={HandleHomeClick}
@@ -426,5 +411,27 @@ export default function Layout() {
   function handlePlayclick(e) {
     e.stopPropagation();
     setIsPlay(!isPlay);
+  }
+
+  function HandleHomeClick() {
+    setIsActive("Home");
+  }
+  function HandleSearchClick() {
+    setIsActive("Search");
+  }
+  function HandleLibraryClick() {
+    setIsActive("Library");
+  }
+  function HandlePremiumClick() {
+    setIsActive("Premium");
+  }
+
+  function handlePlayControlClick() {
+    setPlayControl(!playControl);
+  }
+
+  function handleFavoritClick(e){
+    e.stopPropagation();
+    setFavorit(true);
   }
 }

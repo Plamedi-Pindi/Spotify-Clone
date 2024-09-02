@@ -17,3 +17,17 @@ export default function Artist({ imgUrl, name, isCollapsed }) {
     </li>
   );
 }
+
+export function ArtistCard({name, imgUrl}) {
+  return (
+    <div className="w-36 flex-shrink-0">
+      <img 
+        src={imgUrl} 
+        alt={`Album image`} 
+        className="w-36 h-36 rounded-full" 
+      />
+      <p className="text-sm font-medium mt-3 text-white text-center"> {name} </p>
+      
+    </div>
+  );
+}
