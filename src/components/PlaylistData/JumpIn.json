@@ -1,0 +1,35 @@
+[
+    {
+        "id" : 1,
+        "name" : "Mercy Chinow",
+        "img" : "/Spotify-Replication/src/assets/imgs/Artists/Mercy-Chinwolk.jpg",
+        "category" : "Album",
+        "title" : "The Grace"
+    },
+    {
+        "id" : 2,
+        "name" : "Williams McDowell",
+        "img" : "/Spotify-Replication/src/assets/imgs/Artists/Williams McDowel.jpeg",
+        "category" : "Artist"
+    },
+    {
+        "id" : 3,
+        "name" : "Omid Armin",
+        "img" : "/Spotify-Replication/src/assets/imgs/Artists/omid-armin-_BkjDspEw_k-unsplash (1).jpg",
+        "category" : "Album",
+        "title" : "Victory"
+    },
+    {
+        "id" : 4,
+        "name" : "Fatane Rahimi",
+        "img" : "/Spotify-Replication/src/assets/imgs/Artists/fatane-rahimi-Agv-xPQBO60-unsplash.jpg",
+        "category" : "Album",
+        "title" : "The Kingdown of God"
+    },
+    {
+        "id" : 5,
+        "name" : "Plamedi Pindi",
+        "img" : "/Spotify-Replication/src/assets/imgs/Artists/A1.jpeg",
+        "category" : "Artist"
+    }
+]

@@ -17,6 +17,8 @@ export default {
         '100vh': '100vh',
         '77vh': '76.5vh',
         '10vh': '10vh',
+        '8vh': '8vh',
+        '50vh': '50vh',
         '14vh': '13.5vh',
         '7.5rm': '7.5rem',
         '3.8rm': '3.8rem',

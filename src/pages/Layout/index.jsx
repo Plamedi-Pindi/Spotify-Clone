@@ -1,18 +1,23 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { Link, Outlet } from "react-router-dom";
 import React from "react";
 import "../../index.css";
 import logo from "/logo.png";
+// COMPONENT ==============
 import Button from "../../components/Button/ButtonComponent";
 import LikedSong from "../../components/Library/Playlists";
 import { Episodes } from "../../components/Library/Playlists";
 import { Playing } from "../../components/Library/RecentPlay";
 import Artist from "../../components/Library/Artists";
+// ASSETS =================
 import A1img from "../../assets/imgs/Artists/A1.jpeg";
 import mercy from "../../assets/imgs/Artists/Mercy-Chinwolk.jpg";
 import williams from "../../assets/imgs/Artists/Williams McDowel.jpeg";
 import omid from "../../assets/imgs/Artists/omid-armin-_BkjDspEw_k-unsplash (1).jpg";
 import fatane from "../../assets/imgs/Artists/fatane-rahimi-Agv-xPQBO60-unsplash.jpg";
+// REATCT ICONS ============
 import {
   BsHouseDoorFill,
   BsBell,
@@ -41,21 +46,19 @@ import {
   BsShare,
 } from "react-icons/bs";
 
-
-export default function Layout() {
-  const [collapse, setCollapse] =
-    useState(false); /* Active collapse to left side box*/
+export default function Layout({collapse, handleCollapseClick}) {
+ 
   const [isPlay, setIsPlay] = useState(false); /* Change state to a play mode */
   const [isActive, setIsActive] =
     useState("Home"); /* Change state to: Home, Search, Library, Premium */
   const [playControl, setPlayControl] = useState(false); /* Show control play */
   const [isFavorit, setFavorit] = useState(false);
+  const navigate = useNavigate();
 
   let homeActive = isActive === "Home";
   let searchActive = isActive === "Search";
   let LibraryActive = isActive === "Library";
   let PremiumActive = isActive === "Premium";
-
 
   return (
     <div className="relative">
@@ -63,7 +66,10 @@ export default function Layout() {
       <div className="hidden md:flex md:h-10vh  flex-row items-center justify-between  ">
         <img src={logo} alt="Logo img" className="w-8 ml-7" />
         <div className="flex flex-row items-center">
-          <button className="bg-neutral-800 w-11 h-11 rounded-full mr-2 hover:scale-105 duration-300">
+          <button 
+            className="bg-neutral-800 w-11 h-11 rounded-full mr-2 hover:scale-105 duration-300"
+            onClick={HandleHomeClick}
+          >
             <BsHouseDoorFill className="text-2xl ml-2.5 " />
           </button>
           {/* Search bar */}
@@ -98,9 +104,11 @@ export default function Layout() {
           </div>
         </div>
       </div>
+
       {/* =============================== MIDDLE SECTION ======================================= */}
       <div className="h-100vh md:flex md:h-77vh pl-2 pr-2 overflow-hidden">
-        {/* Left Box Content ================================================================= */}
+
+        {/* Left Box Content Start ================================================================= */}
         <div
           className={`hidden md:block md:w-5rm md:bg-neutral-900 rounded-lg mr-2 ${
             !collapse && "lg:w-37rm"
@@ -219,21 +227,28 @@ export default function Layout() {
             </div>
           </section>
         </div>
+        {/* Left Box Content End ================================================================= */}
+        
+        
+        {/* PAGES CONTENT START ====================================================================*/}
+        <div
+          className={`scrollBehaviour md:bg-neutral-900 md:rounded-lg md:w-95p overflow-y-scroll  relative h-full pb-32 md:pt-0 md:pb-4 scrollbar-hide`}
+        >
+          
+          <div className="">
+            <Outlet/>
+          </div>
 
-        <div className={`scrollBehaviour md:bg-neutral-900 md:rounded-lg md:w-95p overflow-y-scroll  relative h-full pb-32 md:pb-4`}>
-          {/* PAGES CONTENT */}
-          <Outlet />
-          {/* PAGES CONTENT */}
         </div>
+          {/* PAGES CONTENT END ================================================================== */}
 
-        {/* Right box optional content ==================== */}
+        {/* Right box optional content START ============================================================ */}
         <div className=""></div>
-
+         {/* Right box optional content END ============================================================ */}
       </div>
 
       {/* =============================== BOTTOM SECTION ========================================= */}
       <div className="absolute bottom-0  fixed w-full md:h-14vh md:relative">
-        
         {/* MOBILE NAV START ==================*/}
         <div className="md:hidden">
           {/* MOBILE PLAY SECTION ============*/}
@@ -247,25 +262,30 @@ export default function Layout() {
               name="Mercy Chinwo"
             />
             <div className="flex items-center">
-
               <BsSpeaker className="text-2xl mr-4 text-white" />
 
               {isFavorit ? (
-                <BsCheckCircleFill 
-                  className="text-2xl mr-3 text-green-600" 
+                <BsCheckCircleFill
+                  className="text-2xl mr-3 text-green-600"
                   onClick={handleFavoritClick}
                 />
               ) : (
-                <BsPlusCircle 
-                  className="text-2xl mr-3 text-white" 
+                <BsPlusCircle
+                  className="text-2xl mr-3 text-white"
                   onClick={handleFavoritClick}
                 />
               )}
-              
+
               {isPlay ? (
-                <BsPause className="text-4xl text-white" onClick={handlePlayclick} />
+                <BsPause
+                  className="text-4xl text-white"
+                  onClick={handlePlayclick}
+                />
               ) : (
-                <BsPlayFill className="text-4xl text-white" onClick={handlePlayclick} />
+                <BsPlayFill
+                  className="text-4xl text-white"
+                  onClick={handlePlayclick}
+                />
               )}
             </div>
           </section>
@@ -331,13 +351,14 @@ export default function Layout() {
         </div>
 
         {/* MOBILE NAV END*/}
+
       </div>
 
       {/* Modal for playing section ==================================================================*/}
       <div
         className={`w-full h-100vh bg-gradient-to-b from-blue-900 to-neutral-950 absolute p-4 md:hidden ${
           playControl ? "block top-0 duration-100" : "hidden"
-        }`}
+        } z-20`}
       >
         <div className="flex justify-between items-center h-9p  ">
           <BsChevronDown onClick={handlePlayControlClick} className="text-xl" />
@@ -361,60 +382,57 @@ export default function Layout() {
             <p className="text-neutral-400 text-sm">Mercy Chinwo</p>
           </div>
           <div className="flex items-center">
-            <BsDashCircle  className="text-2xl mr-4 text-white"/>
+            <BsDashCircle className="text-2xl mr-4 text-white" />
 
             {isFavorit ? (
-              <BsCheckCircleFill 
-                className="text-2xl text-green-600 " 
+              <BsCheckCircleFill
+                className="text-2xl text-green-600 "
                 onClick={handleFavoritClick}
               />
             ) : (
-            <BsPlusCircle 
-              className="text-2xl text-white" 
-              onClick={handleFavoritClick}
-            />
+              <BsPlusCircle
+                className="text-2xl text-white"
+                onClick={handleFavoritClick}
+              />
             )}
           </div>
         </div>
 
         {/* Track control */}
-        <div 
-          className="flex w-full justify-center mt-3 items-center sm:w-1/2 mx-auto">
-          <BsSkipStartFill className="text-4xl text-white"/>
+        <div className="flex w-full justify-center mt-3 items-center sm:w-1/2 mx-auto">
+          <BsSkipStartFill className="text-4xl text-white" />
           {isPlay ? (
-            <BsPauseCircleFill 
+            <BsPauseCircleFill
               className="text-6xl  ml-3 mr-3  text-white"
               onClick={handlePlayclick}
             />
           ) : (
-            <BsPlayCircleFill 
+            <BsPlayCircleFill
               className="text-6xl  ml-3 mr-3  text-white"
               onClick={handlePlayclick}
             />
           )}
-          <BsSkipEndFill className="text-4xl  text-white"/>
+          <BsSkipEndFill className="text-4xl  text-white" />
         </div>
 
         <div className="flex justify-between items-center">
-          <BsSpeaker className="text-xl text-white"/>
-          <BsShare className="text-xl text-white"/>
+          <BsSpeaker className="text-xl text-white" />
+          <BsShare className="text-xl text-white" />
         </div>
       </div>
     </div>
   );
 
   // EVENT HANDLER ==================================
-  function handleCollapseClick() {
-    setCollapse(!collapse);
-  }
-
+  
   function handlePlayclick(e) {
     e.stopPropagation();
     setIsPlay(!isPlay);
   }
-
+  // Active state
   function HandleHomeClick() {
     setIsActive("Home");
+    navigate("/Spotify-Replication");
   }
   function HandleSearchClick() {
     setIsActive("Search");
@@ -426,11 +444,13 @@ export default function Layout() {
     setIsActive("Premium");
   }
 
+ 
+  // ====
   function handlePlayControlClick() {
     setPlayControl(!playControl);
   }
 
-  function handleFavoritClick(e){
+  function handleFavoritClick(e) {
     e.stopPropagation();
     setFavorit(true);
   }

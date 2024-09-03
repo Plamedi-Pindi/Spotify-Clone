@@ -1,3 +1,4 @@
+
 export default function Artist({ imgUrl, name, isCollapsed }) {
   return (
     <li className={`flex hover:bg-neutral-800 p-2 rounded-lg`}>
@@ -18,16 +19,3 @@ export default function Artist({ imgUrl, name, isCollapsed }) {
   );
 }
 
-export function ArtistCard({name, imgUrl}) {
-  return (
-    <div className="w-36 flex-shrink-0 md:w-60 md:hover:bg-neutral-800 p-3 rounded-lg duration-300">
-      <img 
-        src={imgUrl} 
-        alt={`Album image`} 
-        className="w-36 h-36 rounded-full md:w-56 md:h-56 " 
-      />
-      <p className="text-sm font-medium mt-3 text-white text-center md:text-start"> {name} </p>
-      <span className="hidden md:block text-sm font-nomal text-neutral-400 md:hover:underline">Artist</span>
-    </div>
-  );
-}

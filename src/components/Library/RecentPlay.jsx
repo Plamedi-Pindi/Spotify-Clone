@@ -4,7 +4,11 @@ export default function RecentPlay({ imgUrl, name, isCollapse }) {
       className={`flex bg-neutral-800 hover:bg-neutral-700 duration-300 md:bg-neutral-800 rounded items-center w-48p md:w-24p mb-2`}
     >
       <div className=" w-14 ">
-        <img src={imgUrl} alt="Artist image" className="w-12 h-12 md:w-16 md:h-16 rounded-s-md" />
+        <img 
+          src={imgUrl} 
+          alt="Artist image" 
+          className= {`w-12 h-12 ${isCollapse && ' md:w-16 md:h-16' } rounded-s-md `} 
+        />
       </div>
       <h3 className="text-base font-medium text-sm w-4 md:w-auto ml-3 cursor-pointer">
         {" "}
