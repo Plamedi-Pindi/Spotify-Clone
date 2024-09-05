@@ -2,9 +2,10 @@
     {
         "id" : 1,
         "name" : "Mercy Chinow",
-        "img" : "/Spotify-Replication/src/assets/imgs/Artists/Mercy-Chinwolk.jpg",
+        "img" : "../Spotify-Replication/src/assets/imgs/Artists/Mercy-Chinwolk.jpg",
         "category" : "Album",
-        "title" : "The Grace"
+        "title" : "The Grace",
+        "year" : "2022"
     },
     {
         "id" : 2,
@@ -17,14 +18,16 @@
         "name" : "Omid Armin",
         "img" : "/Spotify-Replication/src/assets/imgs/Artists/omid-armin-_BkjDspEw_k-unsplash (1).jpg",
         "category" : "Album",
-        "title" : "Victory"
+        "title" : "Victory",
+        "year" : "2010"
     },
     {
         "id" : 4,
         "name" : "Fatane Rahimi",
         "img" : "/Spotify-Replication/src/assets/imgs/Artists/fatane-rahimi-Agv-xPQBO60-unsplash.jpg",
         "category" : "Album",
-        "title" : "The Kingdown of God"
+        "title" : "The Kingdown of God",
+        "year" : "2024"
     },
     {
         "id" : 5,

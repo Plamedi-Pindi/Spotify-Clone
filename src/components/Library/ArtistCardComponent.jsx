@@ -12,7 +12,7 @@ export default function ArtistCard({ name, imgUrl, isCollapse, onClick }) {
       setMouseOver(false);
     }
     return (
-      <div
+      <li
         className={`w-36 flex-shrink-0 ${
           isCollapse ? " md:w-56  md:p-3" : " md:w-40 md:p-1"
         }  md:hover:bg-neutral-800   rounded-lg duration-300 relative`}
@@ -40,7 +40,7 @@ export default function ArtistCard({ name, imgUrl, isCollapse, onClick }) {
             <BsPlayCircleFill className="text-4xl text-green-600 " />
           </div>
         )}
-      </div>
+      </li>
     );
   }
   

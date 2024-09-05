@@ -5,7 +5,9 @@ export default function Podcast(){
     return (
         <div>
             <NavBar page={"Podcast"}/>
-            <h2 className="mt-20">This is Podcast page</h2>
+            <div className="pt-20">
+                <h2 className="">This is Podcast page</h2>
+            </div>
         </div>
     );
 }

@@ -46,13 +46,18 @@ import {
   BsShare,
 } from "react-icons/bs";
 
-export default function Layout({collapse, handleCollapseClick}) {
- 
-  const [isPlay, setIsPlay] = useState(false); /* Change state to a play mode */
-  const [isActive, setIsActive] =
-    useState("Home"); /* Change state to: Home, Search, Library, Premium */
-  const [playControl, setPlayControl] = useState(false); /* Show control play */
-  const [isFavorit, setFavorit] = useState(false);
+export default function Layout({
+  collapse, // Callapse state
+  handleCollapseClick, // Callapse state event handler
+  isPlay, // Play state
+  handlePlayclick, // IsPlay state event handler
+  isFavorit, // Favorit state
+  handleFavoritClick, // Favorit state event handler
+  albumId, // Album state
+  jumpinPlaylist,
+}) {
+  const [isActive, setIsActive] = useState("Home"); // Change state to: Home, Search, Library, Premium 
+  const [playControl, setPlayControl] = useState(false); // Show control play 
   const navigate = useNavigate();
 
   let homeActive = isActive === "Home";
@@ -60,13 +65,15 @@ export default function Layout({collapse, handleCollapseClick}) {
   let LibraryActive = isActive === "Library";
   let PremiumActive = isActive === "Premium";
 
+  const correntAlbum = jumpinPlaylist.filter((album) => album.id == albumId);
+
   return (
     <div className="relative">
       {/* =========================== UPP SECTION ============================== */}
       <div className="hidden md:flex md:h-10vh  flex-row items-center justify-between  ">
         <img src={logo} alt="Logo img" className="w-8 ml-7" />
         <div className="flex flex-row items-center">
-          <button 
+          <button
             className="bg-neutral-800 w-11 h-11 rounded-full mr-2 hover:scale-105 duration-300"
             onClick={HandleHomeClick}
           >
@@ -107,7 +114,6 @@ export default function Layout({collapse, handleCollapseClick}) {
 
       {/* =============================== MIDDLE SECTION ======================================= */}
       <div className="h-100vh md:flex md:h-77vh pl-2 pr-2 overflow-hidden">
-
         {/* Left Box Content Start ================================================================= */}
         <div
           className={`hidden md:block md:w-5rm md:bg-neutral-900 rounded-lg mr-2 ${
@@ -228,23 +234,20 @@ export default function Layout({collapse, handleCollapseClick}) {
           </section>
         </div>
         {/* Left Box Content End ================================================================= */}
-        
-        
+
         {/* PAGES CONTENT START ====================================================================*/}
         <div
           className={`scrollBehaviour md:bg-neutral-900 md:rounded-lg md:w-95p overflow-y-scroll  relative h-full pb-32 md:pt-0 md:pb-4 scrollbar-hide`}
         >
-          
           <div className="">
-            <Outlet/>
+            <Outlet />
           </div>
-
         </div>
-          {/* PAGES CONTENT END ================================================================== */}
+        {/* PAGES CONTENT END ================================================================== */}
 
         {/* Right box optional content START ============================================================ */}
         <div className=""></div>
-         {/* Right box optional content END ============================================================ */}
+        {/* Right box optional content END ============================================================ */}
       </div>
 
       {/* =============================== BOTTOM SECTION ========================================= */}
@@ -351,7 +354,6 @@ export default function Layout({collapse, handleCollapseClick}) {
         </div>
 
         {/* MOBILE NAV END*/}
-
       </div>
 
       {/* Modal for playing section ==================================================================*/}
@@ -424,11 +426,7 @@ export default function Layout({collapse, handleCollapseClick}) {
   );
 
   // EVENT HANDLER ==================================
-  
-  function handlePlayclick(e) {
-    e.stopPropagation();
-    setIsPlay(!isPlay);
-  }
+
   // Active state
   function HandleHomeClick() {
     setIsActive("Home");
@@ -444,14 +442,8 @@ export default function Layout({collapse, handleCollapseClick}) {
     setIsActive("Premium");
   }
 
- 
   // ====
   function handlePlayControlClick() {
     setPlayControl(!playControl);
-  }
-
-  function handleFavoritClick(e) {
-    e.stopPropagation();
-    setFavorit(true);
   }
 }

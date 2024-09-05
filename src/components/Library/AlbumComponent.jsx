@@ -12,7 +12,7 @@ export default function Album({ imgUrl, title, name, isCollapse, onClick }) {
   }
 
   return (
-    <div
+    <li
       className={`w-36 flex-shrink-0  ${
         isCollapse ? " md:w-56  md:p-2" : " md:w-40  md:p-2"
       }     md:hover:bg-neutral-800 md:p-1 rounded-lg duration-300 relative`}
@@ -40,6 +40,6 @@ export default function Album({ imgUrl, title, name, isCollapse, onClick }) {
           <BsPlayCircleFill className="text-4xl   text-green-600 " />
         </div>
       )}
-    </div>
+    </li>
   );
 }
