@@ -1,5 +1,5 @@
 
-export default function Artist({ imgUrl, name, isCollapsed }) {
+export default function ArtistLibrary({ imgUrl, name, isCollapsed }) {
   return (
     <li className={`flex hover:bg-neutral-800 p-2 rounded-lg`}>
       <div className=" w-12 ">

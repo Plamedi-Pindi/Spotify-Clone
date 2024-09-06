@@ -37,7 +37,7 @@ export default function ArtistCard({ name, imgUrl, isCollapse, onClick }) {
   
         {isMouseOver && (
           <div className="hidden md:block bg-black w-auto h-auto absolute right-3 bottom-20 rounded-full">
-            <BsPlayCircleFill className="text-4xl text-green-600 " />
+            <BsPlayCircleFill className="text-5xl text-green-600 hover:scale-105 hover:text-green-500 duration-300" />
           </div>
         )}
       </li>

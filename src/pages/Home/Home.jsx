@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 // COMPONENTS
 import RecentPlay from "../../components/Library/RecentPlay";
 import Album from "../../components/Library/AlbumComponent";
 import ArtistCard from "../../components/Library/ArtistCardComponent";
 import NavBar from "../../components/Navbar/NavbarComponent";
+import CardSection from "../../components/Cards/CardSectionComponent";
 // IMAGES
 import A1img from "../../assets/imgs/Artists/A1.jpeg";
 import MercyImg from "../../assets/imgs/Artists/Mercy-Chinwolk.jpg";
@@ -64,36 +66,77 @@ export default function Home({ collapse, jumpinPlaylist, setAlbumId }) {
         </div>
       </section>
 
-      {/* */}
+      {/* JUMP BACK IN SECTION*/}
+      <CardSection subTitle={" Jump back in"}>
+        {jumpinPlaylist.map((data) =>
+          data.category === "Album" ? (
+            <Album
+              imgUrl={data.img}
+              title={data.title}
+              name={data.name}
+              isCollapse={collapse}
+              onClick={() => handleAlbumClick(data.id)}
+              key={data.id}
+            />
+          ) : (
+            <ArtistCard
+              imgUrl={data.img}
+              name={data.name}
+              isCollapse={collapse}
+              onClick={() => handleArtistClick(data.id)}
+              key={data.id}
+            />
+          )
+        )}
+      </CardSection>
 
-      <section className="mt-4 pb-2 w-95p mx-auto md:w-96p">
-        <h2 className="text-xl text-white font-bold mb-5 md:text-2xl">
-          Jump back in
-        </h2>
+      {/* JUMP BACK IN SECTION*/}
+      <CardSection subTitle={" Jump back in"}>
+        {jumpinPlaylist.map((data) =>
+          data.category === "Album" ? (
+            <Album
+              imgUrl={data.img}
+              title={data.title}
+              name={data.name}
+              isCollapse={collapse}
+              onClick={() => handleAlbumClick(data.id)}
+              key={data.id}
+            />
+          ) : (
+            <ArtistCard
+              imgUrl={data.img}
+              name={data.name}
+              isCollapse={collapse}
+              onClick={() => handleArtistClick(data.id)}
+              key={data.id}
+            />
+          )
+        )}
+      </CardSection>
 
-        <ul className="overflow-x-auto flex w-full whitespace-nowrap space-x-4 md:justify-between  scrollbar-hide">
-          {jumpinPlaylist.map((data) =>
-            data.category === "Album" ? (
-              <Album
-                imgUrl={data.img}
-                title={data.title}
-                name={data.name}
-                isCollapse={collapse}
-                onClick={() => handleAlbumClick(data.id)}
-                key={data.id}
-              />
-            ) : (
-              <ArtistCard
-                imgUrl={data.img}
-                name={data.name}
-                isCollapse={collapse}
-                onClick={() => handleArtistClick(data.id)}
-                key={data.id}
-              />
-            )
-          )}
-        </ul>
-      </section>
+      {/* JUMP BACK IN SECTION*/}
+      <CardSection subTitle={" Jump back in"}>
+        {jumpinPlaylist.map((data) =>
+          data.category === "Album" ? (
+            <Album
+              imgUrl={data.img}
+              title={data.title}
+              name={data.name}
+              isCollapse={collapse}
+              onClick={() => handleAlbumClick(data.id)}
+              key={data.id}
+            />
+          ) : (
+            <ArtistCard
+              imgUrl={data.img}
+              name={data.name}
+              isCollapse={collapse}
+              onClick={() => handleArtistClick(data.id)}
+              key={data.id}
+            />
+          )
+        )}
+      </CardSection>
     </div>
   );
 }
