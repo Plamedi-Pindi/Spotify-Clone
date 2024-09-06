@@ -18,10 +18,10 @@ export default function RecentPlay({ imgUrl, name, isCollapse }) {
   );
 }
 
-export function Playing({ imgUrl, name, title, width, imgWidth, imgHeight }) {
+export function Playing({ imgUrl, name, title, imgWidth, imgHeight }) {
   return (
     <div
-      className={`flex duration-300 rounded items-center  md:${width} `}
+      className={`flex md:w-1/4 duration-300 rounded items-center w-1/2  `}
     >
       <div className= {`${imgWidth} `}  >
         <img src={imgUrl} alt="Artist image" className= {`${imgWidth} ${imgHeight} rounded`}  />

@@ -78,7 +78,6 @@ export default function SpotFooter({
             imgUrl={mercy}
             title="Incredible God"
             name="Mercy Chinwo"
-            width="w-24p"
             imgWidth="w-11"
             imgHeight="h-11"
           />
@@ -179,7 +178,6 @@ export default function SpotFooter({
           imgUrl={mercy}
           title="Incredible God"
           name="Mercy Chinwo"
-          width="w-25p"
           imgWidth="w-14"
           imgHeight="w-14"
         />
