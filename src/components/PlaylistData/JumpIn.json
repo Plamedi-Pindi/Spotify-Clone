@@ -2,21 +2,22 @@
     {
         "id" : 1,
         "name" : "Mercy Chinow",
-        "img" : "/Plamedi-Pindi.github.io/Spotify-Replication/src/assets/imgs/Artists/Mercy-Chinwolk.jpg",
+        "img" : "https://i.imgur.com/K0BPyWp.jpg",
         "category" : "Album",
         "title" : "The Grace",
         "year" : "2022"
+        
     },
     {
         "id" : 2,
         "name" : "Williams McDowell",
-        "img" : "/Spotify-Replication/src/assets/imgs/Artists/Williams McDowel.jpeg",
+        "img" : "https://i.imgur.com/eQ2bWJ6.jpg",
         "category" : "Artist"
     },
     {
         "id" : 3,
         "name" : "Omid Armin",
-        "img" : "/Spotify-Replication/src/assets/imgs/Artists/omid-armin-_BkjDspEw_k-unsplash (1).jpg",
+        "img" : "https://i.imgur.com/RJwO12O.jpg",
         "category" : "Album",
         "title" : "Victory",
         "year" : "2010"
@@ -24,15 +25,15 @@
     {
         "id" : 4,
         "name" : "Fatane Rahimi",
-        "img" : "/Spotify-Replication/src/assets/imgs/Artists/fatane-rahimi-Agv-xPQBO60-unsplash.jpg",
+        "img" : "https://i.imgur.com/fchqUAa.jpg",
         "category" : "Album",
         "title" : "The Kingdown of God",
         "year" : "2024"
     },
     {
         "id" : 5,
-        "name" : "Plamedi Pindi",
-        "img" : "/Spotify-Replication/src/assets/imgs/Artists/A1.jpeg",
+        "name" : "Nathaniel Bassey",
+        "img" : "https://i.imgur.com/HuRHjpS.jpg",
         "category" : "Artist"
     }
 ]
