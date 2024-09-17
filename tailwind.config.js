@@ -17,6 +17,7 @@ export default {
         '100vh': '100vh',
         '77vh': '76.5vh',
         '10vh': '10vh',
+        '40vh': '40vh',
         '8vh': '8vh',
         '50vh': '50vh',
         '14vh': '13.5vh',
@@ -29,7 +30,8 @@ export default {
         '88p' : '88%',
         '10p' : '12%',
         '9p' : '9%',
-        '60p' : '60%'
+        '60p' : '60%',
+        '91p' : '91%'
       },
       width: {
         '23rm': '23.4rem',
@@ -44,6 +46,10 @@ export default {
       },
       fontSize: {
         'l': 'font-size:10px'
+      },
+
+      backgroundImage: {
+        "img": "url('/Mercy-Chinwolk.jpg')"
       }
     },
   },

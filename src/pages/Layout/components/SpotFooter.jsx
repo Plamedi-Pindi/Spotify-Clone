@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 // Componets
 import { Playing } from "../../../components/Library/RecentPlay";
+import SoptPlayer from "../../../components/Player/SpotPlayeerComponent";
 
 // ASSETS =================
 import mercy from "../../../assets/imgs/Artists/Mercy-Chinwolk.jpg";
@@ -21,12 +22,6 @@ import {
   BsSpeaker,
   BsPause,
   BsCheckCircleFill,
-  BsRepeat,
-  BsRepeat1,
-  BsShuffle,
-  BsSkipStartFill,
-  BsSkipEndFill,
-  BsPlayCircleFill,
   BsFilePlay,
   BsVolumeUp,
   BsMic,
@@ -173,6 +168,7 @@ export default function SpotFooter({
       </div>
       {/* MOBILE NAV END*/}
 
+      {/* DESKTOP START */}
       <section className="hidden md:flex justify-between items-center h-full pl-4 pr-4">
         <Playing
           imgUrl={mercy}
@@ -181,32 +177,12 @@ export default function SpotFooter({
           imgWidth="w-14"
           imgHeight="w-14"
         />
+
+        {/* SpotPlayer component */}
         <div className=" w-1/2 flex justify-center">
-          <div className="flex items-center space-x-4">
-            <BsShuffle
-              className="text-lg text-neutral-400 hover:text-white hover:scale-105 duration-300 cursor-pointer"
-              title="Enable Shuffle"
-            />
-            <BsSkipStartFill
-              className="text-3xl text-neutral-500 e hover:scale-105 duration-300 cursor-not-allowed"
-              title="Previuos"
-            />
-            <BsPlayCircleFill
-              className="text-3xl text-white hover:text-white hover:scale-105 duration-300 cursor-pointer"
-              title="Play"
-            />
-            <BsSkipEndFill
-              className="text-3xl text-neutral-300 hover:text-white hover:scale-105 duration-300 cursor-pointer"
-              title="Next"
-            />
-            <BsRepeat
-              className="text-lg text-neutral-400 hover:text-white hover:scale-105 duration-300 cursor-pointer"
-              title="Enable repeat"
-            />
-          </div>
+          <SoptPlayer /> 
         </div>
 
-        {/*  */}
         <div className="w-1/4 flex items-center space-x-4 justify-end">
           <BsFilePlay
             className="text-lg text-green-600 cursor-pointer"

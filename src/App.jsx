@@ -47,7 +47,7 @@ function App() {
                 />
               }
             />
-            <Route path="/Spotify-Replication/music" element={<Musics />} />
+            <Route path="/Spotify-Replication/music" element={<Musics collapse={collapse}/>} />
             <Route path="/Spotify-Replication/podcast" element={<Podcast />} />
             <Route
               path="/Spotify-Replication/albums/:id"

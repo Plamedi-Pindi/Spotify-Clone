@@ -41,10 +41,12 @@ export default function AlbumPage({
         {correntAlbum.map((album) => (
           <li key={album.id}>
             <div className="fixed w-full flex items-center h-8vh bg-transparent p-2">
-              <BsArrowLeft
-                className="text-2xl text-wite mr-10"
+              <button 
+                className="bg-black/40 rounded-full w-10 h-10 flex items-center justify-center mr-10"
                 onClick={handleBackClick}
-              />
+              >
+                <BsArrowLeft className="text-2xl text-wite " />
+              </button>
               <h2 className="hidden text-sm font-medium">Album Title</h2>
             </div>
             <section className="bg-gradient-to-b from-pink-500/70 pt-4 h-50vh p-2">

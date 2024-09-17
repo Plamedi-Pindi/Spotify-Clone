@@ -28,7 +28,7 @@ export default function SpotMobilePlay({
     <div
       className={`w-full h-100vh bg-gradient-to-b from-blue-900 to-neutral-950 absolute p-4 md:hidden ${
         playControl ? "block top-0 duration-100" : "hidden"
-      } z-20`}
+      } z-40`}
     >
       <div className="flex justify-between items-center h-9p  ">
         <BsChevronDown onClick={handlePlayControlClick} className="text-xl" />
