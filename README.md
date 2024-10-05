@@ -1,4 +1,8 @@
 # Spotify-Clone
+
+[![See the project](https://i.imgur.com/JNvouzm.jpg)](https://plamedi-pindi.github.io/Spotify-Clone/)
+
+
 This is Spotify Clone using React.js
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
