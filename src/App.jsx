@@ -23,7 +23,7 @@ function App() {
       <Router>
         <Routes>
           <Route
-            path="/Spotify-Replication"
+            path="/Spotify-Clone"
             element={
               <Layout
                 collapse={collapse} // Props for collapse state
@@ -47,10 +47,10 @@ function App() {
                 />
               }
             />
-            <Route path="/Spotify-Replication/music" element={<Musics collapse={collapse}/>} />
-            <Route path="/Spotify-Replication/podcast" element={<Podcast />} />
+            <Route path="/Spotify-Clone/music" element={<Musics collapse={collapse}/>} />
+            <Route path="/Spotify-Clone/podcast" element={<Podcast />} />
             <Route
-              path="/Spotify-Replication/albums/:id"
+              path="/Spotify-Clone/albums/:id"
               element={
                 <AlbumPage
                   isPlay={isPlay} //Props for Play state
@@ -62,11 +62,11 @@ function App() {
               }
             />
             <Route
-              path="/Spotify-Replication/artist/:id"
-              element={<ArtistPage />}
+              path="/Spotify-Clone/artist/:id"
+              element={<ArtistPage jumpinPlaylist={jumpinPlaylist}/>}
             />
           </Route>
-          <Route path="/Spotify-Replication/*" element={<NoPage />} />
+          <Route path="/Spotify-Clone/*" element={<NoPage />} />
         </Routes>
       </Router>
     </>

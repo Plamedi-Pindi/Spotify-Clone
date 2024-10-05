@@ -12,7 +12,7 @@ export default function NoPage(){
                 <p>There is not such page!</p>
                 <button 
                     className='text-blue-500 hover:text-blue-600'
-                    onClick={()=> navigate("/Spotify-Replication")}
+                    onClick={()=> navigate("/Spotify-Clone")}
                 >Back on site</button>
             </div>
         </div>

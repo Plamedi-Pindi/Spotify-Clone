@@ -23,13 +23,13 @@ export default function NavBar({page}) {
 
    // Category page state
    function handleAllClick() {
-    navigate("/Spotify-Replication");
+    navigate("/Spotify-Clone");
   }
   function handleMusicClick() {
-    navigate("/Spotify-Replication/music");
+    navigate("/Spotify-Clone/music");
   }
   function handlePodcastClick() {
-    navigate("/Spotify-Replication/podcast");
+    navigate("/Spotify-Clone/podcast");
   }
 
 

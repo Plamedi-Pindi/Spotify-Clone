@@ -18,15 +18,15 @@ export default function Home({ collapse, jumpinPlaylist, setAlbumId }) {
 
   function handleAlbumClick(id) {
     setAlbumId(id);
-    navigate(`/Spotify-Replication/albums/${id}`);
+    navigate(`/Spotify-Clone/albums/${id}`);
   }
 
   function handleArtistClick(id) {
-    navigate(`/Spotify-Replication/artist/${id}`);
+    navigate(`/Spotify-Clone/artist/${id}`);
   }
 
   return (
-    <div className="overflow-hidden h-auto relative">
+    <div className="overflow-y-scroll scrollbar-hide scrollBehaviour pb-32 md:pb-44  h-screen relative">
       {/* Navbar */}
       <NavBar page={"All"} />
       <section className="mt-20 ">

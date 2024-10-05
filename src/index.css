@@ -4,8 +4,7 @@
 
 :root {
   font-family: "Roboto", sans-serif;
-
-  color-scheme: light dark;
+ 
   color: rgba(255, 255, 255, 0.87);
   background-color: #000;
 
@@ -75,10 +74,4 @@ body {
   }
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-
-}
+ 

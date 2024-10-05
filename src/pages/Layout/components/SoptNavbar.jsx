@@ -21,7 +21,7 @@ export default function SpotNavbar() {
 
   // Active state
   function HandleHomeClick() {
-    navigate("/Spotify-Replication");
+    navigate("/Spotify-Clone");
   }
 
   return (

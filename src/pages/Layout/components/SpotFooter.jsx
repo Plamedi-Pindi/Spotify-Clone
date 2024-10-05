@@ -47,7 +47,7 @@ export default function SpotFooter({
 
   function HandleHomeClick() {
     setIsActive("Home");
-    navigate("/Spotify-Replication");
+    navigate("/Spotify-Clone");
   }
 
   function HandleSearchClick() {

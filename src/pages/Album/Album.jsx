@@ -130,6 +130,6 @@ export default function AlbumPage({
 
   //
   function handleBackClick() {
-    navigate(`/Spotify-Replication `);
+    navigate(`/Spotify-Clone `);
   }
 }

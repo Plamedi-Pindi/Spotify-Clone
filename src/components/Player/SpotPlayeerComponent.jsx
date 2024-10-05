@@ -1,6 +1,9 @@
 // Hooks
 import { useRef, useState } from "react";
 
+// Components
+import { ProgressBar } from "../ProgressBar/ProgressBar";
+
 // REATCT ICONS ============
 import {
   BsRepeat,
@@ -13,6 +16,8 @@ import {
 export default function SoptPlayer() {
   const [progress, setProgress] = useState(0);
   const [mouseOver, setMouseOver] = useState(false);
+  const [isOverProgBar, setIsOverProgBar] = useState(false);
+
   const progressBarRef = useRef(0);
 
   // Calculate the progress value in purcentage
@@ -76,18 +81,12 @@ const handleMouseUp = () => {
       <div
         ref={progressBarRef}
         onMouseDown={handleMouseDown}
-        onMouseOver={()=> setMouseOver(true)}
-        onMouseOut={()=> setMouseOver(false)}
+        onMouseOver={()=> {setMouseOver(true); setIsOverProgBar(true)}}
+        onMouseOut={()=> {setMouseOver(false); setIsOverProgBar(false)}}
         className="w-full h-1 rounded-lg bg-neutral-600 mt-3 relative cursor-pointer "
       >
         {/* Player progressBar */}
-        <div
-       
-          className={`w-1/2 h-full ${mouseOver ? 'bg-green-600' : ' bg-white'} rounded-lg flex justify-end items-center transition-300`}
-          style={{ width:`${progress}%` }}
-        >
-          <div className={` ${mouseOver ? 'block' : ' hidden'} w-3 h-3 rounded-full bg-white`}></div>
-        </div>
+        <ProgressBar width={`${progress}%`} onMouseOver={isOverProgBar}/>
       </div>
     </div>
   );
