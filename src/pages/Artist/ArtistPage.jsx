@@ -118,7 +118,7 @@ export default function ArtistPage({ jumpinPlaylist }) {
             }}
           >
             <h2
-              className={`text-4xl font-bold text-white mb-2  ${
+              className={`text-4xl font-bold text-white mb-2 text-center ${
                 isScrollUp ? "opacity-0" : "opacity-100"
               } duration-500 ease-in-out`}
             >
@@ -142,7 +142,7 @@ export default function ArtistPage({ jumpinPlaylist }) {
                   <img src={artist.img} className="w-8 h-10 object-cover rounded-md" />
                 </div>
 
-                <button className=" border border-white rounded-md  p-2 pr-3 pl-3 text-sm">
+                <button className=" border border-neutral-200 rounded-md  p-1 pr-3 pl-3 text-sm">
                   {" "}
                   Following{" "}
                 </button>
