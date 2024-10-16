@@ -4,7 +4,9 @@ export default function MusicItemsDisplay({
   display,
   title,
   adicionalTxt,
-  box
+  box,
+  titleFont,
+  AdicTxtFont
 }) {
   return (
     <div className={`${box} ${display}`}>
@@ -12,9 +14,9 @@ export default function MusicItemsDisplay({
             <img src={imgUrl} className={`${imgDimension}`} />
         </div>
 
-      <div>
-        <p className="text-base "> {title} </p>
-        <p className="text-xs text-neutral-400"> {adicionalTxt} </p>
+      <div className="">
+        <p className= {` ${titleFont} `}  > {title} </p>
+        <p className= {` text-neutral-400 ${AdicTxtFont}`} > {adicionalTxt} </p>
       </div>
     </div>
   );

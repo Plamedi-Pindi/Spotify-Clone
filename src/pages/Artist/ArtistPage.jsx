@@ -58,6 +58,7 @@ export default function ArtistPage({ jumpinPlaylist }) {
     };
   }, []);
 
+
   let isMusic = contentDisplay === "Music";
   let isMerch = contentDisplay === "Merch";
 
@@ -105,7 +106,7 @@ export default function ArtistPage({ jumpinPlaylist }) {
                 isScrollUp ? "opacity-100" : "opacity-0"
               } duration-500 ease-in-out`}
             >
-              Artist Name
+              {artist.name}
             </h2>
           </div>
 
@@ -113,7 +114,7 @@ export default function ArtistPage({ jumpinPlaylist }) {
           <div
             className={` w-full h-36vh bg-contain bg-fixed  bg-top bg-no-repeat flex items-end justify-center`}
             style={{
-              backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url(${artist.img})`,
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.9)), url(${artist.img})`,
             }}
           >
             <h2
@@ -179,7 +180,7 @@ export default function ArtistPage({ jumpinPlaylist }) {
             </div>
 
             {isMerch && <ArtistMerchContent />}
-            {isMusic && <ArtistMusicContent />}
+            {isMusic && <ArtistMusicContent artist={artist} isCrolling={isScrollUpContent} />}
           </section>
         </div>
       ))}

@@ -20,3 +20,7 @@ export function ButtonTranspatent({ children, background, onActive}) {
     </button>
   );
 }
+
+export function ButtonNeutral ({children, border, radius, font, background, dimension, focus}) {
+  return <button className={`${border} ${radius} ${font} ${background} ${dimension} ${focus}`}> {children} </button>
+}
