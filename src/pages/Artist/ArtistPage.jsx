@@ -23,9 +23,9 @@ import {
 } from "react-icons/bs";
 
 export default function ArtistPage({ jumpinPlaylist }) {
+  
   const [contentDisplay, setContentDispaly] = useState("Music"); // Set contet state to: Music, Merch
   const [isScrollUp, setIsCrollUp] = useState(false);
-  const [isScrollUpContent, setIsCrollUpcontent] = useState(false);
 
   const navigate = useNavigate(); // router Navigate hook
 
@@ -39,11 +39,10 @@ export default function ArtistPage({ jumpinPlaylist }) {
 
         if (scrollY > scrollHold) {
           setIsCrollUp(true);
-        } else setIsCrollUp(false);
-
-        scrollY > 340 ? setIsCrollUpcontent(true) : setIsCrollUpcontent(false);
+        } else {
+          setIsCrollUp(false);
+        }
       }
-      
     };
 
     const box = scrollDivRef.current;
@@ -57,7 +56,6 @@ export default function ArtistPage({ jumpinPlaylist }) {
       }
     };
   }, []);
-
 
   let isMusic = contentDisplay === "Music";
   let isMerch = contentDisplay === "Merch";
@@ -84,11 +82,12 @@ export default function ArtistPage({ jumpinPlaylist }) {
 
   return (
     <div
-      className=" overflow-y-scroll scrollbar-hide scrollBehaviour h-screen relative "
       ref={scrollDivRef}
+      className=" overflow-y-scroll scrollbar-hide scrollBehaviour h-screen relative "
     >
       {correntArtists.map((artist) => (
         <div key={artist.id}>
+
           {/* button to back the previus page */}
           <div
             className={`flex items-center  p-2 fixed w-full z-30 ${
@@ -139,7 +138,10 @@ export default function ArtistPage({ jumpinPlaylist }) {
               {/* Media control */}
               <div className="flex items-center justify-between p-3 pl-4 pr-4  ">
                 <div className="w-10 h-12 flex justify-center items-center border-2 rounded-lg border-neutral-500">
-                  <img src={artist.img} className="w-8 h-10 object-cover rounded-md" />
+                  <img
+                    src={artist.img}
+                    className="w-8 h-10 object-cover rounded-md"
+                  />
                 </div>
 
                 <button className=" border border-neutral-200 rounded-md  p-1 pr-3 pl-3 text-sm">
@@ -154,16 +156,14 @@ export default function ArtistPage({ jumpinPlaylist }) {
             </div>
           </section>
 
-          {/*  */}
+          {/* SECTION TO SWITCH BETWEEEN MUSIC AND MERCH */}
           <section
-            className={` h-screen w-full bg-black mt-0 p-2 pr-4  pl-4 ${
-              isScrollUpContent ? "pt-16 " : ""
-            } duration-500 ease-in-out` }
+            className={` h-s w-full bg-black mt-0 p-2 pr-4  pl-4 duration-500 ease-in-out relative`}
           >
-            <div className=" h-9p">
+            <div className=" h-9p sticky top-14  bg-black pt-4 pb-2">
               <button
                 className={` ${
-                  isMusic && "border-b-2 border-green-500 text-white"
+                  isMusic && "border-b-2 border-green-500 text-white mb-2"
                 }  mr-6 text-base pb-2  text-neutral-400`}
                 onClick={handleMusicClick}
               >
@@ -179,8 +179,8 @@ export default function ArtistPage({ jumpinPlaylist }) {
               </button>
             </div>
 
+            {isMusic && <ArtistMusicContent artist={artist} />}
             {isMerch && <ArtistMerchContent />}
-            {isMusic && <ArtistMusicContent artist={artist} isCrolling={isScrollUpContent} />}
           </section>
         </div>
       ))}

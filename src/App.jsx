@@ -1,6 +1,14 @@
+
+// CSS
 import "./index.css";
+
+// Hooks
 import { useState } from "react";
+
+// Routes
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// Components
 import Layout from "./pages/Layout";
 import Home from "./pages/Home/Home";
 import NoPage from "./pages/NoPage";
@@ -8,6 +16,8 @@ import Musics from "./pages/Music/musics";
 import Podcast from "./pages/Podcast/Podcast";
 import AlbumPage from "./pages/Album/Album";
 import ArtistPage from "./pages/Artist/ArtistPage";
+import AboutArtist from "./pages/Artist/AboutArtist";
+
 import jumpin from "./components/PlaylistData/JumpIn.json"; //
 
 function App() {
@@ -65,12 +75,17 @@ function App() {
               path="/Spotify-Clone/artist/:id"
               element={<ArtistPage jumpinPlaylist={jumpinPlaylist}/>}
             />
+            
+            <Route path="/Spotify-Clone/artist/aboutArtist/:id" element={<AboutArtist />} />
           </Route>
+          
           <Route path="/Spotify-Clone/*" element={<NoPage />} />
         </Routes>
       </Router>
     </>
   );
+
+
   // EVENT HANDLER FOR COLLAPSE STATE
   function handleCollapseClick() {
     setCollapse(!collapse);

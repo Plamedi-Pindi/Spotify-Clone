@@ -6,12 +6,16 @@ import { ButtonNeutral } from "../../../components/Button/ButtonComponent";
 import { BsThreeDotsVertical, BsChevronRight } from "react-icons/bs";
 import verified from "../../../assets/icons/verified.svg";
 
-function ArtistMusicContent({ artist, isCrolling }) {
+import { useNavigate } from "react-router-dom";
+
+// Main function
+function ArtistMusicContent({ artist }) {
+
+  let navigate = useNavigate();
+
   return (
     <div
-      className={`w-full h-91p pb-36 ${
-        isCrolling ? "overflow-scroll" : "overflow-hidden"
-      } scrollbar-hide`}
+      className={`w-full h-auto pb-36  scrollbar-hide`}
     >
       {/* Popular section */}
       <section>
@@ -65,6 +69,22 @@ function ArtistMusicContent({ artist, isCrolling }) {
 
             <BsThreeDotsVertical className="text-xl text-neutral-400" />
           </li>
+
+          <li className="flex justify-between items-center mb-4">
+            <div>4</div>
+
+            <MusicItemsDisplay
+              imgUrl={`https://i.imgur.com/5zVTQkc.jpg`}
+              imgDimension={`w-14 h-14 mr-3 object-cover`}
+              title={"Realidade"}
+              adicionalTxt={`6,894,693`}
+              display={`flex items-center basis-[80%]`}
+              AdicTxtFont={"text-xs"}
+              titleFont={"text-base"}
+            />
+
+            <BsThreeDotsVertical className="text-xl text-neutral-400" />
+          </li>
         </ul>
       </section>
 
@@ -107,6 +127,17 @@ function ArtistMusicContent({ artist, isCrolling }) {
           />
 
           <MusicItemsDisplay
+            imgUrl={`https://i.imgur.com/a26t4Ju.jpg`}
+            imgDimension={`w-24 h-24 mr-3 rounded-md object-cover`}
+            title={"Overwhwlming Victory"}
+            adicionalTxt={`2024 . Album`}
+            display={`flex items-center basis-[80%]`}
+            AdicTxtFont={"text-sm"}
+            titleFont={"text-base font-normal"}
+            box={"mb-5"}
+          />
+
+          <MusicItemsDisplay
             imgUrl={`https://i.imgur.com/HuRHjpS.jpg`}
             imgDimension={`w-24 h-24 mr-3 rounded-md object-cover`}
             title={"Overwhwlming Victory"}
@@ -137,6 +168,15 @@ function ArtistMusicContent({ artist, isCrolling }) {
 
         <div className="flex flex-row  space-x-5 overflow-x-auto scrollbar-hide">
           <MusicItemsDisplay
+            imgUrl={`https://i.imgur.com/f3E38zi.jpg`}
+            imgDimension={`w-full h-36 mb-2 object-cover`}
+            title={`This is ${artist.name} Radio`}
+            display={`flex flex-col justify-center`}
+            titleFont={"text-sm font-normal text-center w-36"}
+            box={"mb-5  w-40 shrink-0"}
+          />  
+
+          <MusicItemsDisplay
             imgUrl={`https://i.imgur.com/vnKIhWa.jpg`}
             imgDimension={`w-full h-36 mb-2 object-cover`}
             title={`This is ${artist.name} Radio`}
@@ -164,6 +204,15 @@ function ArtistMusicContent({ artist, isCrolling }) {
           />
 
           <MusicItemsDisplay
+            imgUrl={`https://i.imgur.com/ojKno3G.jpg`}
+            imgDimension={`w-full h-36 mb-2 object-cover`}
+            title={`This is ${artist.name} Radio`}
+            display={`flex flex-col justify-center`}
+            titleFont={"text-sm font-normal text-center"}
+            box={"mb-5  w-40  shrink-0"}
+          />
+
+          <MusicItemsDisplay
             imgUrl={`https://i.imgur.com/5zVTQkc.jpg`}
             imgDimension={`w-full h-36 mb-2 object-cover`}
             title={`This is ${artist.name} Radio`}
@@ -175,7 +224,7 @@ function ArtistMusicContent({ artist, isCrolling }) {
       </section>
 
       {/* ABOUT */}
-      <section className="mb-10">
+      <section className="mb-10" onClick={()=> navigate(`/Spotify-Clone/artist/aboutArtist/${artist.id}`)}>
         <Subtitle title={"About"} />
 
         <div
@@ -212,6 +261,15 @@ function ArtistMusicContent({ artist, isCrolling }) {
         <Subtitle title={"Fans also liked"} />
 
         <div className="flex overflow-x-auto scrollbar-hide space-x-2">
+          <MusicItemsDisplay
+            imgUrl={`https://i.imgur.com/eQ2bWJ6.jpg`}
+            imgDimension={`w-36 h-36 mb-2 object-cover rounded-full`}
+            title={`Artist Name`}
+            display={`flex flex-col justify-center`}
+            titleFont={"text-sm font-normal text-center w-36"}
+            box={"mb-5  w-40 shrink-0"}
+          />
+
           <MusicItemsDisplay
             imgUrl={`https://i.imgur.com/cRrOsSe.jpg`}
             imgDimension={`w-36 h-36 mb-2 object-cover rounded-full`}
