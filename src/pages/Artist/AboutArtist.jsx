@@ -33,7 +33,7 @@ export default function AboutArtist() {
       <BackSection id={id} />
       <ArtisGalery ArtisImages={ArtisImages} margin={"mt-20"} />
       <ArtistInfo record={'670,885'}/>
-      <ArtisMidia />
+      {/* <ArtisMidia /> */}
     </div>
   );
 }
