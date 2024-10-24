@@ -5,10 +5,9 @@ const ArtisGalery = ({ ArtisImages, margin }) => {
         className={`flex snap-x snap-mandatory  overflow-x-scroll scrollbar-hide  ${margin}`}
       >
         {ArtisImages.map((item) => (
-          <div>
+          <div key={item.id}>
             <img
               src={item.img}
-              key={item.id}
               className="max-w-80 h-80 object-cover snap-always snap-center mr-2 rounded-md"
             />
           </div>

@@ -23,7 +23,7 @@ export default function Album({ imgUrl, title, name, isCollapse, onClick }) {
       <img
         src={imgUrl}
         alt={`Album image`}
-        className={`w-36 h-36 ${
+        className={`w-36 h-36 object-cover ${
           isCollapse ? "md:w-52 md:h-52" : "md:w-40 md:h-40"
         } md:rounded-lg  `}
       />

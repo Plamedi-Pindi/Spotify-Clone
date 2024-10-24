@@ -1,5 +1,5 @@
 // Icons
-import { BsArrowLeft, BsInstagram } from "react-icons/bs";
+import { BsArrowLeft, BsInstagram, BsFacebook } from "react-icons/bs";
 
 // Hooks
 import { useNavigate, useParams } from "react-router-dom";
@@ -29,11 +29,11 @@ const ArtisImages = [
 export default function AboutArtist() {
   const { id } = useParams();
   return (
-    <div className="overflow-y-scroll  pb-32 h-full">
+    <div className="overflow-y-scroll scrollbar-hide pb-32 h-full">
       <BackSection id={id} />
       <ArtisGalery ArtisImages={ArtisImages} margin={"mt-20"} />
       <ArtistInfo record={'670,885'}/>
-      {/* <ArtisMidia /> */}
+      <ArtisMidia />
     </div>
   );
 }
@@ -64,12 +64,17 @@ const BackSection = ({ id }) => {
 };
 
 
-// const ArtisMidia = ()=> {
-//     return(
-//         <ul >
-//             <li>
-//                 <BsInstagram/>
-//             </li>
-//         </ul>
-//     )
-// }
+const ArtisMidia = ()=> {
+    return(
+        <ul className="p-4 text-sm">
+            <li className="flex items-center mb-6">
+                <BsInstagram className="text-2xl"/>
+                <span className="ml-3">Instagram</span>
+            </li>
+            <li className="flex items-center mb-6">
+                <BsFacebook className="text-2xl"/>
+                <span className="ml-3">Facebook</span>
+            </li>
+        </ul>
+    )
+}
