@@ -1,6 +1,7 @@
 import { BsPlayCircleFill } from "react-icons/bs";
 import { useState } from "react";
 
+
 export default function Album({ imgUrl, title, name, isCollapse, onClick, imgDimension, boxDimension }) {
   const [isMouseOver, setMouseOver] = useState(false);
 
@@ -10,6 +11,8 @@ export default function Album({ imgUrl, title, name, isCollapse, onClick, imgDim
   function handleMouseOut() {
     setMouseOver(false);
   }
+
+
 
   return (
     <div

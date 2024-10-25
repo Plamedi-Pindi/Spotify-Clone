@@ -229,7 +229,7 @@ function ArtistMusicContent({ artist }) {
 
         <div
           style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url(https://i.imgur.com/RJwO12O.jpg)`,
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url(${artist.img})`,
           }}
           className="bg-yellow-800 w-full h-80 bg-cover bg-center bg-no-repea flex flex-col justify-between p-4 rounded-lg"
         >

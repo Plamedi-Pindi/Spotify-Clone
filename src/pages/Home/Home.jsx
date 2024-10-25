@@ -30,6 +30,8 @@ export default function Home({ collapse, jumpinPlaylist, setAlbumId }) {
     navigate(`/Spotify-Clone/artist/${id}`);
   }
 
+  
+
   return (
     <div className="overflow-y-scroll scrollbar-hide scrollBehaviour pb-32 md:pb-44  h-screen relative">
       {/* Navbar */}
@@ -42,6 +44,7 @@ export default function Home({ collapse, jumpinPlaylist, setAlbumId }) {
             isCollapse={collapse}
             imgUrl={"https://i.imgur.com/aoU7K5a.jpg"}
             name="Nivea Soares"
+            isPlaying={true}
           />
           <RecentPlay
             isCollapse={collapse}

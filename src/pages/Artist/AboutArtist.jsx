@@ -9,37 +9,45 @@ import ArtisGalery from "./components/ArtisGalery";
 import ArtistInfo from "./components/ArtistInfo";
 
 const ArtisImages = [
-    {
-      id: 1,
-      img: "https://i.imgur.com/K0BPyWp.jpg",
-    },
-  
-    {
-      id: 2,
-      img: "https://i.imgur.com/PY630AM.jpg",
-    },
-  
-    {
-      id: 3,
-      img: "https://i.imgur.com/76UlUVf.jpg",
-    },
-  ];
+  {
+    id: 1,
+    img: "https://i.imgur.com/K0BPyWp.jpg",
+  },
+
+  {
+    id: 2,
+    img: "https://i.imgur.com/PY630AM.jpg",
+  },
+
+  {
+    id: 3,
+    img: "https://i.imgur.com/76UlUVf.jpg",
+  },
+];
 
 // Main function
-export default function AboutArtist() {
+export default function AboutArtist({ List }) {
   const { id } = useParams();
+  const artist = List.filter((item) => item.id === parseInt(id));
+
   return (
-    <div className="overflow-y-scroll scrollbar-hide pb-32 h-full">
-      <BackSection id={id} />
-      <ArtisGalery ArtisImages={ArtisImages} margin={"mt-20"} />
-      <ArtistInfo record={'670,885'}/>
-      <ArtisMidia />
-    </div>
+    <>
+      {artist.map((artist) => (
+        <div key={artist.id} className="overflow-y-scroll scrollbar-hide pb-32 h-full">
+          <BackSection id={id} name={artist.name} />
+          <ArtisGalery ArtisImages={artist.galery} margin={"mt-20"} />
+          <ArtistInfo record={"670,885"} />
+          <ArtisMidia />
+        </div>
+      ))}
+    </>
   );
 }
 
+// const Artist = artistList.filter(artist => artist.id == id);
+
 // Componet to back to previos component
-const BackSection = ({ id }) => {
+const BackSection = ({ id, name }) => {
   let navigate = useNavigate();
 
   const handleBackClick = () => {
@@ -57,24 +65,23 @@ const BackSection = ({ id }) => {
         >
           <BsArrowLeft className="text-2xl text-wite" />
         </button>
-        <h2 className={`text-lg font-medium  duration-500 `}>Artist Name</h2>
+        <h2 className={`text-lg font-medium  duration-500 `}> {name} </h2>
       </div>
     </>
   );
 };
 
-
-const ArtisMidia = ()=> {
-    return(
-        <ul className="p-4 text-sm">
-            <li className="flex items-center mb-6">
-                <BsInstagram className="text-2xl"/>
-                <span className="ml-3">Instagram</span>
-            </li>
-            <li className="flex items-center mb-6">
-                <BsFacebook className="text-2xl"/>
-                <span className="ml-3">Facebook</span>
-            </li>
-        </ul>
-    )
-}
+const ArtisMidia = () => {
+  return (
+    <ul className="p-4 text-sm">
+      <li className="flex items-center mb-6">
+        <BsInstagram className="text-2xl" />
+        <span className="ml-3">Instagram</span>
+      </li>
+      <li className="flex items-center mb-6">
+        <BsFacebook className="text-2xl" />
+        <span className="ml-3">Facebook</span>
+      </li>
+    </ul>
+  );
+};

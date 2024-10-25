@@ -76,7 +76,7 @@ function App() {
               element={<ArtistPage jumpinPlaylist={jumpinPlaylist}/>}
             />
             
-            <Route path="/Spotify-Clone/artist/aboutArtist/:id" element={<AboutArtist />} />
+            <Route path="/Spotify-Clone/artist/aboutArtist/:id" element={<AboutArtist List={jumpinPlaylist} />} />
           </Route>
           
           <Route path="/Spotify-Clone/*" element={<NoPage />} />

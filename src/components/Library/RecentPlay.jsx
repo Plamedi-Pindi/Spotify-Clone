@@ -1,7 +1,11 @@
-export default function RecentPlay({ imgUrl, name, isCollapse }) {
+import playgif from "/play.gif";
+
+
+
+export default function RecentPlay({ imgUrl, name, isCollapse, isPlaying }) {
   return (
     <div
-      className={`flex bg-neutral-800 hover:bg-neutral-700 duration-300 md:bg-neutral-800 rounded items-center w-48p md:w-24p mb-2`}
+      className={`flex relative bg-neutral-800 hover:bg-neutral-700 duration-300 md:bg-neutral-800 rounded items-center w-48p md:w-24p mb-2`}
     >
       <div className=" w-14 ">
         <img 
@@ -14,6 +18,9 @@ export default function RecentPlay({ imgUrl, name, isCollapse }) {
         {" "}
         {name}{" "}
       </h3>
+
+      <img src={playgif} className= {`w-5 h-5 object-cover absolute right-2 ${isPlaying ? "black" : "hidden"}`}   />
+
     </div>
   );
 }
