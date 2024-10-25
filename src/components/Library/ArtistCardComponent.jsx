@@ -2,7 +2,7 @@ import { BsPlayCircleFill } from "react-icons/bs";
 import { useState } from "react";
 
 
-export default function ArtistCard({ name, imgUrl, isCollapse, onClick }) {
+export default function ArtistCard({ name, imgUrl, isCollapse, onClick, imgDimension, boxDimension }) {
     const [isMouseOver, setMouseOver] = useState(false);
   
     function handleMouseOver() {
@@ -12,8 +12,8 @@ export default function ArtistCard({ name, imgUrl, isCollapse, onClick }) {
       setMouseOver(false);
     }
     return (
-      <li
-        className={`w-36 flex-shrink-0 ${
+      <div
+        className={` ${boxDimension} flex-shrink-0 ${
           isCollapse ? " md:w-56  md:p-3" : " md:w-40 md:p-1"
         }  md:hover:bg-neutral-800   rounded-lg duration-300 relative`}
         onMouseOver={handleMouseOver}
@@ -22,8 +22,7 @@ export default function ArtistCard({ name, imgUrl, isCollapse, onClick }) {
       >
         <img
           src={imgUrl}
-          alt={`Album image`}
-          className={`w-36 h-36 rounded-full ${
+          className={` rounded-full object-cover ${imgDimension} ${
             isCollapse ? "md:w-52 md:h-52" : "md:w-40 md:h-40"
           } `}
         />
@@ -40,7 +39,7 @@ export default function ArtistCard({ name, imgUrl, isCollapse, onClick }) {
             <BsPlayCircleFill className="text-5xl text-green-600 hover:scale-105 hover:text-green-500 duration-300" />
           </div>
         )}
-      </li>
+      </div>
     );
   }
   

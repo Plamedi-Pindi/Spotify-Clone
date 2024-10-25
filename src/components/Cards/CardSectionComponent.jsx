@@ -5,9 +5,9 @@ export default function CardSection({ children, subTitle }) {
         {subTitle}
       </h2>
 
-      <ul className="overflow-x-auto flex w-full whitespace-nowrap space-x-4 md:justify-between  scrollbar-hide">
+      <div className="overflow-x-auto flex w-full whitespace-nowrap space-x-4 md:justify-between  scrollbar-hide">
         {children}
-      </ul>
+      </div>
     </section>
   );
 }

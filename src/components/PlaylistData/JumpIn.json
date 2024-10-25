@@ -1,6 +1,15 @@
 [
     {
         "id" : 1,
+        "name" : "Artist Name",
+        "img" : "https://i.imgur.com/xv5VGWc.jpg",
+        "category" : "Artist",
+        "title" : "The Grace",
+        "year" : "2022"
+        
+    },
+    {
+        "id" : 2,
         "name" : "Mercy Chinow",
         "img" : "https://i.imgur.com/K0BPyWp.jpg",
         "category" : "Album",
@@ -9,13 +18,22 @@
         
     },
     {
-        "id" : 2,
+        "id" : 3,
+        "name" : "Nívea Soares",
+        "img" : "https://i.imgur.com/dmeOtvj.jpg",
+        "category" : "Album",
+        "title" : "The Grace",
+        "year" : "2022"
+        
+    },
+    {
+        "id" : 4,
         "name" : "Williams McDowell",
         "img" : "https://i.imgur.com/eQ2bWJ6.jpg",
         "category" : "Artist"
     },
     {
-        "id" : 3,
+        "id" : 5,
         "name" : "Omid Armin",
         "img" : "https://i.imgur.com/RJwO12O.jpg",
         "category" : "Album",
@@ -23,17 +41,23 @@
         "year" : "2010"
     },
     {
-        "id" : 4,
-        "name" : "Fatane Rahimi",
-        "img" : "https://i.imgur.com/fchqUAa.jpg",
+        "id" : 6,
+        "name" : "Sandra Mbuyi",
+        "img" : "https://i.imgur.com/nmccSuW.jpg",
         "category" : "Album",
-        "title" : "The Kingdown of God",
+        "title" : "Eyano",
         "year" : "2024"
     },
     {
-        "id" : 5,
+        "id" : 7,
         "name" : "Nathaniel Bassey",
         "img" : "https://i.imgur.com/HuRHjpS.jpg",
+        "category" : "Artist"
+    },
+    {
+        "id" : 8,
+        "name" : "Air Nany",
+        "img" : "https://i.imgur.com/9hs8YRc.jpg",
         "category" : "Artist"
     }
 ]
