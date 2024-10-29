@@ -8,16 +8,18 @@ import ArtistCard from "../../components/Library/ArtistCardComponent";
 import NavBar from "../../components/Navbar/NavbarComponent";
 import CardSection from "../../components/Cards/CardSectionComponent";
 import MixesCard from "../../components/Mixes/MixesCard";
-import { Mixes } from "../../components/Mixes/MixesCard";
+import RecommendedCard from "../../components/RecomendedCard/RecommendedCard";
 
 // Object of recente reproduction
 import recents from "../../components/PlaylistData/recents.json";
+import artists from "../../components/PlaylistData/Artists.json";
 
 // IMAGES
 import MercyImg from "../../assets/imgs/Artists/Mercy-Chinwolk.jpg";
 import OmidImg from "../../assets/imgs/Artists/omid-armin-_BkjDspEw_k-unsplash (1).jpg";
 import logo from "/logo.png";
 
+// Main Function
 export default function Home({ collapse, jumpinPlaylist, setAlbumId }) {
   let navigate = useNavigate();
 
@@ -30,7 +32,26 @@ export default function Home({ collapse, jumpinPlaylist, setAlbumId }) {
     navigate(`/Spotify-Clone/artist/${id}`);
   }
 
-  
+  const imgList = [
+    "https://i.imgur.com/8GqdgTg.jpg",
+    "https://i.imgur.com/iYcSPld.jpg",
+    "https://i.imgur.com/9hs8YRc.jpg",
+  ];
+  const imgList2 = [
+    "https://i.imgur.com/owdNyDx.jpg",
+    "https://i.imgur.com/C5wQDoH.jpg",
+    "https://i.imgur.com/jTdE0Ai.jpg",
+  ];
+  const imgList3 = [
+    "https://i.imgur.com/WRwCU4o.jpg",
+    "https://i.imgur.com/oODBZjZ.jpg",
+    "https://i.imgur.com/eQ2bWJ6.jpg",
+  ];
+  const imgList4 = [
+    "https://i.imgur.com/7TrWOrM.jpg",
+    "https://i.imgur.com/QAt3RmB.png",
+    "https://i.imgur.com/dmeOtvj.jpg",
+  ];
 
   return (
     <div className="overflow-y-scroll scrollbar-hide scrollBehaviour pb-32 md:pb-44  h-screen relative">
@@ -68,9 +89,9 @@ export default function Home({ collapse, jumpinPlaylist, setAlbumId }) {
             name="Micheal W. Smith"
           />
 
-          <RecentPlay 
-            isCollapse={collapse} 
-            imgUrl={"https://i.imgur.com/kLMhMXe.jpg"} 
+          <RecentPlay
+            isCollapse={collapse}
+            imgUrl={"https://i.imgur.com/kLMhMXe.jpg"}
             name="Imd Armin"
           />
 
@@ -108,54 +129,6 @@ export default function Home({ collapse, jumpinPlaylist, setAlbumId }) {
             />
           )
         )}
-      </CardSection>
-
-      {/* Recents SECTION*/}
-      <CardSection subTitle={" Recents"}>
-        {recents.map((data) => {
-          switch (data.category) {
-            case "Album":
-              return (
-                <Album
-                  imgUrl={data.img}
-                  title={data.title}
-                  name={data.name}
-                  isCollapse={collapse}
-                  onClick={() => handleAlbumClick(data.id)}
-                  key={data.id}
-                  boxDimension={"w-36"}
-                  imgDimension={"w-32 h-32 rounded-md"}
-                />
-              );
-            case "Artist":
-              return (
-                <ArtistCard
-                  imgUrl={data.img}
-                  name={data.name}
-                  isCollapse={collapse}
-                  onClick={() => handleArtistClick(data.id)}
-                  key={data.id}
-                  imgDimension={"w-32 h-32"}
-                  boxDimension={"w-32"}
-                />
-              );
-            case "Mix":
-              return (
-                <MixesCard
-                  key={data.id}
-                  imgUrl={data.img}
-                  logo={logo}
-                  border={`border-b-8 border-green-700 rounded-md`}
-                  imgRadiu={"rounded-t-md"}
-                  title={"Upbeat Mix"}
-                  titleBorder={"green"}
-                  box={"w-32 h-44"}
-                  imgSize={"h-32"}
-                  autors={"Autor name1, Autor name2..."}
-                />
-              );
-          }
-        })}
       </CardSection>
 
       {/* YOUR TOP MIXES SECTION*/}
@@ -238,14 +211,104 @@ export default function Home({ collapse, jumpinPlaylist, setAlbumId }) {
         />
       </CardSection>
 
+      {/* Recents SECTION*/}
+      <CardSection subTitle={" Recents"}>
+        {recents.map((data) => {
+          switch (data.category) {
+            case "Album":
+              return (
+                <Album
+                  imgUrl={data.img}
+                  title={data.title}
+                  name={data.name}
+                  isCollapse={collapse}
+                  onClick={() => handleAlbumClick(data.id)}
+                  key={data.id}
+                  boxDimension={"w-36"}
+                  imgDimension={"w-32 h-32 rounded-md"}
+                />
+              );
+            case "Artist":
+              return (
+                <ArtistCard
+                  imgUrl={data.img}
+                  name={data.name}
+                  isCollapse={collapse}
+                  onClick={() => handleArtistClick(data.id)}
+                  key={data.id}
+                  imgDimension={"w-32 h-32"}
+                  boxDimension={"w-32"}
+                />
+              );
+            case "Mix":
+              return (
+                <MixesCard
+                  key={data.id}
+                  imgUrl={data.img}
+                  logo={logo}
+                  border={`border-b-8 border-green-700 rounded-md`}
+                  imgRadiu={"rounded-t-md"}
+                  title={"Upbeat Mix"}
+                  titleBorder={"green"}
+                  box={"w-32 h-44"}
+                  imgSize={"h-32"}
+                  autors={"Autor name1, Autor name2..."}
+                />
+              );
+          }
+        })}
+      </CardSection>
+
       {/* Recomended Stations SECTION*/}
-      <CardSection subTitle={" Recommended Stations"}></CardSection>
+      <CardSection subTitle={" Recommended Stations"}>
+        <RecommendedCard
+          imgList={imgList}
+          name={"Artist Name"}
+          background={"#8fd14f"}
+        />
+
+        <RecommendedCard
+          imgList={imgList2}
+          name={"Artist Name"}
+          background={"#a594f9"}
+        />
+
+        <RecommendedCard
+          imgList={imgList3}
+          name={"Artist Name"}
+          background={"#ffa823"}
+        />
+
+        <RecommendedCard
+          imgList={imgList}
+          name={"Artist Name"}
+          background={"#d91656"}
+        />
+
+        <RecommendedCard
+          imgList={imgList4}
+          name={"Artist Name"}
+          background={"#006989"}
+        />
+      </CardSection>
 
       {/* NEW EPISODES SECTION*/}
       <CardSection subTitle={"New episodes"}></CardSection>
 
       {/* YOUR FAVORITE ARTIST SECTION*/}
-      <CardSection subTitle={"Your favorite artist"}></CardSection>
+      <CardSection subTitle={"Your favorite artist"}>
+        {artists.map((data) => (
+          <ArtistCard
+            imgUrl={data.img}
+            name={data.name}
+            isCollapse={collapse}
+            onClick={() => handleArtistClick(data.id)}
+            key={data.id}
+            imgDimension={"w-36 h-36"}
+            boxDimension={"w-36"}
+          />
+        ))}
+      </CardSection>
     </div>
   );
 }

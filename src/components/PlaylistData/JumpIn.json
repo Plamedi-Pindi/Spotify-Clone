@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": 3,
         "name": "Artist Name",
         "img": "https://i.imgur.com/xv5VGWc.jpg",
         "category": "Artist",
@@ -22,7 +22,7 @@
         ]
     },
     {
-        "id": 2,
+        "id": 4,
         "name": "Mercy Chinow",
         "img": "https://i.imgur.com/K0BPyWp.jpg",
         "category": "Album",
@@ -30,7 +30,7 @@
         "year": "2022"
     },
     {
-        "id": 3,
+        "id": 5,
         "name": "Nívea Soares",
         "img": "https://i.imgur.com/dmeOtvj.jpg",
         "category": "Album",
@@ -38,7 +38,7 @@
         "year": "2022"
     },
     {
-        "id": 4,
+        "id": 6,
         "name": "Williams McDowell",
         "img": "https://i.imgur.com/eQ2bWJ6.jpg",
         "category": "Artist", 
@@ -58,7 +58,7 @@
         ]
     },
     {
-        "id": 5,
+        "id": 7,
         "name": "Omid Armin",
         "img": "https://i.imgur.com/RJwO12O.jpg",
         "category": "Album",
@@ -66,7 +66,7 @@
         "year": "2010"
     },
     {
-        "id": 6,
+        "id": 8,
         "name": "Sandra Mbuyi",
         "img": "https://i.imgur.com/nmccSuW.jpg",
         "category": "Album",
@@ -74,7 +74,7 @@
         "year": "2024"
     },
     {
-        "id": 7,
+        "id": 9,
         "name": "Nathaniel Bassey",
         "img": "https://i.imgur.com/C5wQDoH.jpg",
         "category": "Artist",
@@ -94,7 +94,7 @@
         ]
     },
     {
-        "id": 8,
+        "id": 10,
         "name": "Nair Nany",
         "img": "https://i.imgur.com/9hs8YRc.jpg",
         "category": "Artist", 

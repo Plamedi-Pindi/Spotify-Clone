@@ -8,27 +8,29 @@ import { useNavigate, useParams } from "react-router-dom";
 import ArtisGalery from "./components/ArtisGalery";
 import ArtistInfo from "./components/ArtistInfo";
 
-const ArtisImages = [
-  {
-    id: 1,
-    img: "https://i.imgur.com/K0BPyWp.jpg",
-  },
+import artists from "../../components/PlaylistData/Artists.json";
 
-  {
-    id: 2,
-    img: "https://i.imgur.com/PY630AM.jpg",
-  },
+// const ArtisImages = [
+//   {
+//     id: 1,
+//     img: "https://i.imgur.com/K0BPyWp.jpg",
+//   },
 
-  {
-    id: 3,
-    img: "https://i.imgur.com/76UlUVf.jpg",
-  },
-];
+//   {
+//     id: 2,
+//     img: "https://i.imgur.com/PY630AM.jpg",
+//   },
+
+//   {
+//     id: 3,
+//     img: "https://i.imgur.com/76UlUVf.jpg",
+//   },
+// ];
 
 // Main function
-export default function AboutArtist({ List }) {
+export default function AboutArtist() {
   const { id } = useParams();
-  const artist = List.filter((item) => item.id === parseInt(id));
+  const artist = artists.filter((item) => item.id === parseInt(id));
 
   return (
     <>

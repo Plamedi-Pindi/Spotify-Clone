@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 // Conmponts
 import ArtistMerchContent from "./components/ArtistMerchContent";
 import ArtistMusicContent from "./components/ArtistMusicContent";
+import artists from "../../components/PlaylistData/Artists.json";
 
 // Icons
 import {
@@ -61,7 +62,7 @@ export default function ArtistPage({ jumpinPlaylist }) {
   let isMerch = contentDisplay === "Merch";
 
   const { id } = useParams();
-  const correntArtists = jumpinPlaylist.filter(
+  const correntArtists = artists.filter(
     (art) => art.id === parseInt(id)
   );
 
