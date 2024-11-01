@@ -9,6 +9,8 @@ import NavBar from "../../components/Navbar/NavbarComponent";
 import CardSection from "../../components/Cards/CardSectionComponent";
 import MixesCard from "../../components/Mixes/MixesCard";
 import RecommendedCard from "../../components/RecomendedCard/RecommendedCard";
+import EpisodesCard from "../../components/Episods/EpisodesCard";
+import jumpinPlaylist from "../../components/PlaylistData/JumpIn.json";
 
 // Object of recente reproduction
 import recents from "../../components/PlaylistData/recents.json";
@@ -20,11 +22,10 @@ import OmidImg from "../../assets/imgs/Artists/omid-armin-_BkjDspEw_k-unsplash (
 import logo from "/logo.png";
 
 // Main Function
-export default function Home({ collapse, jumpinPlaylist, setAlbumId }) {
+export default function Home({ collapse }) {
   let navigate = useNavigate();
 
   function handleAlbumClick(id) {
-    setAlbumId(id);
     navigate(`/Spotify-Clone/albums/${id}`);
   }
 
@@ -66,27 +67,37 @@ export default function Home({ collapse, jumpinPlaylist, setAlbumId }) {
             imgUrl={"https://i.imgur.com/aoU7K5a.jpg"}
             name="Nivea Soares"
             isPlaying={true}
+            onClick={() => handleArtistClick(5)}
           />
           <RecentPlay
             isCollapse={collapse}
             imgUrl={MercyImg}
             name="Mercy Chinwo"
+            onClick={() => handleArtistClick(4)}
           />
-          <RecentPlay isCollapse={collapse} imgUrl={OmidImg} name="Imd Armin" />
+          <RecentPlay
+            isCollapse={collapse}
+            imgUrl={OmidImg}
+            name="Imd Armin"
+            onClick={() => handleAlbumClick(7)}
+          />
           <RecentPlay
             isCollapse={collapse}
             imgUrl={"https://i.imgur.com/V5ZIvjQ.jpg"}
             name="Thamires Garcia"
+            onClick={()=> handleArtistClick(1)}
           />
           <RecentPlay
             isCollapse={collapse}
             imgUrl={"https://i.imgur.com/qHw9NBT.jpg"}
             name="Tasha Cobbs"
+            onClick={()=> handleArtistClick(11)}
           />
           <RecentPlay
             isCollapse={collapse}
             imgUrl={"https://i.imgur.com/aNSFnyd.jpg"}
             name="Micheal W. Smith"
+            onClick={()=> handleArtistClick(2)}
           />
 
           <RecentPlay
@@ -293,7 +304,37 @@ export default function Home({ collapse, jumpinPlaylist, setAlbumId }) {
       </CardSection>
 
       {/* NEW EPISODES SECTION*/}
-      <CardSection subTitle={"New episodes"}></CardSection>
+      <CardSection subTitle={"New episodes"}>
+        <EpisodesCard
+          imgUrl={"https://i.imgur.com/k2QdpL4.jpg"}
+          title={"Autor or podcast thame and something.."}
+        />
+
+        <EpisodesCard
+          imgUrl={"https://i.imgur.com/9cHsUf5.png"}
+          title={"Autor or podcast thame and something.."}
+        />
+
+        <EpisodesCard
+          imgUrl={"https://i.imgur.com/BaDqKgo.jpg"}
+          title={"Autor or podcast thame and something.."}
+        />
+
+        <EpisodesCard
+          imgUrl={"https://i.imgur.com/Oo6jpJ9.jpg"}
+          title={"Autor or podcast thame and something.."}
+        />
+
+        <EpisodesCard
+          imgUrl={"https://i.imgur.com/g5UVY2j.jpg"}
+          title={"Autor or podcast thame and something.."}
+        />
+
+        <EpisodesCard
+          imgUrl={"https://i.imgur.com/IHOxdHN.jpg"}
+          title={"Autor or podcast thame and something.."}
+        />
+      </CardSection>
 
       {/* YOUR FAVORITE ARTIST SECTION*/}
       <CardSection subTitle={"Your favorite artist"}>

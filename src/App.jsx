@@ -24,7 +24,6 @@ function App() {
   const [collapse, setCollapse] = useState(false); // Active collapse to left side box
   const [isPlay, setIsPlay] = useState(false); // Change state to a play mode
   const [isFavorit, setFavorit] = useState(false); // Chandge state to set a favorit album, playlist or music
-  const [jumpinPlaylist, setjumpinPlaylist] = useState(jumpin); // Album list object variable state
   const [albumId, setAlbumId] = useState(1);
 
 
@@ -43,7 +42,6 @@ function App() {
                 isFavorit={isFavorit} // Props for Favorit state
                 handleFavoritClick={handleFavoritClick} // Props for Favorit state event handler
                 albumId={albumId}  // props for Album Id
-                jumpinPlaylist={jumpinPlaylist} // Props for jumpinPlaylist state
               />
             }
           >
@@ -52,8 +50,6 @@ function App() {
               element={
                 <Home
                   collapse={collapse}
-                  jumpinPlaylist={jumpinPlaylist}
-                  setAlbumId={setAlbumId}
                 />
               }
             />
@@ -67,13 +63,12 @@ function App() {
                   handlePlayclick={handlePlayclick} // Props for Play state event handler
                   isFavorit={isFavorit} // Props for Favorit state
                   handleFavoritClick={handleFavoritClick} // Props for Favorit event handler
-                  jumpinPlaylist={jumpinPlaylist} // Props for JumpinPlaylist state
                 />
               }
             />
             <Route
               path="/Spotify-Clone/artist/:id"
-              element={<ArtistPage jumpinPlaylist={jumpinPlaylist}/>}
+              element={<ArtistPage />}
             />
             
             <Route path="/Spotify-Clone/artist/aboutArtist/:id" element={<AboutArtist/>} />

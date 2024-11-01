@@ -2,9 +2,10 @@ import playgif from "/play.gif";
 
 
 
-export default function RecentPlay({ imgUrl, name, isCollapse, isPlaying }) {
+export default function RecentPlay({ imgUrl, name, isCollapse, isPlaying, onClick }) {
   return (
     <div
+      onClick={onClick}
       className={`flex relative bg-neutral-800 hover:bg-neutral-700 duration-300 md:bg-neutral-800 rounded items-center w-48p md:w-24p mb-2`}
     >
       <div className=" w-14 ">

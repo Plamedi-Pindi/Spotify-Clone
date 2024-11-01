@@ -15,12 +15,14 @@ import {
   BsCheckCircleFill,
 } from "react-icons/bs";
 
+// Components
+import jumpinPlaylist from "../../components/PlaylistData/JumpIn.json";
+
 export default function AlbumPage({
   isPlay, // Play state
   handlePlayclick, // Play state event handler
   isFavorit, // Favorit state
   handleFavoritClick, // Favorit state event handler
-  jumpinPlaylist, // JumpinPlaylist state
 }) {
   //STATES
   const [listPlayMode, setListPlayMode] = useState("Random"); // States: Random, RepeatAll, RepeatOne

@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 import ArtistMerchContent from "./components/ArtistMerchContent";
 import ArtistMusicContent from "./components/ArtistMusicContent";
 import artists from "../../components/PlaylistData/Artists.json";
+// import jumpinPlaylist from "../../components/PlaylistData/JumpIn.json";
+
 
 // Icons
 import {
@@ -23,7 +25,7 @@ import {
   BsCheckCircleFill,
 } from "react-icons/bs";
 
-export default function ArtistPage({ jumpinPlaylist }) {
+export default function ArtistPage() {
   
   const [contentDisplay, setContentDispaly] = useState("Music"); // Set contet state to: Music, Merch
   const [isScrollUp, setIsCrollUp] = useState(false);

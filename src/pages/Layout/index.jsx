@@ -11,6 +11,7 @@ import SpotMainBox from "./components/SpotMainBox"; // Main Box
 import SpotMiddleBox from "./components/SpotMiddleBox"; // Middle Box
 import SpotFooter from "./components/SpotFooter"; // Footer
 import SpotMobilePlay from "./components/SpotMobilePlay"; // Mobile Play control
+import jumpinPlaylist from "../../components/PlaylistData/JumpIn.json";
 
 export default function Layout({
   collapse, // Callapse state
@@ -20,7 +21,6 @@ export default function Layout({
   isFavorit, // Favorit state
   handleFavoritClick, // Favorit state event handler
   albumId, // Album state
-  jumpinPlaylist,
 }) {
   const [playControl, setPlayControl] = useState(false); // Show control play
 
