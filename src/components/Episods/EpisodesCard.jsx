@@ -1,12 +1,27 @@
 
-export default function EpisodesCard({imgUrl, title}) {
+export default function EpisodesCard({imgUrl, title, border}) {
   return (
-    <div className="w-36">
-        <div className="w-36 h-36 bg-neutral-600">
-            <img src={imgUrl} alt={`Image of ${title}`} className="h-full w-full object-cover" />
+    <div className= {`w-36  `} >
+        <div className= {`w-36 h-36 bg-neutral-600 ${border} `} >
+            <img src={imgUrl} alt={`Image of ${title}`} className= {`h-full w-full object-cover ${border}`} />
         </div>
         <div className="text-sm text-wrap text-neutral-400 mt-2">
             <p> {title} </p>
+        </div>
+    </div>
+  )
+}
+
+export const PodcastCard = ({imgUrl, title, border, category, author}) => {
+  return (
+    <div className= {`w-36  `} >
+        <div className= {`w-36 h-36 bg-neutral-600 ${border} `} >
+            <img src={imgUrl} alt={`Image of ${title}`} className= {`h-full w-full object-cover ${border}`} />
+        </div>
+        <div className="text-sm text-wrap   mt-2">
+            <p className="text-xs text-green-400 mb-1"> {category} </p>
+            <p className="mb-1 "> {title} </p>
+            <p className="text-neutral-400"> {author} </p>
         </div>
     </div>
   )

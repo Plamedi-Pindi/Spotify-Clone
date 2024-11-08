@@ -1,6 +1,6 @@
 export default function RecentPodcastCard({ imgUrl, hasNews }) {
   return (
-    <div className="relative w-20 h-20 bg-neutral-600 rounded-md mb-4">
+    <div className="relative w-[5rem] h-[5rem] bg-neutral-600 rounded-md mb-5">
       <div className="w-full h-full">
         {/* img */}
         <img

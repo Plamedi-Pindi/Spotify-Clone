@@ -1,6 +1,6 @@
-export default function CardSection({ children, subTitle }) {
+export default function CardSection({ children, subTitle, margin }) {
   return (
-    <section className="mt-4 pb-2 w-95p mx-auto md:w-96p">
+    <section className= {` pb-2 w-95p mx-auto md:w-96p ${margin}`} >
       <h2 className="text-xl text-white font-bold mb-5 md:text-2xl">
         {subTitle}
       </h2>
