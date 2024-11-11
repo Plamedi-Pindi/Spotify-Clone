@@ -12,6 +12,7 @@ import SpotMiddleBox from "./components/SpotMiddleBox"; // Middle Box
 import SpotFooter from "./components/SpotFooter"; // Footer
 import SpotMobilePlay from "./components/SpotMobilePlay"; // Mobile Play control
 import jumpinPlaylist from "../../components/PlaylistData/JumpIn.json";
+import SpotSidebarMenu from "./components/SpotSidebarMenu";
 
 export default function Layout({
   collapse, // Callapse state
@@ -21,9 +22,11 @@ export default function Layout({
   isFavorit, // Favorit state
   handleFavoritClick, // Favorit state event handler
   albumId, // Album state
+  isSideMenu
 }) {
   const [playControl, setPlayControl] = useState(false); // Show control play
 
+ 
   const correntAlbum = jumpinPlaylist.filter((album) => album.id == albumId);
 
   // ====
@@ -40,8 +43,13 @@ export default function Layout({
           collapse={collapse}
           handleCollapseClick={handleCollapseClick}
         />
-        
+
         <SpotMiddleBox>
+          {/* SIDEBAR MENU */}
+          <SpotSidebarMenu
+            display={`${isSideMenu ? "block" : "hidden"}  `}
+            dimension={`${isSideMenu ? "w-80 h-screen" : "w-0 h-screen"}  `}
+          />
           <Outlet />
         </SpotMiddleBox>
       </SpotMainBox>
@@ -52,6 +60,7 @@ export default function Layout({
         isFavorit={isFavorit}
         handleFavoritClick={handleFavoritClick}
         handlePlayControlClick={handlePlayControlClick}
+        display={`${isSideMenu && 'hidden'}`}
       />
 
       <SpotMobilePlay

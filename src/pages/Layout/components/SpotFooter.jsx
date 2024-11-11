@@ -35,6 +35,7 @@ export default function SpotFooter({
   handleFavoritClick,
   isPlay,
   handlePlayclick,
+  display
 }) {
   const [isActive, setIsActive] = useState("Home"); // Change state to: Home, Search, Library, Premium
 
@@ -63,10 +64,10 @@ export default function SpotFooter({
   return (
     <div className="absolute bottom-0  fixed w-full md:h-14vh md:relative">
       {/* MOBILE NAV START ==================*/}
-      <div className="md:hidden">
+      <div className= {`md:hidden ${display}`} >
         {/* PLAY SECTION */}
         <section
-          className="bg-blue-700 h-14 w-95p mx-auto rounded flex justify-between items-center p-2"
+          className= {`bg-blue-700 h-14 w-95p  mx-auto rounded flex justify-between items-center p-2 `}
           onClick={handlePlayControlClick}
         >
           <Playing

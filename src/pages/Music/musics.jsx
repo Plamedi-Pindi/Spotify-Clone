@@ -10,6 +10,7 @@ import CardSection from "../../components/Cards/CardSectionComponent";
 import MixesCard from "../../components/Mixes/MixesCard";
 import RecommendedCard from "../../components/RecomendedCard/RecommendedCard";
 import EpisodesCard from "../../components/Episods/EpisodesCard";
+import RectangularCard from "../../components/Cards/RectangularCard";
 
 // Object of recente reproduction
 import recents from "../../components/PlaylistData/recents.json";
@@ -21,7 +22,7 @@ import OmidImg from "../../assets/imgs/Artists/omid-armin-_BkjDspEw_k-unsplash (
 import logo from "/logo.png";
 import jumpinPlaylist from "../../components/PlaylistData/JumpIn.json";
 
-export default function Musics({ collapse }) {
+export default function Musics({ collapse, sideMenu, isMenuOn }) {
   let navigate = useNavigate();
 
   function handleAlbumClick(id) {
@@ -55,12 +56,20 @@ export default function Musics({ collapse }) {
   ];
 
   return (
-    <div className="overflow-y-scroll scrollbar-hide scrollBehaviour pb-32 md:pb-44  h-screen relative">
+    <div
+      className={` scrollbar-hide scrollBehaviour pb-32 md:pb-44  h-screen relative ${
+        isMenuOn ? "shrink-0 " : "overflow-y-scroll"
+      }`}
+    >
       {/* Navbar */}
-      <NavBar page={"Music"} />
+      <NavBar
+        page={"Music"}
+        onClick={sideMenu}
+        position={`${isMenuOn ? "" : "fixed"}`}
+      />
 
       {/* Recently played Section  */}
-      <section className="mt-20 ">
+      <section className={`${!isMenuOn && "mt-20"}  `}>
         <div className="w-96p block mx-auto flex flex-row flex-wrap justify-between">
           <RecentPlay
             isCollapse={collapse}
@@ -114,6 +123,12 @@ export default function Musics({ collapse }) {
         </div>
       </section>
 
+      <CardSection subTitle={"Picked for you"} margin={"mt-6 mb-6"}>
+        <RectangularCard
+          title={"Relaxing Massage"}
+          description={"Soothing drones, anbient piano and new age music"}
+        />
+      </CardSection>
       {/* JUMP BACK IN SECTION*/}
       <CardSection subTitle={" Jump back in"}>
         {jumpinPlaylist.map((data) =>

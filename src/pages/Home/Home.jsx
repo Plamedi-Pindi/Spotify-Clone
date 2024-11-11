@@ -11,6 +11,7 @@ import MixesCard from "../../components/Mixes/MixesCard";
 import RecommendedCard from "../../components/RecomendedCard/RecommendedCard";
 import EpisodesCard from "../../components/Episods/EpisodesCard";
 import jumpinPlaylist from "../../components/PlaylistData/JumpIn.json";
+import RectangularCard from "../../components/Cards/RectangularCard";
 
 // Object of recente reproduction
 import recents from "../../components/PlaylistData/recents.json";
@@ -22,13 +23,15 @@ import OmidImg from "../../assets/imgs/Artists/omid-armin-_BkjDspEw_k-unsplash (
 import logo from "/logo.png";
 
 // Main Function
-export default function Home({ collapse }) {
+export default function Home({ collapse, sideMenu, isMenuOn }) {
   let navigate = useNavigate();
 
+  //
   function handleAlbumClick(id) {
     navigate(`/Spotify-Clone/albums/${id}`);
   }
 
+  //
   function handleArtistClick(id) {
     navigate(`/Spotify-Clone/artist/${id}`);
   }
@@ -55,12 +58,23 @@ export default function Home({ collapse }) {
   ];
 
   return (
-    <div className="overflow-y-scroll scrollbar-hide scrollBehaviour pb-32 md:pb-44  h-screen relative">
+    <div
+      className={`   scrollbar-hide scrollBehaviour pb-32 md:pb-44  h-screen relative ${
+        isMenuOn ? "shrink-0 " : "overflow-y-scroll"
+      }`}
+    >
       {/* Navbar */}
-      <NavBar page={"All"} />
+      <NavBar
+        page={"All"}
+        onClick={sideMenu}
+        position={`${isMenuOn ? "" : "fixed"}`}
+
+      />
+
+      
 
       {/* Recently played Section  */}
-      <section className="mt-20 ">
+      <section className={`${!isMenuOn && "mt-20"}  `}>
         <div className="w-96p block mx-auto flex flex-row flex-wrap justify-between">
           <RecentPlay
             isCollapse={collapse}
@@ -85,19 +99,19 @@ export default function Home({ collapse }) {
             isCollapse={collapse}
             imgUrl={"https://i.imgur.com/V5ZIvjQ.jpg"}
             name="Thamires Garcia"
-            onClick={()=> handleArtistClick(1)}
+            onClick={() => handleArtistClick(1)}
           />
           <RecentPlay
             isCollapse={collapse}
             imgUrl={"https://i.imgur.com/qHw9NBT.jpg"}
             name="Tasha Cobbs"
-            onClick={()=> handleArtistClick(11)}
+            onClick={() => handleArtistClick(11)}
           />
           <RecentPlay
             isCollapse={collapse}
             imgUrl={"https://i.imgur.com/aNSFnyd.jpg"}
             name="Micheal W. Smith"
-            onClick={()=> handleArtistClick(2)}
+            onClick={() => handleArtistClick(2)}
           />
 
           <RecentPlay
@@ -113,6 +127,8 @@ export default function Home({ collapse }) {
           />
         </div>
       </section>
+
+
 
       {/* JUMP BACK IN SECTION*/}
       <CardSection subTitle={" Jump back in"}>

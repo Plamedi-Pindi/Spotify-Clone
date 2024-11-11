@@ -20,7 +20,7 @@ export default function RecentPlay({ imgUrl, name, isCollapse, isPlaying, onClic
         {name}{" "}
       </h3>
 
-      <img src={playgif} className= {`w-5 h-5 object-cover absolute right-2 ${isPlaying ? "black" : "hidden"}`}   />
+      <img src={playgif} className= {`w-3 h-4 object-cover absolute right-2 ${isPlaying ? "black" : "hidden"}`}   />
 
     </div>
   );
