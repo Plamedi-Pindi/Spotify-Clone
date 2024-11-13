@@ -5,6 +5,7 @@ import CardSection from "../../components/Cards/CardSectionComponent";
 import EpisodesCard from "../../components/Episods/EpisodesCard";
 import PodcastPreviewCard from "./components/Cards/PodcastPreviewCard";
 import { PodcastCard } from "../../components/Episods/EpisodesCard";
+import RectangularCard from "../../components/Cards/RectangularCard";
 
 // Main function
 export default function Podcast({ sideMenu, isMenuOn }) {
@@ -103,6 +104,15 @@ export default function Podcast({ sideMenu, isMenuOn }) {
         />
       </CardSection>
 
+      {/* Piked for you */}
+      <CardSection subTitle={"Picked for you"} margin={"mt-6 mb-6"}>
+        <RectangularCard
+          title={"Sleep Benefits"}
+          description={"Soothing drones, anbient piano and new age music"}
+          imgUrl={"https://i.imgur.com/MvPmhlX.jpg"}
+        />
+      </CardSection>
+
       {/* NEW EPISODES SECTION*/}
       <CardSection subTitle={"Light of the Mind"} margin={"mt-8"}>
         <PodcastCard
@@ -153,6 +163,15 @@ export default function Podcast({ sideMenu, isMenuOn }) {
         imgUrl={"https://i.imgur.com/gH1gPZd.jpg"}
         background={"bg-green-800/50"}
       />
+
+      {/* Piked for you */}
+      <CardSection subTitle={"Picked for you"} margin={"mt-6 mb-6"}>
+        <RectangularCard
+          title={"Sleep Benefits"}
+          description={"Soothing drones, anbient piano and new age music"}
+          imgUrl={"https://i.imgur.com/10b0WW4.png"}
+        />
+      </CardSection>
 
       {/*  */}
       <PodcastPreviewCard
