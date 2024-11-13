@@ -3,11 +3,12 @@ import logo from '/logo.png';
 //Icons
 import { BsPlusCircle, BsPlayCircleFill } from 'react-icons/bs';
 
-export default function RectangularCard({title, description, imgurl}) {
+export default function RectangularCard({title, description, imgUrl}) {
   return (
     <div className="h-36 w-full bg-neutral-900/50 rounded-xl flex ">
         <div className="h-full w-36 bg-pink-800 rounded-l-xl shrink-0 relative">
             <img src={logo} className='w-4 object-cover absolute top-2 left-2' />
+            <img src={imgUrl} className='rounded-l-xl w-full h-full object-cover' />
         </div>
         <div className='text-wrap p-2 pt-3 text-sm ml-2'>
             <p className='text-neutral-500 mb-0.5'>Playlist</p>

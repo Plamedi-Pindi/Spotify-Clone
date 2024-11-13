@@ -123,14 +123,17 @@ export default function Musics({ collapse, sideMenu, isMenuOn }) {
         </div>
       </section>
 
+      {/* Piked for you */}
       <CardSection subTitle={"Picked for you"} margin={"mt-6 mb-6"}>
         <RectangularCard
           title={"Relaxing Massage"}
           description={"Soothing drones, anbient piano and new age music"}
+          imgUrl={"https://i.imgur.com/4IZC5G8.jpg"}
         />
       </CardSection>
+
       {/* JUMP BACK IN SECTION*/}
-      <CardSection subTitle={" Jump back in"}>
+      <CardSection subTitle={" Jump back in"} margin={""}>
         {jumpinPlaylist.map((data) =>
           data.category === "Album" ? (
             <Album
@@ -158,7 +161,7 @@ export default function Musics({ collapse, sideMenu, isMenuOn }) {
       </CardSection>
 
       {/* YOUR TOP MIXES SECTION*/}
-      <CardSection subTitle={" Your tpo mixes"}>
+      <CardSection subTitle={" Your tpo mixes"} margin={"mt-2"}>
         <MixesCard
           imgUrl={"https://i.imgur.com/9hs8YRc.jpg"}
           logo={logo}
@@ -237,8 +240,17 @@ export default function Musics({ collapse, sideMenu, isMenuOn }) {
         />
       </CardSection>
 
+      {/* Piked for you */}
+      <CardSection subTitle={"Picked for you"} margin={"mt-6 mb-6"}>
+        <RectangularCard
+          title={"Sleep Songs"}
+          description={"Soothing drones, anbient piano and new age music"}
+          imgUrl={"https://i.imgur.com/crwJBbh.jpg"}
+        />
+      </CardSection>
+
       {/* Recents SECTION*/}
-      <CardSection subTitle={" Recents"}>
+      <CardSection subTitle={" Recents"} margin={"mt-2"}>
         {recents.map((data) => {
           switch (data.category) {
             case "Album":
@@ -286,7 +298,7 @@ export default function Musics({ collapse, sideMenu, isMenuOn }) {
       </CardSection>
 
       {/* Recomended Stations SECTION*/}
-      <CardSection subTitle={" Recommended Stations"}>
+      <CardSection subTitle={" Recommended Stations"} margin={"mt-2"}>
         <RecommendedCard
           imgList={imgList}
           name={"Artist Name"}
@@ -318,8 +330,17 @@ export default function Musics({ collapse, sideMenu, isMenuOn }) {
         />
       </CardSection>
 
+      {/* Piked for you */}
+      <CardSection subTitle={"Picked for you"} margin={"mt-6 mb-6"}>
+        <RectangularCard
+          title={"Study Songs"}
+          description={"Soothing drones, anbient piano and new age music"}
+          imgUrl={"https://i.imgur.com/CqOf6lv.png"}
+        />
+      </CardSection>
+
       {/* YOUR FAVORITE ARTIST SECTION*/}
-      <CardSection subTitle={"Your favorite artist"}>
+      <CardSection subTitle={"Your favorite artist"} margin={"mt-2"}>
         {artists.map((data) => (
           <ArtistCard
             imgUrl={data.img}
