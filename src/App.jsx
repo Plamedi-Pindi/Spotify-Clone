@@ -26,7 +26,12 @@ function App() {
 
   //
   const handleSidebarMenuClick = () => {
-    setIsMenuDisplay(!isMenuDisplay);
+    setIsMenuDisplay(true);
+  };
+
+  //
+  const handleSidebarMenuOff = () => {
+    setIsMenuDisplay(false);
   };
 
   return (
@@ -45,6 +50,7 @@ function App() {
                 handleFavoritClick={handleFavoritClick} // Props for Favorit state event handler
                 albumId={albumId} // props for Album Id
                 isSideMenu={isMenuDisplay}
+                onClose={handleSidebarMenuOff}
               />
             }
           >
