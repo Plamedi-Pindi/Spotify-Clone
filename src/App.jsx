@@ -16,6 +16,7 @@ import Podcast from "./pages/Podcast/Podcast";
 import AlbumPage from "./pages/Album/Album";
 import ArtistPage from "./pages/Artist/ArtistPage";
 import AboutArtist from "./pages/Artist/AboutArtist";
+import ProfileViews from "./pages/Profil/ProfileViews";
 
 function App() {
   const [collapse, setCollapse] = useState(false); // Active collapse to left side box
@@ -51,6 +52,7 @@ function App() {
                 albumId={albumId} // props for Album Id
                 isSideMenu={isMenuDisplay}
                 onClose={handleSidebarMenuOff}
+                setSideMenu={setIsMenuDisplay}
               />
             }
           >
@@ -81,12 +83,20 @@ function App() {
                 />
               }
             />
+
+            {/* Artist page route */}
             <Route path="/Spotify-Clone/artist/:id" element={<ArtistPage />} />
 
+            {/* About artist page route  */}
             <Route
               path="/Spotify-Clone/artist/aboutArtist/:id"
               element={<AboutArtist />}
             />
+
+            {/* User Profile page route */}
+            <Route path="/Spotify-Clone/userprofile" element={ <ProfileViews />} />
+
+
           </Route>
 
           <Route path="/Spotify-Clone/*" element={<NoPage />} />

@@ -86,12 +86,12 @@ export default function ArtistPage() {
   return (
     <div
       ref={scrollDivRef}
-      className=" overflow-y-scroll scrollbar-hide scrollBehaviour h-screen relative "
+      className=" overflow-y-scroll scrollbar-hide scrollBehaviour h-screen relative w-full "
     >
       {correntArtists.map((artist) => (
         <div key={artist.id}>
 
-          {/* button to back the previus page */}
+          {/* Render previous-page-return icone */}
           <div
             className={`flex items-center  p-2 fixed w-full z-30 ${
               isScrollUp ? "bg-yellow-900" : "bg-black/0"
@@ -112,7 +112,8 @@ export default function ArtistPage() {
             </h2>
           </div>
 
-          {/* Artist img */}
+
+          {/* Render fixed Artist img */}
           <div
             className={` w-full h-36vh bg-contain bg-fixed  bg-top bg-no-repeat flex items-end justify-center`}
             style={{

@@ -23,6 +23,7 @@ export default function Layout({
   handleFavoritClick, // Favorit state event handler
   albumId, // Album state
   isSideMenu,
+  setSideMenu,
   onClose
 }) {
   const [playControl, setPlayControl] = useState(false); // Show control play
@@ -51,6 +52,7 @@ export default function Layout({
             display={`${isSideMenu ? "block" : "hidden"}  `}
             dimension={`${isSideMenu ? "w-80 h-screen" : "w-0 h-screen"}  `}
             onClose={onClose}
+            setSideMenu={setSideMenu}
           />
           <Outlet />
         </SpotMiddleBox>

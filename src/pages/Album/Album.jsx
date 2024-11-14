@@ -39,11 +39,13 @@ export default function AlbumPage({
 
   return (
     <>
-      <ul>
+      <ul className=" w-full">
         {correntAlbum.map((album) => (
           <li key={album.id}>
+
+            {/* Render previous-page-return Icon */}
             <div className="fixed w-full flex items-center h-8vh bg-transparent p-2">
-              <button 
+              <button
                 className="bg-black/40 rounded-full w-10 h-10 flex items-center justify-center mr-10"
                 onClick={handleBackClick}
               >
@@ -51,19 +53,31 @@ export default function AlbumPage({
               </button>
               <h2 className="hidden text-sm font-medium">Album Title</h2>
             </div>
+            {/*  */}
+
+            {/* Main content */}
             <section className="bg-gradient-to-b from-pink-500/70 pt-4 h-50vh p-2">
-              <img src={album.img} alt="" className="w-60p mx-auto h-52 " />
+              {/* Render Album image */}
+              <img src={album.img} className="w-56 mx-auto h-52 object-cover" />
+              {/* Render Album title */}
               <h2 className="mt-5 text-xl font-bold"> {album.title} </h2>
 
+              {/* Display Author litle info */}
               <div className="flex flex-row items-center mt-3">
-                <img src={album.img} alt="" className="w-6 h-6 rounded-full" />
+                {/* author image */}
+                <img src={album.img} alt="" className="w-6 h-6 object-cover rounded-full" />
+                {/* Author name */}
                 <p className="text-sm ml-3"> {album.name} </p>
               </div>
+              {/* Album release data */}
               <span className="text-sm text-neutral-400 font-light">
                 Album . {album.year}
               </span>
+              {/* Others commands */}
               <div className="flex flex-row justify-between items-center mt-2 ">
+
                 <div className="flex flex-row items-center">
+                  {/* Render icon to Set Album as a favorit */}
                   {isFavorit ? (
                     <BsCheckCircleFill
                       className="text-2xl text-green-600 mr-6"
@@ -75,29 +89,40 @@ export default function AlbumPage({
                       onClick={handleFavoritClick}
                     />
                   )}
+                  {/* Render icon to download the album */}
                   <BsArrowDownCircle className="text-2xl text-neutral-400 mr-6" />
+
+                  {/* Render icon to display mor option */}
                   <BsThreeDotsVertical className="text-2xl text-neutral-400 mr-6" />
                 </div>
+
+                
                 <div className="flex items-center">
-                  {/* Set state for list play mode */}
+
+                  {/* Render icon to switch play mode */}
                   {isRandom && (
+                    // Shitch to Shuffle mode
                     <BsShuffle
                       className="text-2xl text-green-600 mr-4"
                       onClick={handleRepeatallClick}
                     />
                   )}
                   {isRepeatAll && (
+                    // Shitch to Repeat all mode
                     <BsRepeat
                       className="text-2xl text-green-600 mr-4"
                       onClick={handleRepeatoneClick}
                     />
                   )}
                   {isRepeatOne && (
+                    // Shitch to Repeat one mode
                     <BsRepeat1
                       className="text-2xl text-green-600 mr-4"
                       onClick={handleRandomClick}
                     />
                   )}
+
+                  {/* Render Play and pouse audio icons */}
                   {isPlay ? (
                     <BsPauseCircleFill
                       className="text-5xl text-green-600"
