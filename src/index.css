@@ -84,4 +84,5 @@ body {
   text-wrap: wrap;
   overflow-wrap: break-word;
   word-wrap: break-word;
+  white-space: normal;  
 }

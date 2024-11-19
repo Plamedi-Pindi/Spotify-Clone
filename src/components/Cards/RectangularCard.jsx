@@ -10,7 +10,7 @@ export default function RectangularCard({title, description, imgUrl}) {
             <img src={logo} className='w-4 object-cover absolute top-2 left-2' />
             <img src={imgUrl} className='rounded-l-xl w-full h-full object-cover' />
         </div>
-        <div className=' p-2 pt-3 text-sm ml-2 wraping-text '>
+        <div className=' p-2 pt-3 text-sm ml-2 text-wrap whitespace-normal '>
             <p className='text-neutral-500 mb-0.5'>Playlist</p>
             <h3 className='mb-1'> {title} </h3>
             <p className=' break-words text-neutral-500 w-full'> {description} </p>
