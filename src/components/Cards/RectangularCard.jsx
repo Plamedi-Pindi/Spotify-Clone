@@ -13,7 +13,7 @@ export default function RectangularCard({title, description, imgUrl}) {
         <div className='text-wrap p-2 pt-3 text-sm ml-2 overflow-hidden '>
             <p className='text-neutral-500 mb-0.5'>Playlist</p>
             <h3 className='mb-1'> {title} </h3>
-            <p className=' text-wrap text-neutral-500'> {description} </p>
+            <p className=' break-all text-neutral-500'> {description} </p>
 
             <div className='flex justify-between mt-2 pr-2 pb-1 items-center'>
                 <BsPlusCircle className='text-xl text-neutral-400'/>
