@@ -18,10 +18,10 @@ export const PodcastCard = ({imgUrl, title, border, category, author}) => {
         <div className= {`w-36 h-36 bg-neutral-600 ${border} `} >
             <img src={imgUrl} alt={`Image of ${title}`} className= {`h-full w-full object-cover ${border}`} />
         </div>
-        <div className="text-sm text-wrap   mt-2">
-            <p className="text-xs text-green-400 mb-1"> {category} </p>
-            <p className="mb-1 "> {title} </p>
-            <p className="text-neutral-400"> {author} </p>
+        <div translate="no" className="text-sm text-wrap   mt-2">
+            <p translate="no" className="text-xs text-green-400 mb-1"> {category} </p>
+            <p translate="no" className="mb-1 "> {title} </p>
+            <p translate="no" className="text-neutral-400"> {author} </p>
         </div>
     </div>
   )

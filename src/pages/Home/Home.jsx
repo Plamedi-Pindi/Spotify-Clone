@@ -71,8 +71,6 @@ export default function Home({ collapse, sideMenu, isMenuOn }) {
 
       />
 
-      
-
       {/* Recently played Section  */}
       <section className={`${!isMenuOn && "mt-20"}  `}>
         <div className="w-96p block mx-auto flex flex-row flex-wrap justify-between">
@@ -127,8 +125,6 @@ export default function Home({ collapse, sideMenu, isMenuOn }) {
           />
         </div>
       </section>
-
-
 
       {/* JUMP BACK IN SECTION*/}
       <CardSection subTitle={" Jump back in"} margin={'mt-6'}>

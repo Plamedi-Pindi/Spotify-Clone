@@ -12,8 +12,8 @@ const MixesCard = ({ imgUrl, logo, border, title, titleBorder, imgRadiu, imgSize
       />
 
       {/* Describing autores */}
-      <div className= {`pt-2  `} >
-        <p className="text-wrap text-sm text-neutral-400">
+      <div className= {`pt-2 whitespace-normal text-wrap `} >
+        <p translate="no" className=" text-sm text-neutral-400">
           {autors}
         </p>
       </div>

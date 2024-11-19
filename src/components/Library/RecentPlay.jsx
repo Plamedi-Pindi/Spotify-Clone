@@ -15,9 +15,8 @@ export default function RecentPlay({ imgUrl, name, isCollapse, isPlaying, onClic
           className= {`w-14 h-14 object-cover ${isCollapse && ' md:w-16 md:h-16' } rounded-s-md `} 
         />
       </div>
-      <h3 className="text-base font-medium text-sm w-14 md:w-auto ml-3 cursor-pointer">
-        {" "}
-        {name}{" "}
+      <h3 translate="no" className="text-base font-medium text-sm w-14 md:w-auto ml-3 cursor-pointer">
+        {name}
       </h3>
 
       <img src={playgif} className= {`w-3 h-4 object-cover absolute right-2 ${isPlaying ? "black" : "hidden"}`}   />

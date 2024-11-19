@@ -39,8 +39,8 @@ export default function RecommendedCard({ name, imgList, background }) {
       </div>
 
         {/* content */}
-      <div className="pt-3 pb-1 text-sm text-neutral-400">
-        <p>Lacren, We the Kingdom, Tasha Cob...</p>
+      <div className="pt-3 pb-1 text-sm text-neutral-400  whitespace-normal text-wrap">
+        <p translate="no">Lacren, We the Kingdom, Tasha Cob...</p>
       </div>
     </div>
   );
