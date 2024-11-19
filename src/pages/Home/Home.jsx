@@ -131,7 +131,7 @@ export default function Home({ collapse, sideMenu, isMenuOn }) {
 
 
       {/* JUMP BACK IN SECTION*/}
-      <CardSection subTitle={" Jump back in"}>
+      <CardSection subTitle={" Jump back in"} margin={'mt-6'}>
         {jumpinPlaylist.map((data) =>
           data.category === "Album" ? (
             <Album
@@ -159,7 +159,7 @@ export default function Home({ collapse, sideMenu, isMenuOn }) {
       </CardSection>
 
       {/* YOUR TOP MIXES SECTION*/}
-      <CardSection subTitle={" Your tpo mixes"}>
+      <CardSection subTitle={" Your tpo mixes"} margin={'mt-2'}>
         <MixesCard
           imgUrl={"https://i.imgur.com/9hs8YRc.jpg"}
           logo={logo}
@@ -239,7 +239,7 @@ export default function Home({ collapse, sideMenu, isMenuOn }) {
       </CardSection>
 
       {/* Recents SECTION*/}
-      <CardSection subTitle={" Recents"}>
+      <CardSection subTitle={" Recents"} margin={'mt-2'}>
         {recents.map((data) => {
           switch (data.category) {
             case "Album":
@@ -287,7 +287,7 @@ export default function Home({ collapse, sideMenu, isMenuOn }) {
       </CardSection>
 
       {/* Recomended Stations SECTION*/}
-      <CardSection subTitle={" Recommended Stations"}>
+      <CardSection subTitle={" Recommended Stations"} margin={'mt-2'}>
         <RecommendedCard
           imgList={imgList}
           name={"Artist Name"}
@@ -320,7 +320,7 @@ export default function Home({ collapse, sideMenu, isMenuOn }) {
       </CardSection>
 
       {/* NEW EPISODES SECTION*/}
-      <CardSection subTitle={"New episodes"}>
+      <CardSection subTitle={"New episodes"} margin={'mt-2'}>
         <EpisodesCard
           imgUrl={"https://i.imgur.com/k2QdpL4.jpg"}
           title={"Autor or podcast thame and something.."}
@@ -353,7 +353,7 @@ export default function Home({ collapse, sideMenu, isMenuOn }) {
       </CardSection>
 
       {/* YOUR FAVORITE ARTIST SECTION*/}
-      <CardSection subTitle={"Your favorite artist"}>
+      <CardSection subTitle={"Your favorite artist"} margin={'mt-2'}>
         {artists.map((data) => (
           <ArtistCard
             imgUrl={data.img}
