@@ -40,7 +40,7 @@ export const Mixes = ({ imgUrl, logo, border, title, titleBorder, imgRadiu, imgS
             style={{ background: titleBorder }}
             className="w-1.5 h-6 mr-2.5"
           ></div>
-          <h4 className=" text-sm text-wrap p-0 font-bold"> {title} </h4>
+          <h4 className=" text-sm text-wrap whitespace-normal p-0 font-bold"> {title} </h4>
         </div>
       </div>
     </div>

@@ -159,7 +159,7 @@ export default function Home({ collapse, sideMenu, isMenuOn }) {
       </CardSection>
 
       {/* YOUR TOP MIXES SECTION*/}
-      <CardSection subTitle={" Your tpo mixes"} margin={'mt-2'}>
+      <CardSection subTitle={" Your top mixes"} margin={'mt-2'}>
         <MixesCard
           imgUrl={"https://i.imgur.com/9hs8YRc.jpg"}
           logo={logo}
