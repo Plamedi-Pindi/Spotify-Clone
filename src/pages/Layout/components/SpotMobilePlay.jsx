@@ -26,7 +26,7 @@ export default function SpotMobilePlay({
 }) {
   return (
     <div
-      className={`w-full h-100vh bg-gradient-to-b from-blue-900 to-neutral-950 absolute p-4 md:hidden ${
+      className={`w-full h-dvh bg-gradient-to-b from-blue-900 to-neutral-950 absolute p-4 md:hidden ${
         playControl ? "block top-0 duration-100" : "hidden"
       } z-40`}
     >
