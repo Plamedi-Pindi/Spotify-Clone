@@ -50,7 +50,7 @@ export default function Layout({
           {/* SIDEBAR MENU */}
           <SpotSidebarMenu
             display={`${isSideMenu ? "block" : "hidden"}  `}
-            dimension={`${isSideMenu ? "w-80 h-screen" : "w-0 h-screen"}  `}
+            dimension={`${isSideMenu ? "w-80 h-dvh" : "w-0 h-dvh"}  `}
             onClose={onClose}
             setSideMenu={setSideMenu}
           />

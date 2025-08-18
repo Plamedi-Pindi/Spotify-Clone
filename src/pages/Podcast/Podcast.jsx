@@ -10,7 +10,7 @@ import RectangularCard from "../../components/Cards/RectangularCard";
 // Main function
 export default function Podcast({ sideMenu, isMenuOn }) {
   return (
-    <div className= {` scrollbar-hide scrollBehaviour pb-32 md:pb-44  h-screen relative ${
+    <div className= {` scrollbar-hide scrollBehaviour pb-32 md:pb-44  h-dvh relative ${
       isMenuOn ? "shrink-0 " : "overflow-y-scroll"
     }`} >
       {/* navbar */}

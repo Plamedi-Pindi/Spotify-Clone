@@ -57,9 +57,10 @@ export default function Home({ collapse, sideMenu, isMenuOn }) {
     "https://i.imgur.com/dmeOtvj.jpg",
   ];
 
+
   return (
     <div
-      className={`   scrollbar-hide scrollBehaviour pb-32 md:pb-44  h-screen relative ${
+      className={`   scrollbar-hide scrollBehaviour pb-32 md:pb-44  h-dvh relative ${
         isMenuOn ? "shrink-0 " : "overflow-y-scroll"
       }`}
     >

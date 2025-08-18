@@ -86,7 +86,7 @@ export default function ArtistPage() {
   return (
     <div
       ref={scrollDivRef}
-      className=" overflow-y-scroll scrollbar-hide scrollBehaviour h-screen relative w-full "
+      className=" overflow-y-scroll scrollbar-hide scrollBehaviour h-dvh relative w-full "
     >
       {correntArtists.map((artist) => (
         <div key={artist.id}>

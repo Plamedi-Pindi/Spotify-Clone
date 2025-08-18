@@ -5,7 +5,7 @@ export default function NoPage(){
     const navigate = useNavigate();
 
     return (
-        <div className='h-screen w-full'>
+        <div className='h-dvh w-full'>
             <div className='flex flex-col justify-center items-center h-full'>
                 <img src={logo} alt="Logo" className='w-16 mb-7' />
                 <h1 className='text-6xl'>404</h1>

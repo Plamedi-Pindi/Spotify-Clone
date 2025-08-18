@@ -16,7 +16,7 @@ export default function EditProfile({ display, width, onCloseClick }) {
 
 
   return (
-    <div className={`${display} ${width} p-3 h-screen z-100`}>
+    <div className={`${display} ${width} p-3 h-dvh z-100`}>
       <div className="flex justify-between items-center">
         {/* Render close Edit page icon */}
         <BsX

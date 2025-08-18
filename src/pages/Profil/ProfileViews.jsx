@@ -29,7 +29,7 @@ export default function ProfileViews() {
 
   return (
     <div
-      className={`w-full h-screen  scrollbar-hide scrollBehaviour overflow-y-scroll   duration-500 ${
+      className={`w-full h-dvh  scrollbar-hide scrollBehaviour overflow-y-scroll   duration-500 ${
         isEditing ? " w-0" : "pb-32"
       }`}
     >
