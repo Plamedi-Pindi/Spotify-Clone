@@ -7,6 +7,7 @@ const MediaPlayContext = ({ children }) => {
     const [isOpened, setIsOpened] = useState(false); //
     const [isFavorit, setIsFavorit] = useState(false); //
     const [isPlaying, SetIsPlaying] = useState(false); //
+    const [collapse, setCollapse] = useState(false); //
 
     return (
         <MediaPlay.Provider value={{
@@ -15,7 +16,9 @@ const MediaPlayContext = ({ children }) => {
             isFavorit,
             setIsFavorit,
             isPlaying,
-            SetIsPlaying
+            SetIsPlaying,
+            setCollapse,
+            collapse
         }} >
             {children}
         </MediaPlay.Provider>

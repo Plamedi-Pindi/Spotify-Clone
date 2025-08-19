@@ -19,11 +19,11 @@ export default function SpotSidebarMenu({ display, dimension, onClose, setSideMe
   const handleProfileNavigate = () => {
     setSideMenu(false)
     navigate("/Spotify-Clone/userprofile")
-  }
+  } 
 
   return (
     <div className={`bg-neutral-900 shrink-0 duration-500 ${dimension}`}>
-      <div className={`${display} `}>
+      <div className={`${display}`}>
         {/* User profile  */}
         <div className="h-24 border-b border-neutral-600 p-2 flex items-center justify-between">
           <div

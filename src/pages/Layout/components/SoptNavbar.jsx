@@ -71,7 +71,7 @@ export default function SpotNavbar() {
         <BsBell className="mr-6 text-lg text-neutral-400 font-bold hover:scale-110 hover:text-neutral-100 duration-300" />
 
         {/* Logged user control */}
-        <LoggedUserIcon dimension={''} />
+        <LoggedUserIcon dimension={'w-7 h-7 '} />
         
       </div>
     </div>

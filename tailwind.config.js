@@ -4,8 +4,14 @@ export default {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+
     extend: {
-      flexBasis:{
+      screens: {
+        // 'lay-930': '58.125rem'
+        'lay930': '930px'
+      },
+      
+      flexBasis: {
         '23p': '30.9%',
         '22p': '20.7%',
         '54p': '47.3%',
@@ -23,15 +29,15 @@ export default {
         '14vh': '13.5vh',
         '7.5rm': '7.5rem',
         '3.8rm': '3.8rem',
-        '23rm' : '23.5rem',
-        '25rm' : '26.5rem',
-        '24p' : '24%',
-        '76p' : '76%',
-        '88p' : '88%',
-        '10p' : '12%',
-        '9p' : '9%',
-        '60p' : '60%',
-        '91p' : '91%'
+        '23rm': '23.5rem',
+        '25rm': '26.5rem',
+        '24p': '24%',
+        '76p': '76%',
+        '88p': '88%',
+        '10p': '12%',
+        '9p': '9%',
+        '60p': '60%',
+        '91p': '91%'
       },
       width: {
         '23rm': '23.4rem',
@@ -50,7 +56,8 @@ export default {
 
       backgroundImage: {
         "img": "url('/Mercy-Chinwolk.jpg')"
-      }
+      },
+
     },
   },
   plugins: [

@@ -12,6 +12,7 @@ import RecommendedCard from "../../components/RecomendedCard/RecommendedCard";
 import EpisodesCard from "../../components/Episods/EpisodesCard";
 import jumpinPlaylist from "../../components/PlaylistData/JumpIn.json";
 import RectangularCard from "../../components/Cards/RectangularCard";
+import { useMediaPlayContext } from '../../context/MediaPlayContext';
 
 // Object of recente reproduction
 import recents from "../../components/PlaylistData/recents.json";
@@ -22,9 +23,14 @@ import MercyImg from "../../assets/imgs/Artists/Mercy-Chinwolk.jpg";
 import OmidImg from "../../assets/imgs/Artists/omid-armin-_BkjDspEw_k-unsplash (1).jpg";
 import logo from "/logo.png";
 
+// Css
+import './Home.css'
+
 // Main Function
-export default function Home({ collapse, sideMenu, isMenuOn }) {
+export default function Home({ sideMenu, isMenuOn }) {
   let navigate = useNavigate();
+
+  const {collapse} = useMediaPlayContext();
 
   //
   function handleAlbumClick(id) {
@@ -60,21 +66,20 @@ export default function Home({ collapse, sideMenu, isMenuOn }) {
 
   return (
     <div
-      className={`   scrollbar-hide scrollBehaviour pb-32 md:pb-44  h-dvh relative ${
-        isMenuOn ? "shrink-0 " : "overflow-y-scroll"
-      }`}
+      className={`scrollbar-hide scrollBehaviour pb-32 md:pb-44 h-dvh w-full relative parentePosition ${isMenuOn ? "shrink-0 " : "overflow-y-scroll"
+        }`}
     >
       {/* Navbar */}
       <NavBar
         page={"All"}
         onClick={sideMenu}
-        position={`${isMenuOn ? "" : "fixed"}`}
+        position={`${isMenuOn ? "" : "fixed w-full "}`}
 
       />
 
       {/* Recently played Section  */}
-      <section className={`${!isMenuOn && "mt-20"}  `}>
-        <div className="w-96p block mx-auto flex flex-row flex-wrap justify-between">
+      <section className={`${!isMenuOn && "mt-20"} `}>
+        <div className="w-96p block mx-auto flex flex-row flex-wrap justify-between md:pl-6 md:pr-6 ">
           <RecentPlay
             isCollapse={collapse}
             imgUrl={"https://i.imgur.com/aoU7K5a.jpg"}

@@ -34,7 +34,7 @@ export default function NavBar({ page, onClick, position }) {
   return (
     <>
       <nav
-        className={`w-full h-3.8rm flex items-center bg-black ${position}  top-0 left-0 md:top-auto md:left-auto md:bg-blue-900 z-10 md:rounded-t-lg `}
+        className={`w-full h-3.8rm flex items-center bg-black ${position}  top-0 left-0 md:pl-3  md:bg-blue-900 z-10 md:rounded-t-lg `}
       >
         <div className="w-95p mx-auto flex flex-row items-center pt-1 md:pt-0">
           {/*  */}
@@ -52,12 +52,14 @@ export default function NavBar({ page, onClick, position }) {
           >
             All
           </ButtonTranspatent>
+          
           <ButtonTranspatent
             background={MusicActive && "rgb(30, 128, 30)"}
             onActive={handleMusicClick}
           >
             Music
           </ButtonTranspatent>
+
           <ButtonTranspatent
             background={podcastActive && "rgb(30, 128, 30)"}
             onActive={handlePodcastClick}
