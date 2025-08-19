@@ -30,6 +30,7 @@ export default function SpotNavbar() {
       <img src={logo} alt="Logo img" className="w-8 ml-7" />
 
       <div className="flex flex-row items-center">
+        {/* Home button */}
         <button
           className="bg-neutral-800 w-11 h-11 rounded-full mr-2 hover:scale-105 duration-300"
           onClick={HandleHomeClick}
@@ -70,7 +71,7 @@ export default function SpotNavbar() {
         <BsBell className="mr-6 text-lg text-neutral-400 font-bold hover:scale-110 hover:text-neutral-100 duration-300" />
 
         {/* Logged user control */}
-        <LoggedUserIcon />
+        <LoggedUserIcon dimension={''} />
         
       </div>
     </div>

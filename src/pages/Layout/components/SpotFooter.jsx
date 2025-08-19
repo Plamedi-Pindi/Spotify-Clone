@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 // Componets
 import { Playing } from "../../../components/Library/RecentPlay";
 import SoptPlayer from "../../../components/Player/SpotPlayeerComponent";
+import SpotMediaPlay from "./SpotMediaPlay";
 
 // ASSETS =================
 import mercy from "../../../assets/imgs/Artists/Mercy-Chinwolk.jpg";
@@ -17,11 +18,7 @@ import {
   BsHouseDoorFill,
   BsSearch,
   BsCollectionPlay,
-  BsPlayFill,
-  BsPlusCircle,
   BsSpeaker,
-  BsPause,
-  BsCheckCircleFill,
   BsFilePlay,
   BsVolumeUp,
   BsMic,
@@ -31,10 +28,6 @@ import {
 
 export default function SpotFooter({
   handlePlayControlClick,
-  isFavorit,
-  handleFavoritClick,
-  isPlay,
-  handlePlayclick,
   display
 }) {
   const [isActive, setIsActive] = useState("Home"); // Change state to: Home, Search, Library, Premium
@@ -66,46 +59,7 @@ export default function SpotFooter({
       {/* MOBILE NAV START ==================*/}
       <div className= {`md:hidden ${display}`} >
         {/* PLAY SECTION */}
-        <section
-          className= {`bg-blue-700 h-14 w-95p  mx-auto rounded flex justify-between items-center p-2 `}
-          onClick={handlePlayControlClick}
-        >
-          <Playing
-            imgUrl={mercy}
-            title="Incredible God"
-            name="Mercy Chinwo"
-            imgWidth="w-11"
-            imgHeight="h-11"
-          />
-
-          <div className="flex items-center">
-            <BsSpeaker className="text-2xl mr-4 text-white" />
-
-            {isFavorit ? (
-              <BsCheckCircleFill
-                className="text-2xl mr-3 text-green-600"
-                onClick={handleFavoritClick}
-              />
-            ) : (
-              <BsPlusCircle
-                className="text-2xl mr-3 text-white"
-                onClick={handleFavoritClick}
-              />
-            )}
-
-            {isPlay ? (
-              <BsPause
-                className="text-4xl text-white"
-                onClick={handlePlayclick}
-              />
-            ) : (
-              <BsPlayFill
-                className="text-4xl text-white"
-                onClick={handlePlayclick}
-              />
-            )}
-          </div>
-        </section>
+        <SpotMediaPlay onClick={handlePlayControlClick}/>
 
         {/* NAVBAR ================== */}
         <ul className="bg-neutral-950/90  w-full h-16  flex flex-row justify-around items-center">

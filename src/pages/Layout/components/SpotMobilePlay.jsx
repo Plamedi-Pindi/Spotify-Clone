@@ -1,7 +1,6 @@
-// ASSETS =================
 import mercy from "../../../assets/imgs/Artists/Mercy-Chinwolk.jpg";
 
-// REATCT ICONS ============
+// REATCT ICONS  
 import {
   BsPlusCircle,
   BsSpeaker,
@@ -16,22 +15,35 @@ import {
   BsShare,
 } from "react-icons/bs";
 
-export default function SpotMobilePlay({
-  handlePlayControlClick,
-  playControl,
-  isFavorit,
-  handleFavoritClick,
-  isPlay,
-  handlePlayclick
-}) {
+import { useMediaPlayContext } from '../../../context/MediaPlayContext';
+
+export default function SpotMobilePlay() {
+  const {
+    isOpened,
+    setIsOpened,
+    isFavorit,
+    setIsFavorit,
+    isPlaying,
+    SetIsPlaying
+  } = useMediaPlayContext();
+
+  const openMedia = () => setIsOpened(!isOpened);
+
+  const handleFavoritClick = () => {
+    setIsFavorit(!isFavorit);
+  }
+
+  const handlePlayclick = () => {
+    SetIsPlaying(!isPlaying);
+  }
+
   return (
     <div
-      className={`w-full h-dvh bg-gradient-to-b from-blue-900 to-neutral-950 absolute p-4 md:hidden ${
-        playControl ? "block top-0 duration-100" : "hidden"
-      } z-40`}
+      className={`w-full h-dvh bg-gradient-to-b from-blue-900 to-neutral-950 absolute p-4 md:hidden ${isOpened ? "block top-0 duration-100" : "hidden"
+        } z-40`}
     >
       <div className="flex justify-between items-center h-9p  ">
-        <BsChevronDown onClick={handlePlayControlClick} className="text-xl" />
+        <BsChevronDown onClick={openMedia} className="text-xl" />
         <div className="text-center text-sm">
           <p className="">PLAYING FROM ARTIST</p>
           <p className="font-medium">Mercy Chinwo</p>
@@ -41,7 +53,7 @@ export default function SpotMobilePlay({
       {/* IMG */}
       <img
         src={mercy}
-        alt="Music imaage"
+        alt="Music image"
         className="rounded-md w-full h-1/2 sm:w-1/2 mx-auto mt-6"
       />
 
@@ -71,7 +83,7 @@ export default function SpotMobilePlay({
       {/* Track control */}
       <div className="flex w-full justify-center mt-3 items-center sm:w-1/2 mx-auto">
         <BsSkipStartFill className="text-4xl text-white" />
-        {isPlay ? (
+        {isPlaying ? (
           <BsPauseCircleFill
             className="text-6xl  ml-3 mr-3  text-white"
             onClick={handlePlayclick}
