@@ -1,6 +1,24 @@
-const MixesCard = ({ imgUrl, logo, border, title, titleBorder, imgRadiu, imgSize,box, autors }) => {
+import { useState } from "react";
+
+import { BsPlayCircleFill } from "react-icons/bs";
+
+
+const MixesCard = ({ imgUrl, logo, border, title, titleBorder, imgRadiu, imgSize, box, autors }) => {
+  const [isMouseOver, setMouseOver] = useState(false);
+
+  function handleMouseOver() {
+    setMouseOver(true);
+  }
+  function handleMouseOut() {
+    setMouseOver(false);
+  }
+
   return (
-    <div className={`   relative shrink-0 ${box}`}>
+    <div
+      onMouseOver={handleMouseOver}
+      onMouseOut={handleMouseOut}
+      className={` md:hover:bg-neutral-800 md:p-1 lay930:p-2 rounded-lg   relative shrink-0 ${box}`}
+    >
       <Mixes
         border={border}
         imgUrl={imgUrl}
@@ -12,11 +30,17 @@ const MixesCard = ({ imgUrl, logo, border, title, titleBorder, imgRadiu, imgSize
       />
 
       {/* Describing autores */}
-      <div className= {`pt-2 whitespace-normal text-wrap `} >
+      <div className={`pt-2 whitespace-normal text-wrap `} >
         <p translate="no" className=" text-sm text-neutral-400">
           {autors}
         </p>
       </div>
+
+      {isMouseOver && (
+        <div className="hidden md:block bg-black w-auto h-auto absolute right-3 bottom-20 rounded-full">
+          <BsPlayCircleFill className="text-5xl   text-green-600 hover:scale-105 hover:text-green-500 duration-300" />
+        </div>
+      )}
     </div>
   );
 };
@@ -25,9 +49,9 @@ export default MixesCard;
 
 export const Mixes = ({ imgUrl, logo, border, title, titleBorder, imgRadiu, imgSize }) => {
   return (
-    <div className={` relative w-full  ${imgSize}  ${border} `} >
+    <div className={` relative w-full rounded-lg  ${imgSize}  ${border} `} >
       {/* img on back */}
-      <img src={imgUrl} className= {`absolute w-full h-full object-cover ${imgRadiu}`}   />
+      <img src={imgUrl} className={`absolute rounded-t-lg w-full h-full object-cover ${imgRadiu}`} />
 
       {/* Content */}
       <div className="bg-gradient-to-t from-black/60 to-black/10 w-full h-full absolute flex flex-col justify-between">

@@ -26,7 +26,7 @@ import {
   BsViewList,
 } from "react-icons/bs";
 
-export default function SpotFooter({
+export default function SpotPlayControll({
   handlePlayControlClick,
   display
 }) {

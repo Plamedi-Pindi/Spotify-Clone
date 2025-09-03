@@ -9,11 +9,11 @@ import SpotNavbar from "./components/SoptNavbar"; // Navebar componets
 import SpotLeftSidebarBox from "./components/SpotLeftSidebox"; // Left Sidebar Box
 import SpotMainBox from "./components/SpotMainBox"; // Main Box
 import SpotMiddleBox from "./components/SpotMiddleBox"; // Middle Box
-import SpotFooter from "./components/SpotFooter"; // Footer
 import SpotMobilePlay from "./components/SpotMobilePlay"; // Mobile Play control
 import jumpinPlaylist from "../../components/PlaylistData/JumpIn.json";
 import SpotSidebarMenu from "./components/SpotSidebarMenu";
 import { useMediaPlayContext } from '../../context/MediaPlayContext';
+import SpotPlayControll from "./components/SpotPlayControll";
 
 export default function Layout({
   collapse, // Callapse state
@@ -22,11 +22,11 @@ export default function Layout({
   isSideMenu,
   setSideMenu,
   onClose
-}) {  
+}) {
 
   const [playControl, setPlayControl] = useState(false); // Show control play
 
-  const {isOpened} = useMediaPlayContext();
+  const { isOpened } = useMediaPlayContext();
 
   const correntAlbum = jumpinPlaylist.filter((album) => album.id == albumId);
 
@@ -62,11 +62,10 @@ export default function Layout({
         handlePlayControlClick={handlePlayControlClick}
       />
 
-      <SpotFooter
+      <SpotPlayControll
         handlePlayControlClick={handlePlayControlClick}
         display={`${isSideMenu && 'hidden'}`}
       />
-
 
     </div>
   );

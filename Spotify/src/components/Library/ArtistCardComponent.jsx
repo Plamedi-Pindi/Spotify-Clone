@@ -13,18 +13,14 @@ export default function ArtistCard({ name, imgUrl, isCollapse, onClick, imgDimen
     }
     return (
       <div
-        className={` ${boxDimension} flex-shrink-0 ${
-          isCollapse ? " md:w-56  md:p-3" : " md:w-40 md:p-1"
-        }  md:hover:bg-neutral-800   rounded-lg duration-300 relative`}
+        className={` ${boxDimension} flex-shrink-0 md:hover:bg-neutral-800 lay930:p-2 rounded-lg duration-300 relative`}
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
         onClick={onClick}
       >
         <img
           src={imgUrl}
-          className={` rounded-full object-cover ${imgDimension} ${
-            isCollapse ? "md:w-52 md:h-52" : "md:w-40 md:h-40"
-          } `}
+          className={` rounded-full object-cover ${imgDimension} `}
         />
         <p className="text-sm font-medium mt-3 text-white text-center md:text-start">
           {" "}

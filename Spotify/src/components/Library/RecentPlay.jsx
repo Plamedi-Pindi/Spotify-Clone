@@ -6,13 +6,13 @@ export default function RecentPlay({ imgUrl, name, isCollapse, isPlaying, onClic
   return (
     <div
       onClick={onClick}
-      className={`flex relative bg-neutral-800 hover:bg-neutral-700 duration-300 md:bg-neutral-800 rounded items-center w-48p md:w-[48%] ${isCollapse && 'lg:w-[24%]'}  mb-2 `}
+      className={`flex relative bg-neutral-800 hover:bg-neutral-700  md:bg-neutral-800 rounded items-center w-48p md:w-[48%] ${isCollapse && ' lg:w-[24%]'}  mb-2 `}
     >
       <div className=" w-14 ">
         <img
           src={imgUrl}
           alt="Artist image"
-          className={`w-14 h-14 md:h-12 md:w-12 object-cover ${isCollapse && ' md:w-16 md:h-16'} rounded-s-md `}
+          className={`w-14 h-14 md:h-12 md:w-12  object-cover ${!isCollapse && ' lay930:w-12 lay930:h-12'} rounded-s-md `}
         />
       </div>
       <h3 translate="no" className="text-base font-medium text-sm w-14 md:w-auto ml-3 cursor-pointer">

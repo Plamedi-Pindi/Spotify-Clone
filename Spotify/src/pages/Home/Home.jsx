@@ -11,8 +11,8 @@ import MixesCard from "../../components/Mixes/MixesCard";
 import RecommendedCard from "../../components/RecomendedCard/RecommendedCard";
 import EpisodesCard from "../../components/Episods/EpisodesCard";
 import jumpinPlaylist from "../../components/PlaylistData/JumpIn.json";
-import RectangularCard from "../../components/Cards/RectangularCard";
 import { useMediaPlayContext } from '../../context/MediaPlayContext';
+import SpotFooter from "../../components/SpotFooter/SpotFooter";
 
 // Object of recente reproduction
 import recents from "../../components/PlaylistData/recents.json";
@@ -30,7 +30,7 @@ import './Home.css'
 export default function Home({ sideMenu, isMenuOn }) {
   let navigate = useNavigate();
 
-  const {collapse} = useMediaPlayContext();
+  const { collapse } = useMediaPlayContext();
 
   //
   function handleAlbumClick(id) {
@@ -143,8 +143,8 @@ export default function Home({ sideMenu, isMenuOn }) {
               isCollapse={collapse}
               onClick={() => handleAlbumClick(data.id)}
               key={data.id}
-              boxDimension={"w-40"}
-              imgDimension={"w-36 h-36"}
+              boxDimension={"w-40 lay930:w-44"}
+              imgDimension={"w-36 h-36 lay930:w-44 lay930:h-40"}
             />
           ) : (
             <ArtistCard
@@ -153,8 +153,8 @@ export default function Home({ sideMenu, isMenuOn }) {
               isCollapse={collapse}
               onClick={() => handleArtistClick(data.id)}
               key={data.id}
-              imgDimension={"w-36 h-36"}
-              boxDimension={"w-36"}
+              imgDimension={"w-36 h-36 lay930:w-40 lay930:h-40"}
+              boxDimension={"w-36 lay930:w-44 lay930:h-60"}
             />
           )
         )}
@@ -168,8 +168,8 @@ export default function Home({ sideMenu, isMenuOn }) {
           border={`border-b-8 border-green-700`}
           title={"Upbeat Mix"}
           titleBorder={"green"}
-          box={"w-36 h-48"}
-          imgSize={"h-36"}
+          box={"w-36 h-48 lay930:w-40 lay930:h-56"}
+          imgSize={"h-36 lay930:h-40"}
           autors={"Autor name1, Autor name2, Autor name3..."}
         />
 
@@ -179,8 +179,8 @@ export default function Home({ sideMenu, isMenuOn }) {
           border={`border-b-8 border-orange-400`}
           title={"Tasha Mix"}
           titleBorder={"orange"}
-          box={"w-36 h-48"}
-          imgSize={"h-36"}
+          box={"w-36 h-48 lay930:w-40 lay930:h-56"}
+          imgSize={"h-36 lay930:h-40"}
           autors={"Autor name1, Autor name2, Autor name3..."}
         />
 
@@ -190,8 +190,8 @@ export default function Home({ sideMenu, isMenuOn }) {
           border={`border-b-8 border-green-700`}
           title={"Upbeat Mix"}
           titleBorder={"green"}
-          box={"w-36 h-48"}
-          imgSize={"h-36"}
+          box={"w-36 h-48 lay930:w-40 lay930:h-56"}
+          imgSize={"h-36 lay930:h-40"}
           autors={"Autor name1, Autor name2, Autor name3..."}
         />
 
@@ -201,8 +201,8 @@ export default function Home({ sideMenu, isMenuOn }) {
           border={`border-b-8 border-fuchsia-900`}
           title={"Michael Mix"}
           titleBorder={"purple"}
-          box={"w-36 h-48"}
-          imgSize={"h-36"}
+          box={"w-36 h-48 lay930:w-40 lay930:h-56"}
+          imgSize={"h-36 lay930:h-40"}
           autors={"Autor name1, Autor name2, Autor name3..."}
         />
 
@@ -212,8 +212,8 @@ export default function Home({ sideMenu, isMenuOn }) {
           border={`border-b-8 border-pink-400`}
           title={"Hip Hop Mix"}
           titleBorder={"#fd9dad"}
-          box={"w-36 h-48"}
-          imgSize={"h-36"}
+          box={"w-36 h-48 lay930:w-40 lay930:h-56"}
+          imgSize={"h-36 lay930:h-40"}
           autors={"Autor name1, Autor name2, Autor name3..."}
         />
 
@@ -223,8 +223,8 @@ export default function Home({ sideMenu, isMenuOn }) {
           border={`border-b-8 border-red-600`}
           title={"2010s Mix"}
           titleBorder={"red"}
-          box={"w-36 h-48"}
-          imgSize={"h-36"}
+          box={"w-36 h-48 lay930:w-40 lay930:h-56"}
+          imgSize={"h-36 lay930:h-40"}
           autors={"Autor name1, Autor name2, Autor name3..."}
         />
 
@@ -234,8 +234,8 @@ export default function Home({ sideMenu, isMenuOn }) {
           border={`border-b-8 border-blue-800`}
           title={"2000s Mix"}
           titleBorder={"blue"}
-          box={"w-36 h-48"}
-          imgSize={"h-36"}
+          box={"w-36 h-48 lay930:w-40 lay930:h-56"}
+          imgSize={"h-36 lay930:h-40"}
           autors={"Autor name1, Autor name2, Autor name3..."}
         />
       </CardSection>
@@ -253,8 +253,8 @@ export default function Home({ sideMenu, isMenuOn }) {
                   isCollapse={collapse}
                   onClick={() => handleAlbumClick(data.id)}
                   key={data.id}
-                  boxDimension={"w-36"}
-                  imgDimension={"w-32 h-32 rounded-md"}
+                  boxDimension={"w-36 lay930:w-40"}
+                  imgDimension={"w-32 h-32 lay930:w-36 rounded-md"}
                 />
               );
             case "Artist":
@@ -265,8 +265,8 @@ export default function Home({ sideMenu, isMenuOn }) {
                   isCollapse={collapse}
                   onClick={() => handleArtistClick(data.id)}
                   key={data.id}
-                  imgDimension={"w-32 h-32"}
-                  boxDimension={"w-32"}
+                  imgDimension={"w-32 h-32 lay930:w-36 lay930:h-36"}
+                  boxDimension={"w-32 lay930:w-40"}
                 />
               );
             case "Mix":
@@ -279,8 +279,8 @@ export default function Home({ sideMenu, isMenuOn }) {
                   imgRadiu={"rounded-t-md"}
                   title={"Upbeat Mix"}
                   titleBorder={"green"}
-                  box={"w-32 h-44"}
-                  imgSize={"h-32"}
+                  box={"w-32 h-44 lay930:w-40 lay930:h-52"}
+                  imgSize={"h-32 lay930:h-36"}
                   autors={"Autor name1, Autor name2..."}
                 />
               );
@@ -364,10 +364,12 @@ export default function Home({ sideMenu, isMenuOn }) {
             onClick={() => handleArtistClick(data.id)}
             key={data.id}
             imgDimension={"w-36 h-36"}
-            boxDimension={"w-36"}
+            boxDimension={"w-36 lay930:w-40"}
           />
         ))}
       </CardSection>
+
+      <SpotFooter />
     </div>
   );
 }
