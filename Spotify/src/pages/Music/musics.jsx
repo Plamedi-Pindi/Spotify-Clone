@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 // COMPONENTS
@@ -20,10 +20,27 @@ import artists from "../../components/PlaylistData/Artists.json";
 import MercyImg from "../../assets/imgs/Artists/Mercy-Chinwolk.jpg";
 import OmidImg from "../../assets/imgs/Artists/omid-armin-_BkjDspEw_k-unsplash (1).jpg";
 import logo from "/logo.png";
-import jumpinPlaylist from "../../components/PlaylistData/JumpIn.json";
+import api from "../../services/api";
 
 export default function Musics({ collapse, sideMenu, isMenuOn }) {
+  const [jumpinPlaylist, setJumpinPlaylist] = useState([]);
+
   let navigate = useNavigate();
+
+  // 
+  useEffect(() => {
+    const fetchJump = async () => {
+      await api.get('/jumplist')
+        .then(response => {
+          setJumpinPlaylist(response.data);
+        })
+        .catch(error => {
+          console.error("Erro ao buscar dados no jumplist", error);
+        })
+    }
+
+    fetchJump();
+  }, []);
 
   function handleAlbumClick(id) {
     setAlbumId(id);
@@ -57,9 +74,8 @@ export default function Musics({ collapse, sideMenu, isMenuOn }) {
 
   return (
     <div
-      className={` scrollbar-hide scrollBehaviour pb-32 md:pb-44  h-dvh relative ${
-        isMenuOn ? "shrink-0 " : "overflow-y-scroll"
-      }`}
+      className={` scrollbar-hide scrollBehaviour pb-32 md:pb-44  h-dvh relative ${isMenuOn ? "shrink-0 " : "overflow-y-scroll"
+        }`}
     >
       {/* Navbar */}
       <NavBar

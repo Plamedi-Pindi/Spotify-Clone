@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -16,7 +16,8 @@ import {
 } from "react-icons/bs";
 
 // Components
-import jumpinPlaylist from "../../components/PlaylistData/JumpIn.json";
+// import jumpinPlaylist from "../../components/PlaylistData/JumpIn.json";
+import api from "../../services/api";
 
 export default function AlbumPage({
   isPlay, // Play state
@@ -26,6 +27,7 @@ export default function AlbumPage({
 }) {
   //STATES
   const [listPlayMode, setListPlayMode] = useState("Random"); // States: Random, RepeatAll, RepeatOne
+  const [jumpinPlaylist, setJumpinPlaylist] = useState([]); 
 
   const { id } = useParams(); // Accessing params
   const navigate = useNavigate();
@@ -36,6 +38,22 @@ export default function AlbumPage({
   const correntAlbum = jumpinPlaylist.filter(
     (album) => album.id === parseInt(id)
   );
+
+  // 
+  useEffect(() => {
+    const fetchJump = async () => {
+      await api.get('/jumplist')
+        .then(response => {
+          setJumpinPlaylist(response.data);
+        })
+        .catch(error => {
+          console.error("Erro ao buscar dados no jumplist", error);
+        })
+       
+    }
+
+    fetchJump();
+  }, []);
 
   return (
     <>
@@ -96,7 +114,7 @@ export default function AlbumPage({
                   <BsThreeDotsVertical className="text-2xl text-neutral-400 mr-6" />
                 </div>
 
-                
+
                 <div className="flex items-center">
 
                   {/* Render icon to switch play mode */}

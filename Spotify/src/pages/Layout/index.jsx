@@ -1,5 +1,5 @@
 // Hooks
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 //React router
 import { Outlet } from "react-router-dom";
@@ -10,10 +10,11 @@ import SpotLeftSidebarBox from "./components/SpotLeftSidebox"; // Left Sidebar B
 import SpotMainBox from "./components/SpotMainBox"; // Main Box
 import SpotMiddleBox from "./components/SpotMiddleBox"; // Middle Box
 import SpotMobilePlay from "./components/SpotMobilePlay"; // Mobile Play control
-import jumpinPlaylist from "../../components/PlaylistData/JumpIn.json";
+// import jumpinPlaylist from "../../components/PlaylistData/JumpIn.json";
 import SpotSidebarMenu from "./components/SpotSidebarMenu";
 import { useMediaPlayContext } from '../../context/MediaPlayContext';
 import SpotPlayControll from "./components/SpotPlayControll";
+import api from "../../services/api";
 
 export default function Layout({
   collapse, // Callapse state
@@ -25,6 +26,21 @@ export default function Layout({
 }) {
 
   const [playControl, setPlayControl] = useState(false); // Show control play
+  const [jumpinPlaylist, setJumpinPlaylist] = useState([]);
+
+  useEffect(() => {
+    const fetchJump = async () => {
+      await api.get('/jumplist')
+        .then(response => {
+          setJumpinPlaylist(response.data);
+        })
+        .catch(error => {
+          console.error("Erro ao buscar dados no jumplist", error);
+        })
+    }
+
+    fetchJump();
+  }, []);
 
   const { isOpened } = useMediaPlayContext();
 

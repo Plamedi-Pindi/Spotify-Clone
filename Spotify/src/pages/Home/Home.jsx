@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 // COMPONENTS
@@ -10,12 +10,14 @@ import CardSection from "../../components/Cards/CardSectionComponent";
 import MixesCard from "../../components/Mixes/MixesCard";
 import RecommendedCard from "../../components/RecomendedCard/RecommendedCard";
 import EpisodesCard from "../../components/Episods/EpisodesCard";
-import jumpinPlaylist from "../../components/PlaylistData/JumpIn.json";
 import { useMediaPlayContext } from '../../context/MediaPlayContext';
 import SpotFooter from "../../components/SpotFooter/SpotFooter";
 
+
+// SERVICES
+import api from "../../services/api";
+
 // Object of recente reproduction
-import recents from "../../components/PlaylistData/recents.json";
 import artists from "../../components/PlaylistData/Artists.json";
 
 // IMAGES
@@ -28,6 +30,10 @@ import './Home.css'
 
 // Main Function
 export default function Home({ sideMenu, isMenuOn }) {
+  const [jumplist, setJumplist] = useState([]);
+  const [recents, SetRecents] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   let navigate = useNavigate();
 
   const { collapse } = useMediaPlayContext();
@@ -62,6 +68,41 @@ export default function Home({ sideMenu, isMenuOn }) {
     "https://i.imgur.com/QAt3RmB.png",
     "https://i.imgur.com/dmeOtvj.jpg",
   ];
+
+  // 
+  useEffect(() => {
+    const fetchJump = async () => {
+      await api.get('/jumplist')
+        .then(response => {
+          setJumplist(response.data);
+        })
+        .catch(error => {
+          console.error("Erro ao buscar dados no jumplist", error);
+        })
+        .finally(() => {
+          setLoading(false)
+        })
+    }
+
+    fetchJump();
+  }, []);
+
+
+  // 
+  useEffect(() => {
+    const fetchRecent = async () => {
+      await api.get('/recents')
+        .then(response => {
+          SetRecents(response.data);
+        })
+        .catch(error => {
+          console.error("Erro ao buscar dados no jumplist", error);
+        })
+
+    }
+
+    fetchRecent();
+  }, []);
 
 
   return (
@@ -134,7 +175,7 @@ export default function Home({ sideMenu, isMenuOn }) {
 
       {/* JUMP BACK IN SECTION*/}
       <CardSection subTitle={" Jump back in"} margin={'mt-6'}>
-        {jumpinPlaylist.map((data) =>
+        {jumplist.map((data) =>
           data.category === "Album" ? (
             <Album
               imgUrl={data.img}
