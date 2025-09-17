@@ -21,7 +21,7 @@ const SpotMediaPlay = () => {
         isFavorit,
         setIsFavorit,
         isPlaying,
-        SetIsPlaying
+        handlePlayAudio
     } = useMediaPlayContext()
 
     const showMediaPlay = () => setIsOpened(!isOpened); // Function to show media player    
@@ -29,12 +29,12 @@ const SpotMediaPlay = () => {
     const handleFavoritClick = (e) => { //
         e.stopPropagation();
         setIsFavorit(!isFavorit);
-    } 
+    }
 
     const handlePlayClick = (e) => {  //
         e.stopPropagation();
-        SetIsPlaying(!isPlaying)
-    } 
+        handlePlayAudio();
+    }
 
 
     return (

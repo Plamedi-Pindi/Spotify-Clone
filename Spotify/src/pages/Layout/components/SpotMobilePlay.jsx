@@ -1,5 +1,6 @@
 import mercy from "../../../assets/imgs/Artists/Mercy-Chinwolk.jpg";
 
+
 // REATCT ICONS  
 import {
   BsPlusCircle,
@@ -18,13 +19,17 @@ import {
 import { useMediaPlayContext } from '../../../context/MediaPlayContext';
 
 export default function SpotMobilePlay() {
+
+
+
+  // Context Call
   const {
     isOpened,
     setIsOpened,
     isFavorit,
     setIsFavorit,
     isPlaying,
-    SetIsPlaying
+    handlePlayAudio
   } = useMediaPlayContext();
 
   const openMedia = () => setIsOpened(!isOpened);
@@ -33,15 +38,14 @@ export default function SpotMobilePlay() {
     setIsFavorit(!isFavorit);
   }
 
-  const handlePlayclick = () => {
-    SetIsPlaying(!isPlaying);
-  }
+ 
 
   return (
     <div
       className={`w-full h-dvh bg-gradient-to-b from-blue-900 to-neutral-950 absolute p-4 md:hidden ${isOpened ? "block top-0 duration-100" : "hidden"
         } z-40`}
     >
+
       <div className="flex justify-between items-center h-9p  ">
         <BsChevronDown onClick={openMedia} className="text-xl" />
         <div className="text-center text-sm">
@@ -86,12 +90,12 @@ export default function SpotMobilePlay() {
         {isPlaying ? (
           <BsPauseCircleFill
             className="text-6xl  ml-3 mr-3  text-white"
-            onClick={handlePlayclick}
+            onClick={handlePlayAudio}
           />
         ) : (
           <BsPlayCircleFill
             className="text-6xl  ml-3 mr-3  text-white"
-            onClick={handlePlayclick}
+            onClick={handlePlayAudio}
           />
         )}
         <BsSkipEndFill className="text-4xl  text-white" />
