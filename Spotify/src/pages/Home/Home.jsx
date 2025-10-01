@@ -410,7 +410,7 @@ export default function Home({ sideMenu, isMenuOn }) {
         ))}
       </CardSection>
 
-      <SpotFooter />
+      {/* <SpotFooter /> */}
     </div>
   );
 }
