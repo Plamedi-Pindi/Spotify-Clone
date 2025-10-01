@@ -62,7 +62,7 @@ export default function AlbumPage({
           <li key={album.id}>
 
             {/* Render previous-page-return Icon */}
-            <div className="fixed w-full flex items-center h-8vh bg-transparent p-2">
+            <div className="fixed w-full flex items-center h-8dvh bg-transparent p-2">
               <button
                 className="bg-black/40 rounded-full w-10 h-10 flex items-center justify-center mr-10"
                 onClick={handleBackClick}
