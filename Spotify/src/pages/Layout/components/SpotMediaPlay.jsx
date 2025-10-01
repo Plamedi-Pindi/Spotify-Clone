@@ -2,8 +2,6 @@
 import { useMediaPlayContext } from '../../../context/MediaPlayContext';
 import { Playing } from "../../../components/Library/RecentPlay";
 
-// Imgs
-import mercy from "../../../assets/imgs/Artists/Mercy-Chinwolk.jpg";
 
 import {
     BsPlusCircle,
@@ -13,7 +11,7 @@ import {
     BsCheckCircleFill,
 } from "react-icons/bs";
 
-const SpotMediaPlay = () => {
+const SpotMediaPlay = ({handlePlayAudio, artistImage, musicTitle, artistName}) => {
 
     const {
         isOpened,
@@ -21,7 +19,6 @@ const SpotMediaPlay = () => {
         isFavorit,
         setIsFavorit,
         isPlaying,
-        handlePlayAudio
     } = useMediaPlayContext()
 
     const showMediaPlay = () => setIsOpened(!isOpened); // Function to show media player    
@@ -36,6 +33,8 @@ const SpotMediaPlay = () => {
         handlePlayAudio();
     }
 
+    // console.log(currentAudioObject?.musics[0]);
+    
 
     return (
         <div
@@ -43,12 +42,14 @@ const SpotMediaPlay = () => {
             onClick={showMediaPlay}
         >
             <Playing
-                imgUrl={mercy}
-                title="Incredible God"
-                name="Mercy Chinwo"
+                imgUrl={artistImage}
+                title={musicTitle}
+                name={artistName}
                 imgWidth="w-11"
                 imgHeight="h-11"
             />
+
+            {/* <p>{currentAudioObject.musics[0].music}</p>  */}
 
             <div className="flex items-center">
                 <BsSpeaker className="text-2xl mr-4 text-white" />
@@ -82,3 +83,4 @@ const SpotMediaPlay = () => {
 }
 
 export default SpotMediaPlay
+

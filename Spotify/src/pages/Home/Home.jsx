@@ -132,7 +132,7 @@ export default function Home({ sideMenu, isMenuOn }) {
             isCollapse={collapse}
             imgUrl={MercyImg}
             name="Mercy Chinwo"
-            onClick={() => handleArtistClick(4)}
+            onClick={() => handleArtistClick(4)} 
           />
           <RecentPlay
             isCollapse={collapse}

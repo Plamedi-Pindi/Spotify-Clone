@@ -31,7 +31,7 @@ export function Playing({ imgUrl, name, title, imgWidth, imgHeight }) {
       className={`flex md:w-1/4 duration-300 rounded items-center w-1/2  `}
     >
       <div className={`${imgWidth} `}  >
-        <img src={imgUrl} alt="Artist image" className={`${imgWidth} ${imgHeight} rounded`} />
+        <img src={imgUrl} alt="Artist image" className={`${imgWidth} ${imgHeight} rounded object-cover`} />
       </div>
       <div>
         <h3 className="font-medium text-sm  ml-3 cursor-pointer md:hover:underline md:hover:text-white">{title}</h3>

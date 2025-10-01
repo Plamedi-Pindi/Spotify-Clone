@@ -1,10 +1,7 @@
-import mercy from "../../../assets/imgs/Artists/Mercy-Chinwolk.jpg";
-
 
 // REATCT ICONS  
 import {
   BsPlusCircle,
-  BsSpeaker,
   BsPauseCircleFill,
   BsDashCircle,
   BsChevronDown,
@@ -16,29 +13,50 @@ import {
   BsShare,
 } from "react-icons/bs";
 
+import {
+  MonitorSpeaker,
+  Shuffle,
+  Timer
+} from 'lucide-react';
+
+// Import React Context
 import { useMediaPlayContext } from '../../../context/MediaPlayContext';
+
+// Import Components
+import ProgressBar from "../../../components/Progress Bar/ProgressBar";
 
 export default function SpotMobilePlay() {
 
-
-
   // Context Call
   const {
-    isOpened,
-    setIsOpened,
-    isFavorit,
-    setIsFavorit,
+    isOpened, setIsOpened,
+    isFavorit, setIsFavorit,
+    isRandom, setIsRandom,
+    audioProgress, setAudioProgress,
+    musicCurrentTime, setMusicCurrentTime,
+    musicTotalLength, setMusicTotalLength,
     isPlaying,
-    handlePlayAudio
+    handlePlayAudio,
+    playNextAudio,
+    playPreviousAudio,
+    currentArtist,
+    audioIndex,
+    noPrevMucis,
+    audioRef,
+    audioUpdate
   } = useMediaPlayContext();
+
+
+  const musicTitle = currentArtist?.musics?.[audioIndex]?.title || "";
+  let loading = false;
+  currentArtist?.musics?.[audioIndex] ? loading = false : loading = true;
+
 
   const openMedia = () => setIsOpened(!isOpened);
 
   const handleFavoritClick = () => {
     setIsFavorit(!isFavorit);
   }
-
- 
 
   return (
     <div
@@ -49,24 +67,30 @@ export default function SpotMobilePlay() {
       <div className="flex justify-between items-center h-9p  ">
         <BsChevronDown onClick={openMedia} className="text-xl" />
         <div className="text-center text-sm">
-          <p className="">PLAYING FROM ARTIST</p>
-          <p className="font-medium">Mercy Chinwo</p>
+          <p className="text-sm">PLAYING FROM ARTIST</p>
+          <p className="font-medium text-sm">{!loading ? currentArtist.name : 'Processando...'}</p>
         </div>
         <BsThreeDotsVertical className="text-xl" />
       </div>
+
       {/* IMG */}
       <img
-        src={mercy}
+        src={currentArtist.img}
         alt="Music image"
-        className="rounded-md w-full h-1/2 sm:w-1/2 mx-auto mt-6"
+        className="rounded-md w-full h-[45%] sm:w-1/2 mx-auto mt-6 object-cover"
       />
 
       {/* Track info */}
       <div className="mt-7 flex justify-between items-center w-full sm:w-1/2 mx-auto h-10p ">
-        <div className=" w-3/4">
-          <h3 className="text-lg font-medium text-white">Incredible God</h3>
-          <p className="text-neutral-400 text-sm">Mercy Chinwo</p>
-        </div>
+        {!loading ? (
+          <div className=" w-3/4">
+            <h3 className="text-lg font-medium text-white">{musicTitle}</h3>
+            <p className="text-neutral-400 text-sm">{currentArtist.name}</p>
+          </div>
+        ) : (
+          <p className="text-neutral-400 text-sm">Processando...</p>
+        )}
+
         <div className="flex items-center">
           <BsDashCircle className="text-2xl mr-4 text-white" />
 
@@ -84,25 +108,65 @@ export default function SpotMobilePlay() {
         </div>
       </div>
 
+      {/* Progress */}
+      <section className="mt-3">
+
+        {/* Progress Bar */}
+        <ProgressBar
+          audioRef={audioRef}
+          progress={audioProgress}
+          setProgress={setAudioProgress}
+        />
+
+        <div className="w-full flex justify-between items-center mt-2 ">
+          <span className="block text-xs text-gray-500">{musicCurrentTime}</span>
+          <span className="block text-xs text-gray-500">{musicTotalLength}</span>
+        </div>
+      </section>
+
       {/* Track control */}
-      <div className="flex w-full justify-center mt-3 items-center sm:w-1/2 mx-auto">
-        <BsSkipStartFill className="text-4xl text-white" />
-        {isPlaying ? (
-          <BsPauseCircleFill
-            className="text-6xl  ml-3 mr-3  text-white"
-            onClick={handlePlayAudio}
+      <div className="flex w-full justify-center mt-3 items-center sm:w-1/2 mx-auto mb-2">
+
+        {/* Definir Aleatorio */}
+        <Shuffle
+          onClick={() => setIsRandom(!isRandom)}
+          className={`w-6 ${isRandom ? 'text-green-500' : 'text-gray-200'}`}
+        />
+
+        <div className="flex w-full justify-center items-center">
+          {/* Set previous song */}
+          <BsSkipStartFill
+            onClick={!noPrevMucis ? playPreviousAudio : undefined}
+            className={`text-4xl ${noPrevMucis ? 'text-gray-700' : 'text-white'} `}
           />
-        ) : (
-          <BsPlayCircleFill
-            className="text-6xl  ml-3 mr-3  text-white"
-            onClick={handlePlayAudio}
+
+          {/* Play and Pouse */}
+          {isPlaying ? (
+            <BsPauseCircleFill
+              className="text-6xl  ml-3 mr-3  text-gray-200"
+              onClick={handlePlayAudio}
+            />
+          ) : (
+            <BsPlayCircleFill
+              className="text-6xl  ml-3 mr-3  text-gray-200"
+              onClick={handlePlayAudio}
+            />
+          )}
+
+          {/* Set next song */}
+          <BsSkipEndFill
+            onClick={playNextAudio}
+            className="text-4xl  text-gray-200"
           />
-        )}
-        <BsSkipEndFill className="text-4xl  text-white" />
+        </div>
+
+        {/* Temporizador */}
+        <Timer className="w-7" />
+
       </div>
 
       <div className="flex justify-between items-center">
-        <BsSpeaker className="text-xl text-white" />
+        <MonitorSpeaker className="w-7" />
         <BsShare className="text-xl text-white" />
       </div>
     </div>

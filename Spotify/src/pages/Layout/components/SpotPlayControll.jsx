@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Playing } from "../../../components/Library/RecentPlay";
 import SoptPlayer from "../../../components/Player/SpotPlayeerComponent";
 import SpotMediaPlay from "./SpotMediaPlay";
+import { useMediaPlayContext } from "../../../context/MediaPlayContext";
 
 // ASSETS =================
 import mercy from "../../../assets/imgs/Artists/Mercy-Chinwolk.jpg";
@@ -32,6 +33,16 @@ export default function SpotPlayControll({
 }) {
   const [isActive, setIsActive] = useState("Home"); // Change state to: Home, Search, Library, Premium
 
+  const {
+    initialSong,
+    currentArtist,
+    handlePlayAudio,
+    audioRef,
+    audioUpdate,
+    playNextAudio
+  } = useMediaPlayContext()
+
+
   const navigate = useNavigate();
 
   let homeActive = isActive === "Home";
@@ -54,12 +65,31 @@ export default function SpotPlayControll({
     setIsActive("Premium");
   }
 
+
+
   return (
     <div className="absolute bottom-0  fixed w-full md:h-14vh md:relative">
+
+      {/* Audio Player */}
+      <audio
+        ref={audioRef}
+        src={initialSong}
+        onEnded={playNextAudio}
+        onTimeUpdate={audioUpdate}
+      >
+      </audio>
+
       {/* MOBILE NAV START ==================*/}
-      <div className= {`md:hidden ${display}`} >
+      <div className={`md:hidden ${display}`} >
         {/* PLAY SECTION */}
-        <SpotMediaPlay onClick={handlePlayControlClick}/>
+        <SpotMediaPlay
+          onClick={handlePlayControlClick}
+          handlePlayAudio={handlePlayAudio}
+          artistImage={currentArtist.img}
+          musicTitle={'process'}
+          artistName={currentArtist.name}
+
+        />
 
         {/* NAVBAR ================== */}
         <ul className="bg-neutral-950/90  w-full h-16  flex flex-row justify-around items-center">
@@ -71,9 +101,8 @@ export default function SpotPlayControll({
               className={`text-xl ${homeActive && "text-white"}`}
             />
             <p
-              className={`text-xs mt-1 text-neutral-400 ${
-                homeActive && "text-white"
-              }`}
+              className={`text-xs mt-1 text-neutral-400 ${homeActive && "text-white"
+                }`}
             >
               Home
             </p>
@@ -84,9 +113,8 @@ export default function SpotPlayControll({
           >
             <BsSearch className={`text-xl ${searchActive && "text-white"}`} />
             <p
-              className={`text-xs mt-1 text-neutral-400 ${
-                searchActive && "text-white"
-              }`}
+              className={`text-xs mt-1 text-neutral-400 ${searchActive && "text-white"
+                }`}
             >
               Search
             </p>
@@ -99,9 +127,8 @@ export default function SpotPlayControll({
               className={`text-xl ${LibraryActive && "text-white"}`}
             />
             <p
-              className={`text-xs mt-1 text-neutral-400 ${
-                LibraryActive && "text-white"
-              }`}
+              className={`text-xs mt-1 text-neutral-400 ${LibraryActive && "text-white"
+                }`}
             >
               Your Library
             </p>
@@ -112,9 +139,8 @@ export default function SpotPlayControll({
           >
             <img src={logo} alt="Logo" className="w-5" />
             <p
-              className={`text-xs mt-1 text-neutral-400 ${
-                PremiumActive && "text-white"
-              }`}
+              className={`text-xs mt-1 text-neutral-400 ${PremiumActive && "text-white"
+                }`}
             >
               Premium
             </p>
@@ -135,7 +161,7 @@ export default function SpotPlayControll({
 
         {/* SpotPlayer component */}
         <div className=" w-1/2 flex justify-center">
-          <SoptPlayer /> 
+          <SoptPlayer />
         </div>
 
         <div className="w-1/4 flex items-center space-x-4 justify-end">
