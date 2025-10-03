@@ -19,6 +19,7 @@ const SpotMediaPlay = ({handlePlayAudio, artistImage, musicTitle, artistName}) =
         isFavorit,
         setIsFavorit,
         isPlaying,
+        loading
     } = useMediaPlayContext()
 
     const showMediaPlay = () => setIsOpened(!isOpened); // Function to show media player    
@@ -33,9 +34,6 @@ const SpotMediaPlay = ({handlePlayAudio, artistImage, musicTitle, artistName}) =
         handlePlayAudio();
     }
 
-    // console.log(currentAudioObject?.musics[0]);
-    
-
     return (
         <div
             className={`bg-blue-700 h-14 w-95p  mx-auto rounded flex justify-between items-center p-2 `}
@@ -45,6 +43,7 @@ const SpotMediaPlay = ({handlePlayAudio, artistImage, musicTitle, artistName}) =
                 imgUrl={artistImage}
                 title={musicTitle}
                 name={artistName}
+                loading={loading}
                 imgWidth="w-11"
                 imgHeight="h-11"
             />

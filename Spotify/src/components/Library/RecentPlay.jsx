@@ -1,8 +1,9 @@
 
 import playgif from "/play.gif";
+import load from "../../assets/icons/load.svg";
 
 export default function RecentPlay({ imgUrl, name, isCollapse, isPlaying, onClick }) {
-  
+
   return (
     <div
       onClick={onClick}
@@ -25,17 +26,32 @@ export default function RecentPlay({ imgUrl, name, isCollapse, isPlaying, onClic
   );
 }
 
-export function Playing({ imgUrl, name, title, imgWidth, imgHeight }) {
+export function Playing({ imgUrl, name, title, imgWidth, imgHeight, loading }) {
   return (
     <div
       className={`flex md:w-1/4 duration-300 rounded items-center w-1/2  `}
     >
       <div className={`${imgWidth} `}  >
-        <img src={imgUrl} alt="Artist image" className={`${imgWidth} ${imgHeight} rounded object-cover`} />
+        {!loading ?
+          (
+            <img src={load} className="opacity-50" />
+          ) : (
+            <img src={imgUrl} alt="Artist image" className={`${imgWidth} ${imgHeight} rounded object-cover`} />
+          )}
       </div>
-      <div>
-        <h3 className="font-medium text-sm  ml-3 cursor-pointer md:hover:underline md:hover:text-white">{title}</h3>
-        <p className="text-sm ml-3 text-neutral-400 font-medium md:hover:underline md:hover:text-white md:text-xs"> {name} </p>
+      <div className={`${!loading && 'ml-2'}`}>
+        {!loading ?
+          (
+            <div className="animate-pulse">
+              <div className=" w-24 cursor-pointer h-1.5 bg-gray-200/50 rounded-full mb-1" />
+              <div className=" w-28 h-1.5 bg-gray-200/50 rounded-full" /> 
+            </div>
+          ) : (
+            <>
+              <h3 className="font-medium text-sm  ml-3 cursor-pointer md:hover:underline md:hover:text-white">{title}</h3>
+              <p className="text-sm ml-3 text-neutral-400 font-medium md:hover:underline md:hover:text-white md:text-xs"> {name} </p>
+            </>
+          )}
       </div>
     </div>
   );

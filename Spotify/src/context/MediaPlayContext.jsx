@@ -21,7 +21,8 @@ const MediaPlayContext = ({ children }) => {
     const [musicTotalLength, setMusicTotalLength] = useState('00:00');
     const [musicCurrentTime, setMusicCurrentTime] = useState('00:00');
     const [audioProgress, setAudioProgress] = useState(0);
-    
+    const [loading, setLoading] = useState(false);
+
 
 
     const audioRef = useRef(null);
@@ -48,9 +49,12 @@ const MediaPlayContext = ({ children }) => {
                     if (JSON.stringify(prev) === JSON.stringify(result)) return prev?.data?.[0];
                     return firstArtist
                 });
+
+                result?.musics?.[0] ? setLoading(false) : setLoading(true); 
             })
             .catch((error) => console.error("Ocorreu um erro buscar o artista", error))
     }, []);
+
 
     // Play or pouse current song
     const handlePlayAudio = () => {
@@ -132,7 +136,7 @@ const MediaPlayContext = ({ children }) => {
                 ${currentSeconds < 10 ? `0${currentSeconds}` : currentSeconds}
             `;
             setMusicCurrentTime(musicCurrentTime)
-            
+
             const progress = (audio.currentTime / audio.duration) * 100;
             setAudioProgress(isNaN(progress) ? 0 : progress);
         }
@@ -148,6 +152,7 @@ const MediaPlayContext = ({ children }) => {
             musicTotalLength, setMusicTotalLength,
             audioProgress, setAudioProgress,
             musicCurrentTime, setMusicCurrentTime,
+            loading,
             artistObjects,
             currentArtist,
             initialSong,

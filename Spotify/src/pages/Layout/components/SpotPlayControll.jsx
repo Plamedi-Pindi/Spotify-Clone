@@ -39,8 +39,11 @@ export default function SpotPlayControll({
     handlePlayAudio,
     audioRef,
     audioUpdate,
-    playNextAudio
+    playNextAudio,
+    audioIndex
   } = useMediaPlayContext()
+
+  const musicTitle = currentArtist?.musics?.[audioIndex]?.title || "";
 
 
   const navigate = useNavigate();
@@ -86,7 +89,7 @@ export default function SpotPlayControll({
           onClick={handlePlayControlClick}
           handlePlayAudio={handlePlayAudio}
           artistImage={currentArtist.img}
-          musicTitle={'process'}
+          musicTitle={musicTitle}
           artistName={currentArtist.name}
 
         />

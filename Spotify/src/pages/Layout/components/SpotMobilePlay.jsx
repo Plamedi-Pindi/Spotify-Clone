@@ -25,6 +25,9 @@ import { useMediaPlayContext } from '../../../context/MediaPlayContext';
 // Import Components
 import ProgressBar from "../../../components/Progress Bar/ProgressBar";
 
+// Import img
+import load from "../../../assets/icons/load2.svg";
+
 export default function SpotMobilePlay() {
 
   // Context Call
@@ -43,7 +46,6 @@ export default function SpotMobilePlay() {
     audioIndex,
     noPrevMucis,
     audioRef,
-    audioUpdate
   } = useMediaPlayContext();
 
 
@@ -60,7 +62,7 @@ export default function SpotMobilePlay() {
 
   return (
     <div
-      className={`w-full h-[100dvh] bg-gradient-to-b from-blue-900 to-neutral-950 absolute p-4 md:hidden ${isOpened ? "block top-0 duration-100" : "hidden"
+      className={`w-full h-[100dvh] bg-gradient-to-b from-blue-900 to-neutral-950 absolute p-5 md:hidden ${isOpened ? "block top-0 duration-100" : "hidden"
         } z-40`}
     >
 
@@ -68,17 +70,27 @@ export default function SpotMobilePlay() {
         <BsChevronDown onClick={openMedia} className="text-xl" />
         <div className="text-center text-sm">
           <p className="text-sm">PLAYING FROM ARTIST</p>
-          <p className="font-medium text-sm">{!loading ? currentArtist.name : 'Processando...'}</p>
+          {!loading ?
+            (
+              <p className="font-medium text-sm"> {currentArtist.name} </p>
+            ) :
+            (
+              <img src={load} className="w-10 m-auto" />
+            )}
         </div>
         <BsThreeDotsVertical className="text-xl" />
       </div>
 
       {/* IMG */}
-      <img
-        src={currentArtist.img}
-        alt="Music image"
-        className="rounded-md w-full h-[45%] sm:w-1/2 mx-auto mt-6 object-cover"
-      />
+      {!loading ? (
+        <img
+          src={currentArtist.img}
+          alt="Music image"
+          className="rounded-md w-full h-[45%] sm:w-1/2 mx-auto mt-6 object-cover"
+        />
+      ) : (
+        <div className="rounded-md w-full h-[45%] sm:w-1/2 mx-auto mt-6 bg-gray-200/50 animate-pulse" />
+      )}
 
       {/* Track info */}
       <div className="mt-7 flex justify-between items-center w-full sm:w-1/2 mx-auto h-10p ">
@@ -88,7 +100,10 @@ export default function SpotMobilePlay() {
             <p className="text-neutral-400 text-sm">{currentArtist.name}</p>
           </div>
         ) : (
-          <p className="text-neutral-400 text-sm">Processando...</p>
+          <div className=" w-3/4 space-y-1 animate-pulse">
+            <div className="h-2 w-32 rounded-full bg-gray-200/50 " />
+            <div className="h-2 w-40 rounded-full bg-gray-200/50 " />
+          </div>
         )}
 
         <div className="flex items-center">
@@ -135,10 +150,16 @@ export default function SpotMobilePlay() {
 
         <div className="flex w-full justify-center items-center">
           {/* Set previous song */}
-          <BsSkipStartFill
-            onClick={!noPrevMucis ? playPreviousAudio : undefined}
-            className={`text-4xl ${noPrevMucis ? 'text-gray-700' : 'text-white'} `}
-          />
+          {!loading ? (
+            <BsSkipStartFill
+              onClick={!noPrevMucis ? playPreviousAudio : undefined}
+              className={`text-4xl ${noPrevMucis ? 'text-gray-700' : 'text-white'} `}
+            />
+          ) : (
+            <BsSkipStartFill
+              className={`text-4xl text-gray-200/40 `}
+            />
+          )}
 
           {/* Play and Pouse */}
           {isPlaying ? (
@@ -147,17 +168,28 @@ export default function SpotMobilePlay() {
               onClick={handlePlayAudio}
             />
           ) : (
-            <BsPlayCircleFill
-              className="text-6xl  ml-3 mr-3  text-gray-200"
-              onClick={handlePlayAudio}
-            />
+            !loading ?
+              <BsPlayCircleFill
+                className="text-6xl  ml-3 mr-3  text-gray-200"
+                onClick={handlePlayAudio}
+              />
+              :
+              <BsPlayCircleFill
+                className="text-6xl  ml-3 mr-3  text-gray-200/40 cursor-not-allowed"
+              />
           )}
 
           {/* Set next song */}
-          <BsSkipEndFill
-            onClick={playNextAudio}
-            className="text-4xl  text-gray-200"
-          />
+          {!loading ? (
+            <BsSkipEndFill
+              onClick={playNextAudio}
+              className="text-4xl  text-gray-200"
+            />
+          ) : (
+            <BsSkipEndFill
+              className="text-4xl  text-gray-200/40"
+            />
+          )}
         </div>
 
         {/* Temporizador */}
