@@ -28,17 +28,17 @@ module.exports = [
             {
                 "id": 1,
                 "title": "Some thing 1",
-                "music": "http://127.0.0.1:3000/music/audio1.mp3",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio1.mp3",
             },
             {
                 "id": 2,
                 "title": "Some thing 2",
-                "music": "http://127.0.0.1:3000/music/audio2.mp3",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio2.mp3",
             },
             {
                 "id": 3,
                 "title": "Some thing 3",
-                "music": "http://127.0.0.1:3000/music/audio3.mp3",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio3.mp3",
             },
         ]
     },
@@ -63,9 +63,9 @@ module.exports = [
         ],
         "albums": [],
         "musics": [
-            "http://127.0.0.1:3000/music/audio1.mp3",
-            "http://127.0.0.1:3000/music/audio2.mp3",
-            "http://127.0.0.1:3000/music/audio3.mp3"
+            "https://spotify-clone-api-tua2.onrender.com/music/audio1.mp3",
+            "https://spotify-clone-api-tua2.onrender.com/music/audio2.mp3",
+            "https://spotify-clone-api-tua2.onrender.com/music/audio3.mp3"
         ]
     },
     {
@@ -111,9 +111,9 @@ module.exports = [
         ],
         "albums": [],
         "musics": [
-            "http://127.0.0.1:3000/music/audio1.mp3",
-            "http://127.0.0.1:3000/music/audio2.mp3",
-            "http://127.0.0.1:3000/music/audio3.mp3"
+            "https://spotify-clone-api-tua2.onrender.com/music/audio1.mp3",
+            "https://spotify-clone-api-tua2.onrender.com/music/audio2.mp3",
+            "https://spotify-clone-api-tua2.onrender.com/music/audio3.mp3"
         ]
     },
     {
@@ -140,17 +140,17 @@ module.exports = [
             {
                 "id": 1,
                 "title": "Some thing 1",
-                "music": "http://127.0.0.1:3000/music/audio1.mp3",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio1.mp3",
             },
             {
                 "id": 2,
                 "title": "Some thing 2",
-                "music": "http://127.0.0.1:3000/music/audio2.mp3",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio2.mp3",
             },
             {
                 "id": 3,
                 "title": "Some thing 3",
-                "music": "http://127.0.0.1:3000/music/audio3.mp3",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio3.mp3",
             },
         ]
     },
