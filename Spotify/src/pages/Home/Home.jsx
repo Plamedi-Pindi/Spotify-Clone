@@ -20,6 +20,9 @@ import api from "../../services/api";
 // Object of recente reproduction
 import artists from "../../components/PlaylistData/Artists.json";
 
+// Icon
+import { BsMusicNoteBeamed } from "react-icons/bs";
+
 // IMAGES
 import MercyImg from "../../assets/imgs/Artists/Mercy-Chinwolk.jpg";
 import OmidImg from "../../assets/imgs/Artists/omid-armin-_BkjDspEw_k-unsplash (1).jpg";
@@ -32,11 +35,13 @@ import './Home.css'
 export default function Home({ sideMenu, isMenuOn }) {
   const [jumplist, setJumplist] = useState([]);
   const [recents, SetRecents] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   let navigate = useNavigate();
 
-  const { collapse } = useMediaPlayContext();
+  const {
+    loading, setLoading,
+    collapse,
+  } = useMediaPlayContext();
 
   //
   function handleAlbumClick(id) {
@@ -79,9 +84,7 @@ export default function Home({ sideMenu, isMenuOn }) {
         .catch(error => {
           console.error("Erro ao buscar dados no jumplist", error);
         })
-        .finally(() => {
-          setLoading(false)
-        })
+
     }
 
     fetchJump();
@@ -132,7 +135,7 @@ export default function Home({ sideMenu, isMenuOn }) {
             isCollapse={collapse}
             imgUrl={MercyImg}
             name="Mercy Chinwo"
-            onClick={() => handleArtistClick(4)} 
+            onClick={() => handleArtistClick(4)}
           />
           <RecentPlay
             isCollapse={collapse}
@@ -177,26 +180,44 @@ export default function Home({ sideMenu, isMenuOn }) {
       <CardSection subTitle={" Jump back in"} margin={'mt-6'}>
         {jumplist.map((data) =>
           data.category === "Album" ? (
-            <Album
-              imgUrl={data.img}
-              title={data.title}
-              name={data.name}
-              isCollapse={collapse}
-              onClick={() => handleAlbumClick(data.id)}
-              key={data.id}
-              boxDimension={"w-40 lay930:w-44"}
-              imgDimension={"w-36 h-36 lay930:w-44 lay930:h-40"}
-            />
+            !loading ?
+              <div className=" flex flex-col items-center justify-center animate-pulse">
+                <div className="w-40 h-40 bg-gray-200/30 rounded-lg mb-1 flex items-center justify-center">
+                  <BsMusicNoteBeamed className="text-6xl text-gray-200/40" />
+                </div>
+
+                <div className="w-32 h-1.5 bg-gray-200/30 rounded-full mt-1" />
+                <div className="w-36 h-1.5 bg-gray-200/30 rounded-full mt-1" />
+              </div> :
+              <Album
+                imgUrl={data.img}
+                title={data.title}
+                name={data.name}
+                isCollapse={collapse}
+                onClick={() => handleAlbumClick(data.id)}
+                key={data.id}
+                boxDimension={"w-40 lay930:w-44"}
+                imgDimension={"w-36 h-36 lay930:w-44 lay930:h-40"}
+              />
           ) : (
-            <ArtistCard
-              imgUrl={data.img}
-              name={data.name}
-              isCollapse={collapse}
-              onClick={() => handleArtistClick(data.id)}
-              key={data.id}
-              imgDimension={"w-36 h-36 lay930:w-40 lay930:h-40"}
-              boxDimension={"w-36 lay930:w-44 lay930:h-60"}
-            />
+            !loading ?
+              <div className=" flex flex-col items-center justify-center animate-pulse">
+                <div className="w-40 h-40 bg-gray-200/30 rounded-lg mb-1 flex items-center justify-center">
+                  <BsMusicNoteBeamed className="text-6xl text-gray-200/40" />
+                </div>
+
+                <div className="w-32 h-1.5 bg-gray-200/30 rounded-full mt-1" />
+                <div className="w-36 h-1.5 bg-gray-200/30 rounded-full mt-1" />
+              </div> :
+              <ArtistCard
+                imgUrl={data.img}
+                name={data.name}
+                isCollapse={collapse}
+                onClick={() => handleArtistClick(data.id)}
+                key={data.id}
+                imgDimension={"w-36 h-36 lay930:w-40 lay930:h-40"}
+                boxDimension={"w-36 lay930:w-44 lay930:h-60"}
+              />
           )
         )}
       </CardSection>
