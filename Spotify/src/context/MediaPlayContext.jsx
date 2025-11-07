@@ -162,7 +162,6 @@ const MediaPlayContext = ({ children }) => {
             initialSong, setInitialSong,
             loading,
             artistObjects,
-            currentArtist,
             handlePlayAudio,
             playNextAudio,
             playPreviousAudio,
