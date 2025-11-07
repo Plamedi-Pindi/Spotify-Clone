@@ -14,7 +14,10 @@ const MediaPlayContext = ({ children }) => {
     const [collapse, setCollapse] = useState(false); //
     const [artistObjects, setArtistObjects] = useState([]) //
     const [initialSong, setInitialSong] = useState('');
-    const [currentArtist, setCurrentArtist] = useState('');
+    const [currentArtist, setCurrentArtist] = useState(() => {
+        const artist = JSON.parse(localStorage.getItem('artist'));
+        return artist? artist : {};
+    });
     const [currentAudio, setCurrentAudio] = useState('');
     const [audioIndex, setAudioIndex] = useState(0);
     const [noPrevMucis, setNoPrevMucis] = useState(true);
@@ -27,33 +30,33 @@ const MediaPlayContext = ({ children }) => {
 
     const audioRef = useRef(null);
 
-    useEffect(() => {
-        api.get("/artists/object/5")
-            .then((result) => {
-                setArtistObjects((prev) => {
-                    if (JSON.stringify(prev) === JSON.stringify(result)) {
-                        return prev; // não atualiza se for igual
-                    }
-                    return result;
-                });
+    // useEffect(() => {
+    //     api.get("/artists/getartist/5")
+    //         .then((result) => {
+    //             setArtistObjects((prev) => {
+    //                 if (JSON.stringify(prev) === JSON.stringify(result)) {
+    //                     return prev; // não atualiza se for igual
+    //                 }
+    //                 return result; 
+    //             });
 
-                // Verificação da existência de elementos nos objetos e listas
-                const firstArtist = result?.data?.[0];
-                const firstMuisic = firstArtist?.musics?.[0];
+    //             // Verificação da existência de elementos nos objetos e listas
+    //             const firstArtist = result?.data?.[0];
+    //             const firstMuisic = firstArtist?.musics?.[0];
 
-                if (firstMuisic?.music) {
-                    setInitialSong(firstMuisic.music);
-                }
+    //             if (firstMuisic?.music) {
+    //                 setInitialSong(firstMuisic.music);
+    //             }
 
-                setCurrentArtist((prev) => {
-                    if (JSON.stringify(prev) === JSON.stringify(result)) return prev?.data?.[0];
-                    return firstArtist
-                });
+    //             // setCurrentArtist((prev) => {
+    //             //     if (JSON.stringify(prev) === JSON.stringify(result)) return prev?.data?.[0];
+    //             //     return firstArtist
+    //             // });
 
-                result?.musics?.[0] ? setLoading(false) : setLoading(true); 
-            })
-            .catch((error) => console.error("Ocorreu um erro buscar o artista", error))
-    }, []);
+    //             result?.musics?.[0] ? setLoading(false) : setLoading(true);
+    //         })
+    //         .catch((error) => console.error("Ocorreu um erro buscar o artista", error))
+    // }, []);
 
 
     // Play or pouse current song
@@ -72,14 +75,17 @@ const MediaPlayContext = ({ children }) => {
     }
 
     // Update Current Song
-    const updateCurrentSong = (number) => {
+    const updateCurrentSong = (number, artist) => {
         if (audioRef.current) {
             const audio = audioRef.current;
-            const musics = currentArtist.musics;
+            const musics = artist.musics;
 
             audio.src = musics[number].music;
             audio.play();
             setIsPlaying(true);
+
+            console.log('atualizado', artist);
+            
         }
     }
 
@@ -91,12 +97,12 @@ const MediaPlayContext = ({ children }) => {
         if (audioIndex >= musics.length - 1) {
             let number = 0;
             setAudioIndex(number);
-            updateCurrentSong(number)
+            updateCurrentSong(number, currentArtist)
             setNoPrevMucis(true);
         } else {
             let number = audioIndex + 1;
             setAudioIndex(number);
-            updateCurrentSong(number)
+            updateCurrentSong(number, currentArtist)
             setNoPrevMucis(false);
         }
     }
@@ -108,11 +114,11 @@ const MediaPlayContext = ({ children }) => {
         if (audioIndex <= 0) {
             let number = musics.length - 1;
             setAudioIndex(number);
-            updateCurrentSong(number)
+            updateCurrentSong(number, currentArtist)
         } else {
             let number = audioIndex - 1;
             setAudioIndex(number);
-            updateCurrentSong(number)
+            updateCurrentSong(number, currentArtist)
             setNoPrevMucis(number === 0 && true)
         }
     }
@@ -152,6 +158,8 @@ const MediaPlayContext = ({ children }) => {
             musicTotalLength, setMusicTotalLength,
             audioProgress, setAudioProgress,
             musicCurrentTime, setMusicCurrentTime,
+            currentArtist, setCurrentArtist,
+            initialSong, setInitialSong,
             loading,
             artistObjects,
             currentArtist,
@@ -163,6 +171,7 @@ const MediaPlayContext = ({ children }) => {
             audioIndex,
             noPrevMucis,
             audioUpdate,
+            updateCurrentSong,
         }} >
 
             {children}

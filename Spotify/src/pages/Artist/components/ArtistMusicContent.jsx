@@ -164,13 +164,13 @@ function ArtistMusicContent({ artist }) {
 
       {/* Featuring  */}
       <section className="mb-4">
-        <Subtitle title={`Featuring ${artist.name}`} />
+        <Subtitle title={`Featuring ${artist?.name}`} />
 
         <div className="flex flex-row  space-x-5 overflow-x-auto scrollbar-hide">
           <MusicItemsDisplay
             imgUrl={`https://i.imgur.com/f3E38zi.jpg`}
             imgDimension={`w-full h-36 mb-2 object-cover`}
-            title={`This is ${artist.name} Radio`}
+            title={`This is ${artist?.name} Radio`}
             display={`flex flex-col justify-center`}
             titleFont={"text-sm font-normal text-center w-36"}
             box={"mb-5  w-40 shrink-0"}
@@ -179,7 +179,7 @@ function ArtistMusicContent({ artist }) {
           <MusicItemsDisplay
             imgUrl={`https://i.imgur.com/vnKIhWa.jpg`}
             imgDimension={`w-full h-36 mb-2 object-cover`}
-            title={`This is ${artist.name} Radio`}
+            title={`This is ${artist?.name} Radio`}
             display={`flex flex-col justify-center`}
             titleFont={"text-sm font-normal text-center w-36"}
             box={"mb-5  w-40 shrink-0"}
@@ -188,7 +188,7 @@ function ArtistMusicContent({ artist }) {
           <MusicItemsDisplay
             imgUrl={`https://i.imgur.com/Y63Rqc2.jpg`}
             imgDimension={`w-full h-36 mb-2 object-cover`}
-            title={`This is ${artist.name} Radio`}
+            title={`This is ${artist?.name} Radio`}
             display={`flex flex-col justify-center`}
             titleFont={"text-sm font-normal text-center"}
             box={"mb-5  w-40 shrink-0"}
@@ -197,7 +197,7 @@ function ArtistMusicContent({ artist }) {
           <MusicItemsDisplay
             imgUrl={`https://i.imgur.com/9K9d5Al.jpg`}
             imgDimension={`w-full h-36 mb-2 object-cover`}
-            title={`This is ${artist.name} Radio`}
+            title={`This is ${artist?.name} Radio`}
             display={`flex flex-col justify-center`}
             titleFont={"text-sm font-normal text-center"}
             box={"mb-5  w-40  shrink-0"}
@@ -206,7 +206,7 @@ function ArtistMusicContent({ artist }) {
           <MusicItemsDisplay
             imgUrl={`https://i.imgur.com/ojKno3G.jpg`}
             imgDimension={`w-full h-36 mb-2 object-cover`}
-            title={`This is ${artist.name} Radio`}
+            title={`This is ${artist?.name} Radio`}
             display={`flex flex-col justify-center`}
             titleFont={"text-sm font-normal text-center"}
             box={"mb-5  w-40  shrink-0"}
@@ -215,7 +215,7 @@ function ArtistMusicContent({ artist }) {
           <MusicItemsDisplay
             imgUrl={`https://i.imgur.com/5zVTQkc.jpg`}
             imgDimension={`w-full h-36 mb-2 object-cover`}
-            title={`This is ${artist.name} Radio`}
+            title={`This is ${artist?.name} Radio`}
             display={`flex flex-col justify-center`}
             titleFont={"text-sm font-normal text-center"}
             box={"mb-5  w-40  shrink-0"}
@@ -224,12 +224,12 @@ function ArtistMusicContent({ artist }) {
       </section>
 
       {/* ABOUT */}
-      <section className="mb-10" onClick={()=> navigate(`/Spotify-Clone/artist/aboutArtist/${artist.id}`)}>
+      <section className="mb-10" onClick={()=> navigate(`/Spotify-Clone/artist/aboutArtist/${artist?.id}`)}>
         <Subtitle title={"About"} />
 
         <div
           style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url(${artist.img})`,
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url(${artist?.img})`,
           }}
           className="bg-yellow-800 w-full h-80 bg-cover bg-center bg-no-repea flex flex-col justify-between p-4 rounded-lg"
         >

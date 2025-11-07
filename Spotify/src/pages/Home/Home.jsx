@@ -41,15 +41,20 @@ export default function Home({ sideMenu, isMenuOn }) {
   const {
     loading, setLoading,
     collapse,
+    currentArtist, setCurrentArtist,
+    initialSong, setInitialSong,
   } = useMediaPlayContext();
+
 
   //
   function handleAlbumClick(id) {
     navigate(`/Spotify-Clone/albums/${id}`);
+    console.log(id);
+
   }
 
   //
-  function handleArtistClick(id) {
+  const handleArtistClick = async (id) => {
     navigate(`/Spotify-Clone/artist/${id}`);
   }
 
@@ -94,7 +99,7 @@ export default function Home({ sideMenu, isMenuOn }) {
   // 
   useEffect(() => {
     const fetchRecent = async () => {
-      await api.get('/recents')
+      await api.get('/mostplayed')
         .then(response => {
           SetRecents(response.data);
         })
@@ -180,7 +185,7 @@ export default function Home({ sideMenu, isMenuOn }) {
       <CardSection subTitle={" Jump back in"} margin={'mt-6'}>
         {jumplist.map((data) =>
           data.category === "Album" ? (
-            !loading ?
+            loading ?
               <div className=" flex flex-col items-center justify-center animate-pulse">
                 <div className="w-40 h-40 bg-gray-200/30 rounded-lg mb-1 flex items-center justify-center">
                   <BsMusicNoteBeamed className="text-6xl text-gray-200/40" />
@@ -200,7 +205,7 @@ export default function Home({ sideMenu, isMenuOn }) {
                 imgDimension={"w-36 h-36 lay930:w-44 lay930:h-40"}
               />
           ) : (
-            !loading ?
+            loading ?
               <div className=" flex flex-col items-center justify-center animate-pulse">
                 <div className="w-40 h-40 bg-gray-200/30 rounded-lg mb-1 flex items-center justify-center">
                   <BsMusicNoteBeamed className="text-6xl text-gray-200/40" />

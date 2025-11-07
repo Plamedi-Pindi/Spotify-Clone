@@ -10,7 +10,11 @@ const options = {}
 
 module.exports = async function (fastify, opts) {
   // This  loads cors
-  fastify.register(cors);
+  fastify.register(cors, {
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+  });
 
   // This loads all plugins defined in plugins
   // those should be support plugins that are reused
@@ -23,7 +27,7 @@ module.exports = async function (fastify, opts) {
   // This loads all plugins defined in routes
   // define your routes in one of these
   fastify.register(AutoLoad, {
-    dir: path.join(__dirname, 'routes'),
+    dir: path.join(__dirname, 'modules'),
     options: Object.assign({}, opts)
   })
 

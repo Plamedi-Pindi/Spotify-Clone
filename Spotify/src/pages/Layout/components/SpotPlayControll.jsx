@@ -35,7 +35,7 @@ export default function SpotPlayControll({
 
   const {
     initialSong,
-    currentArtist,
+    currentArtist, 
     handlePlayAudio,
     audioRef,
     audioUpdate,

@@ -1,8 +1,5 @@
-'use strict'
 
-module.exports = async (fastify, opts) => {
-    fastify.get('/', async (request, reply) => {
-        return [
+module.exports = [
             {
                 "id": 1,
                 "name": "Mercy Chinow",
@@ -66,5 +63,3 @@ module.exports = async (fastify, opts) => {
 
             }
         ]
-    })
-}

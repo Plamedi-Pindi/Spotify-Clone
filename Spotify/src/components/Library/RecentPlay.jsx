@@ -32,7 +32,7 @@ export function Playing({ imgUrl, name, title, imgWidth, imgHeight, loading }) {
       className={`flex md:w-1/4 duration-300 rounded items-center w-1/2  `}
     >
       <div className={`${imgWidth} `}  >
-        {!loading ?
+        {loading ?
           (
             <img src={load} className="opacity-50" />
           ) : (
@@ -40,7 +40,7 @@ export function Playing({ imgUrl, name, title, imgWidth, imgHeight, loading }) {
           )}
       </div>
       <div className={`${!loading && 'ml-2'}`}>
-        {!loading ?
+        {loading ?
           (
             <div className="animate-pulse">
               <div className=" w-24 cursor-pointer h-1.5 bg-gray-200/50 rounded-full mb-1" />

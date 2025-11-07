@@ -8,7 +8,8 @@ module.exports = [
         "id": uuid4(),
         "name": "Thamires Garcia",
         "img": "https://i.imgur.com/V5ZIvjQ.jpg",
-        "active": true,
+        "active": false,
+        "category": "Artist",
         "galery": [
             {
                 "id": 1,
@@ -23,7 +24,7 @@ module.exports = [
                 "img": "https://i.imgur.com/hRs2nLz.jpg"
             }
         ],
-        "albums": [],
+
         "musics": [
             {
                 "id": 1,
@@ -46,7 +47,8 @@ module.exports = [
         "id": uuid4(),
         "name": "Michael W. Smith",
         "img": "https://i.imgur.com/aNSFnyd.jpg",
-        "active": true,
+        "active": false,
+        "category": "Artist",
         "galery": [
             {
                 "id": 1,
@@ -61,81 +63,7 @@ module.exports = [
                 "img": "https://i.imgur.com/JtTi8YU.jpg"
             }
         ],
-        "albums": [],
-        "musics": [
-            "https://spotify-clone-api-tua2.onrender.com/music/audio1.mp3",
-            "https://spotify-clone-api-tua2.onrender.com/music/audio2.mp3",
-            "https://spotify-clone-api-tua2.onrender.com/music/audio3.mp3"
-        ]
-    },
-    {
-        "id": uuid4(),
-        "name": "Artist Name",
-        "img": "https://i.imgur.com/xv5VGWc.jpg",
-        "active": true,
-        "galery": [
-            {
-                "id": 1,
-                "img": "https://i.imgur.com/xv5VGWc.jpg"
-            },
-            {
-                "id": 2,
-                "img": "https://i.imgur.com/dmeOtvj.jpg"
-            },
-            {
-                "id": 3,
-                "img": "https://i.imgur.com/eQ2bWJ6.jpg"
-            }
-        ],
-        "albums": [],
-        "musics": []
-    },
-    {
-        "id": 4,
-        "name": "Mercy Chinow",
-        "img": "https://i.imgur.com/K0BPyWp.jpg",
-        "active": true,
-        "galery": [
-            {
-                "id": 1,
-                "img": "https://i.imgur.com/PY630AM.jpg"
-            },
-            {
-                "id": 2,
-                "img": "https://i.imgur.com/76UlUVf.jpg"
-            },
-            {
-                "id": 3,
-                "img": "https://i.imgur.com/K0BPyWp.jpg"
-            }
-        ],
-        "albums": [],
-        "musics": [
-            "https://spotify-clone-api-tua2.onrender.com/music/audio1.mp3",
-            "https://spotify-clone-api-tua2.onrender.com/music/audio2.mp3",
-            "https://spotify-clone-api-tua2.onrender.com/music/audio3.mp3"
-        ]
-    },
-    {
-        "id": 5,
-        "name": "Nívea Soares",
-        "img": "https://i.imgur.com/dmeOtvj.jpg",
-        "active": true,
-        "galery": [
-            {
-                "id": 1,
-                "img": "https://i.imgur.com/aoU7K5a.jpg"
-            },
-            {
-                "id": 2,
-                "img": "https://i.imgur.com/dmeOtvj.jpg"
-            },
-            {
-                "id": 3,
-                "img": "https://i.imgur.com/7TrWOrM.jpg"
-            }
-        ],
-        "albums": [],
+
         "musics": [
             {
                 "id": 1,
@@ -155,10 +83,127 @@ module.exports = [
         ]
     },
     {
-        "id": 6,
+        "id": uuid4(),
+        "name": "Nivea",
+        "img": "https://i.imgur.com/xv5VGWc.jpg",
+        "active": false,
+        "category": "Artist",
+        "galery": [
+            {
+                "id": 1,
+                "img": "https://i.imgur.com/xv5VGWc.jpg"
+            },
+            {
+                "id": 2,
+                "img": "https://i.imgur.com/dmeOtvj.jpg"
+            },
+            {
+                "id": 3,
+                "img": "https://i.imgur.com/eQ2bWJ6.jpg"
+            }
+        ],
+
+        "musics": [
+            {
+                "id": 1,
+                "title": "Some thing 1",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio1.mp3",
+            },
+            {
+                "id": 2,
+                "title": "Some thing 2",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio2.mp3",
+            },
+            {
+                "id": 3,
+                "title": "Some thing 3",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio3.mp3",
+            },
+        ]
+    },
+    {
+        "id": uuid4(),
+        "name": "Mercy Chinow",
+        "img": "https://i.imgur.com/K0BPyWp.jpg",
+        "active": false,
+        "category": "Artist",
+        "galery": [
+            {
+                "id": 1,
+                "img": "https://i.imgur.com/PY630AM.jpg"
+            },
+            {
+                "id": 2,
+                "img": "https://i.imgur.com/76UlUVf.jpg"
+            },
+            {
+                "id": 3,
+                "img": "https://i.imgur.com/K0BPyWp.jpg"
+            }
+        ],
+
+        "musics": [
+            {
+                "id": 1,
+                "title": "Some thing 1",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio1.mp3",
+            },
+            {
+                "id": 2,
+                "title": "Some thing 2",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio2.mp3",
+            },
+            {
+                "id": 3,
+                "title": "Some thing 3",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio3.mp3",
+            },
+        ]
+    },
+    {
+        "id": uuid4(),
+        "name": "Nívea Soares",
+        "img": "https://i.imgur.com/dmeOtvj.jpg",
+        "active": false,
+        "category": "Artist",
+        "galery": [
+            {
+                "id": 1,
+                "img": "https://i.imgur.com/aoU7K5a.jpg"
+            },
+            {
+                "id": 2,
+                "img": "https://i.imgur.com/dmeOtvj.jpg"
+            },
+            {
+                "id": 3,
+                "img": "https://i.imgur.com/7TrWOrM.jpg"
+            }
+        ],
+
+        "musics": [
+            {
+                "id": 1,
+                "title": "Some thing 1",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio1.mp3",
+            },
+            {
+                "id": 2,
+                "title": "Some thing 2",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio2.mp3",
+            },
+            {
+                "id": 3,
+                "title": "Some thing 3",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio3.mp3",
+            },
+        ]
+    },
+    {
+        "id": uuid4(),
         "name": "Williams McDowell",
         "img": "https://i.imgur.com/eQ2bWJ6.jpg",
-        "active": true,
+        "active": false, "category": "Artist",
         "galery": [
             {
                 "id": 1,
@@ -173,14 +218,31 @@ module.exports = [
                 "img": "https://i.imgur.com/eQ2bWJ6.jpg"
             }
         ],
-        "albums": [],
-        "musics": []
+
+        "musics": [
+            {
+                "id": 1,
+                "title": "Some thing 1",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio1.mp3",
+            },
+            {
+                "id": 2,
+                "title": "Some thing 2",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio2.mp3",
+            },
+            {
+                "id": 3,
+                "title": "Some thing 3",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio3.mp3",
+            },
+        ]
     },
     {
-        "id": 7,
+        "id": uuid4(),
         "name": "Omid Armin",
         "img": "https://i.imgur.com/RJwO12O.jpg",
-        "active": true,
+        "active": false,
+        "category": "Artist",
         "galery": [
             {
                 "id": 1,
@@ -195,14 +257,31 @@ module.exports = [
                 "img": "https://i.imgur.com/RJwO12O.jpg"
             }
         ],
-        "albums": [],
-        "musics": []
+
+        "musics": [
+            {
+                "id": 1,
+                "title": "Some thing 1",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio1.mp3",
+            },
+            {
+                "id": 2,
+                "title": "Some thing 2",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio2.mp3",
+            },
+            {
+                "id": 3,
+                "title": "Some thing 3",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio3.mp3",
+            },
+        ]
     },
     {
-        "id": 8,
+        "id": uuid4(),
         "name": "Sandra Mbuyi",
         "img": "https://i.imgur.com/nmccSuW.jpg",
-        "active": true,
+        "active": false,
+        "category": "Artist",
         "galery": [
             {
                 "id": 1,
@@ -217,14 +296,31 @@ module.exports = [
                 "img": "https://i.imgur.com/p4uETx9.jpg"
             }
         ],
-        "albums": [],
-        "musics": []
+
+        "musics": [
+            {
+                "id": 1,
+                "title": "Some thing 1",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio1.mp3",
+            },
+            {
+                "id": 2,
+                "title": "Some thing 2",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio2.mp3",
+            },
+            {
+                "id": 3,
+                "title": "Some thing 3",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio3.mp3",
+            },
+        ]
     },
     {
-        "id": 9,
+        "id": uuid4(),
         "name": "Nathaniel Bassey",
         "img": "https://i.imgur.com/C5wQDoH.jpg",
-        "active": true,
+        "active": false,
+        "category": "Artist",
         "galery": [
             {
                 "id": 1,
@@ -239,14 +335,31 @@ module.exports = [
                 "img": "https://i.imgur.com/owdNyDx.jpg"
             }
         ],
-        "albums": [],
-        "musics": []
+
+        "musics": [
+            {
+                "id": 1,
+                "title": "Some thing 1",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio1.mp3",
+            },
+            {
+                "id": 2,
+                "title": "Some thing 2",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio2.mp3",
+            },
+            {
+                "id": 3,
+                "title": "Some thing 3",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio3.mp3",
+            },
+        ]
     },
     {
-        "id": 10,
+        "id": uuid4(),
         "name": "Nair Nany",
         "img": "https://i.imgur.com/9hs8YRc.jpg",
-        "active": true,
+        "active": false,
+        "category": "Artist",
         "galery": [
             {
                 "id": 1,
@@ -261,14 +374,31 @@ module.exports = [
                 "img": "https://i.imgur.com/9hs8YRc.jpg"
             }
         ],
-        "albums": [],
-        "musics": []
+
+        "musics": [
+            {
+                "id": 1,
+                "title": "Some thing 1",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio1.mp3",
+            },
+            {
+                "id": 2,
+                "title": "Some thing 2",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio2.mp3",
+            },
+            {
+                "id": 3,
+                "title": "Some thing 3",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio3.mp3",
+            },
+        ]
     },
     {
-        "id": 11,
+        "id": uuid4(),
         "name": "Tasha Cobbs",
         "img": "https://i.imgur.com/qHw9NBT.jpg",
-        "active": true,
+        "active": false,
+        "category": "Artist",
         "galery": [
             {
                 "id": 1,
@@ -283,8 +413,24 @@ module.exports = [
                 "img": "https://i.imgur.com/skUhCLh.jpg"
             }
         ],
-        "albums": [],
-        "musics": []
+
+        "musics": [
+            {
+                "id": 1,
+                "title": "Some thing 1",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio1.mp3",
+            },
+            {
+                "id": 2,
+                "title": "Some thing 2",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio2.mp3",
+            },
+            {
+                "id": 3,
+                "title": "Some thing 3",
+                "music": "https://spotify-clone-api-tua2.onrender.com/music/audio3.mp3",
+            },
+        ]
 
     }
 ]
